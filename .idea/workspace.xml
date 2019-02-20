@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81f56a78-739d-46db-87a2-96d5feeaf736" name="Default Changelist" comment="" />
+    <list default="true" id="81f56a78-739d-46db-87a2-96d5feeaf736" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Vector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Matrix.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,57 +20,104 @@
     <session id="-257505187">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="2" />
+          <entry key="java" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4348" />
+          <entry key="java" value="14619" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4348" />
+          <entry key="JAVA" value="14619" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="413">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+              <folding>
+                <element signature="e#215#216#0" expanded="true" />
+                <element signature="e#274#275#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-13">
+              <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+              <folding>
+                <element signature="method#GetLength#0;class#Vector#0" />
+                <element signature="method#Vector#0;class#Vector#0" />
+                <element signature="method#Vector#1;class#Vector#0" />
+                <element signature="method#Vector#2;class#Vector#0" />
+                <element signature="method#Vector#3;class#Vector#0" />
+                <element signature="method#Add#0;class#Vector#0" />
+                <element signature="method#Add#1;class#Vector#0" />
+                <element signature="method#Scale#0;class#Vector#0" />
+                <element signature="method#InnerProduct#0;class#Vector#0" />
+                <element signature="method#RightMultiplication#0;class#Vector#0" />
+                <element signature="method#LefMultiplication#0;class#Vector#0" />
+                <element signature="method#TakeInput#0;class#Vector#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+            <state relative-caret-position="-662">
+              <caret line="127" column="52" lean-forward="true" selection-start-line="127" selection-start-column="52" selection-end-line="127" selection-end-column="52" />
               <folding>
-                <element signature="class#Data#0;class#Matrix#0" />
-                <element signature="e#135#136#0" expanded="true" />
-                <element signature="e#166#167#0" expanded="true" />
-                <element signature="e#349#350#0" expanded="true" />
-                <element signature="e#387#388#0" expanded="true" />
+                <element signature="e#94#95#0" expanded="true" />
+                <element signature="e#147#148#0" expanded="true" />
+                <element signature="e#184#185#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="method#SetRow#0;class#Matrix#0" />
+                <element signature="method#Matrix#0;class#Matrix#0" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#834#835#0" expanded="true" />
+                <element signature="method#Matrix#2;class#Matrix#0" />
+                <element signature="method#Matrix#3;class#Matrix#0" />
+                <element signature="method#RightMultiplication#0;class#Matrix#0" />
+                <element signature="method#LefMultiplication#0;class#Matrix#0" />
+                <element signature="method#Add#0;class#Matrix#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1169">
+              <caret line="159" selection-start-line="159" selection-end-line="159" />
+              <folding>
+                <element signature="method#Add#0;class#CSRMatrix#0" />
               </folding>
             </state>
           </provider>
@@ -81,12 +135,24 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>split(&quot; &quot;)</find>
+      <find>SparseRowMatrix</find>
+      <find>int</find>
     </findStrings>
+    <replaceStrings>
+      <replace>CSRMatrix</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/company/InputMatrix.java" />
+        <option value="$PROJECT_DIR$/src/com/company/SparseMatrix.java" />
+        <option value="$PROJECT_DIR$/src/com/company/CSRMatrix.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Tuple.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Vector.java" />
         <option value="$PROJECT_DIR$/src/com/company/Matrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
@@ -103,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,11 +192,13 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548649382314" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS415/Assignment1" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/Hoc/PSU/MTH 343/src/com/company/Vector.java" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550653161214" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -177,9 +244,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25474524" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25424576" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -187,10 +253,9 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" weight="0.32967034" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32930514" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32930514" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32930514" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997986" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -198,6 +263,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -215,40 +281,203 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Matrix.java</url>
-          <line>67</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>12</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/CSRMatrix.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/Matrix.java</url>
+          <line>170</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="GetColSize()" language="JAVA" />
+        <watch expression="row" language="JAVA" />
+        <watch expression="upperMatrix.GetEntry(row, col)" language="JAVA" />
+        <watch expression="matrix[row].GetEntry(col)" language="JAVA" />
+        <watch expression="matrix[row].GetEntry(col) - sum" language="JAVA" />
+        <watch expression="lowerMatrix.GetMatrix()[row].GetEntry(row)" language="JAVA" />
+        <watch expression="(matrix[row].GetEntry(col) - sum) /                                     lowerMatrix.GetMatrix()[row].GetEntry(row)" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>(matrix[row].GetEntry(col) - sum) /                                     lowerMatrix.GetMatrix()[row].GetEntry(row)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(matrix[row].GetEntry(col) - sum)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>lowerMatrix.GetMatrix()[row].GetEntry(row)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>matrix[row].GetEntry(col) - sum</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>matrix[row].GetEntry(col)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>upperMatrix.GetEntry(row, col)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>row</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>lIndx</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>upperMatrix.GetMatrix()[lIndx].GetEntry(row)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>matrix[row].GetEntry(lIndx) - sum</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/InputMatrix.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
+    <entry file="file://$PROJECT_DIR$/../MTH343/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        <state relative-caret-position="168">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="class#Data#0;class#Matrix#0" />
-            <element signature="e#135#136#0" expanded="true" />
-            <element signature="e#166#167#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#0#757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MTH343/src/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MTH343/src/SparseRRowMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="method#TakeInput#0;class#SparseRowMatrix#0" />
+            <element signature="method#Add#0;class#SparseRowMatrix#0" />
+            <element signature="e#6077#6078#0" expanded="true" />
+            <element signature="e#6171#6172#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1169">
+          <caret line="159" selection-start-line="159" selection-end-line="159" />
+          <folding>
+            <element signature="method#Add#0;class#CSRMatrix#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Tuple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="e#122#123#0" expanded="true" />
+            <element signature="e#167#168#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
+          <folding>
+            <element signature="method#GetLength#0;class#Vector#0" />
+            <element signature="method#Vector#0;class#Vector#0" />
+            <element signature="method#Vector#1;class#Vector#0" />
+            <element signature="method#Vector#2;class#Vector#0" />
+            <element signature="method#Vector#3;class#Vector#0" />
+            <element signature="method#Add#0;class#Vector#0" />
+            <element signature="method#Add#1;class#Vector#0" />
+            <element signature="method#Scale#0;class#Vector#0" />
+            <element signature="method#InnerProduct#0;class#Vector#0" />
+            <element signature="method#RightMultiplication#0;class#Vector#0" />
+            <element signature="method#LefMultiplication#0;class#Vector#0" />
+            <element signature="method#TakeInput#0;class#Vector#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="413">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-662">
+          <caret line="127" column="52" lean-forward="true" selection-start-line="127" selection-start-column="52" selection-end-line="127" selection-end-column="52" />
+          <folding>
+            <element signature="e#94#95#0" expanded="true" />
+            <element signature="e#147#148#0" expanded="true" />
+            <element signature="e#184#185#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="method#SetRow#0;class#Matrix#0" />
+            <element signature="method#Matrix#0;class#Matrix#0" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="method#Matrix#2;class#Matrix#0" />
+            <element signature="method#Matrix#3;class#Matrix#0" />
+            <element signature="method#RightMultiplication#0;class#Matrix#0" />
+            <element signature="method#LefMultiplication#0;class#Matrix#0" />
+            <element signature="method#Add#0;class#Matrix#0" />
+          </folding>
         </state>
       </provider>
     </entry>
