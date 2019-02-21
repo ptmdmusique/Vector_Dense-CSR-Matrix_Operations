@@ -2,26 +2,37 @@ package com.company;
 
 import java.util.LinkedList;
 
+//FOR PRINTING:
+// ~~ Means for general purpose
+// ~! For debugging purpose
 public class Main {
-    public static final String WHITESPACE = "\\s+";
-    static String testInput = "1 2 0\n0 5 6\n7 0 9";
+    static final String WHITESPACE = "\\s+";
+    //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
+    static String testInput2 = "1 0 3\n4 0 6\n4 7 5";
+    static String testInput3 = "1 0 2\n0 3 5\n2 5 4";
 
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
         return value == null ? defaultValue : value;
     }
 
     public static void main(String[] args) {
-        String[] testSplit = testInput.split("\n");
-        int rowSize = testSplit.length;
-        int colSize = testSplit[0].split("\\s+").length;
+        //CSRMatrix Matrix initialization test
+        CSRMatrix myCSRMatrix = new CSRMatrix(testInput2);
+        myCSRMatrix.Print();
 
-        //Sparse Matrix initialization test
-        //CSRMatrix myCSRMatrix = new CSRMatrix(rowSize, colSize, testInput);
-        //myCSRMatrix.Print();
-
+        //CSRMatrix Operation test
+        CSRMatrix myCSRMatrix2 = myCSRMatrix.GetTranspose();
+        myCSRMatrix2.PrintData();
+        myCSRMatrix2.Print();
+        myCSRMatrix.TimeVector(new Vector("1 2 3")).Print();
+        if (CSRMatrix.IsSymmetric(new CSRMatrix(testInput3))){
+            System.out.println("Is symmetric!");
+        } else {
+            System.out.println("Is NOT symmetric!");
+        }
+        /*
         //Matrix initialization test
         Matrix myMatrix = new Matrix(3, 3, 1);
-        Matrix myMatrix3 = new Matrix("1 -2 -2 -3\n3 -9 0 -9\n-1 2 4 7\n-3 -6 26 2");
         myMatrix.Print();
 
         //Vector initialization test
@@ -42,15 +53,20 @@ public class Main {
         myVector.Print();
         myVector = GetValueOrDefault(myVector.Add(5), myVector);
         myVector.Print();
+*/
 
         //LU Factorization
+        Matrix myMatrix3 = new Matrix("1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16");
         myMatrix3.Print();
         LinkedList<Matrix> luList = myMatrix3.LUFactorization();
-        System.out.print("~~L: ");
-        luList.get(0).Print();
-        System.out.print("~~U: ");
-        luList.get(1).Print();
+        if (luList.size() > 0){
+            System.out.print("~~L: ");
+            luList.get(0).Print();
+            System.out.print("~~U: ");
+            luList.get(1).Print();
+        }
 
+        /*
         int testArr[] = {1, 2, 3};
         Print(testArr);
         for(int indx = 0; indx < NumberOfPermutation(testArr.length, testArr.length) - 1; indx++){
@@ -58,6 +74,7 @@ public class Main {
             testArr = NextPermutation(testArr);
             Print(testArr);
         }
+        */
         //myCSRMatrix.Add(myNormalMatrix);
         //myCSRMatrix.Print();
     }

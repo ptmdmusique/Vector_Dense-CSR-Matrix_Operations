@@ -148,6 +148,7 @@ public class Matrix {
                 permuMatrix.SetRow(indx, permuVectors[permuArr[indx]]);
             }
             Matrix temp = new Matrix(this.RightMultiplication(permuMatrix));
+            //temp.Print();
 
             //The diagonal of the L matrix is 0
             for(int indx = 0; indx < temp.GetMatrix().length; indx++){
@@ -204,7 +205,6 @@ public class Matrix {
                 
                 if(upperMatrix.GetEntry(row, row) == 0){
                     //Now, this gets tricky, we need permutation!
-                    //TODO: WORK ON PERMUTATION MATRIX
                     break;
                 }
             }
@@ -212,6 +212,7 @@ public class Matrix {
             if (row == size){
                 //We reach the end, no more permutation needed
                 found = true;
+                break;
             }
         }
 
@@ -253,5 +254,23 @@ public class Matrix {
             }
             System.out.println();
         }
+    }
+
+    static boolean IsSymmetric(Matrix parm){
+        if (parm.GetRowSize() != parm.GetColSize()){
+            return false;
+        }
+
+        Vector[] vectors = parm.GetMatrix();
+
+        for(int row = 0; row < parm.GetRowSize(); row++){
+            for(int col = 0; col < row; col++){
+                if (vectors[row].GetEntry(col) != vectors[col].GetEntry(row)){
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }
