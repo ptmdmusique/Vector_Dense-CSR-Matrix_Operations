@@ -247,7 +247,7 @@ public class Matrix {
 
     }
     void Print() {
-        System.out.println("~~Matrix: ");
+        System.out.println("Matrix: ");
         for(int row = 0; row < GetRowSize(); ++row) {
             for(int col = 0; col < GetColSize(); ++col) {
                 System.out.printf("%6.2f ", this.matrix[row].GetEntry(col));

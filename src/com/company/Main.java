@@ -18,18 +18,15 @@ public class Main {
     public static void main(String[] args) {
         //CSRMatrix Matrix initialization test
         CSRMatrix myCSRMatrix = new CSRMatrix(testInput2);
-        myCSRMatrix.Print();
+        Print(myCSRMatrix, "CSR Matrix 1 with test Input 2");
 
         //CSRMatrix Operation test
         CSRMatrix myCSRMatrix2 = myCSRMatrix.GetTranspose();
-        myCSRMatrix2.PrintData();
-        myCSRMatrix2.Print();
-        myCSRMatrix.TimeVector(new Vector("1 2 3")).Print();
-        if (CSRMatrix.IsSymmetric(new CSRMatrix(testInput3))){
-            System.out.println("Is symmetric!");
-        } else {
-            System.out.println("Is NOT symmetric!");
-        }
+        Print(myCSRMatrix2, "CSR Matrix with Transpose of 1");
+        PrintData(myCSRMatrix2, "CSR Matrix 2");
+        Print(myCSRMatrix.TimeVector(new Vector("1 2 3")), "Vector result of CSR Matrix 1 times a random vector: ");
+        IsCSRSymmetric(new CSRMatrix(testInput3), "Test matrix with input 3");
+        IsCSRSymmetric(myCSRMatrix, "CSR Matrix 1");
         /*
         //Matrix initialization test
         Matrix myMatrix = new Matrix(3, 3, 1);
@@ -57,7 +54,7 @@ public class Main {
 
         //LU Factorization
         Matrix myMatrix3 = new Matrix("1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16");
-        myMatrix3.Print();
+        Print(myMatrix3, "My Matrix 3 with random test input");
         LinkedList<Matrix> luList = myMatrix3.LUFactorization();
         if (luList.size() > 0){
             System.out.print("~~L: ");
@@ -77,6 +74,30 @@ public class Main {
         */
         //myCSRMatrix.Add(myNormalMatrix);
         //myCSRMatrix.Print();
+    }
+
+    static void IsCSRSymmetric(CSRMatrix parm, String name){
+        if (CSRMatrix.IsSymmetric(parm)){
+            System.out.println("~~" + name + " is symmetric!");
+        } else {
+            System.out.println("~~" + name + " is NOT symmetric!");
+        }
+    }
+    static void Print(CSRMatrix parm, String name){
+        System.out.println("~~" + name);
+        parm.Print();
+    }
+    static void PrintData(CSRMatrix parm, String name){
+        System.out.println("~!" + name + " data:");
+        parm.PrintData();
+    }
+    static void Print(Vector parm, String name){
+        System.out.println("~~" + name);
+        parm.Print();
+    }
+    static void Print(Matrix parm, String name){
+        System.out.println("~~" + name);
+        parm.Print();
     }
 
     static int NumberOfPermutation(int spot, int numberOfChoice){
