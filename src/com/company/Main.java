@@ -51,7 +51,76 @@ public class Main {
         System.out.print("~~U: ");
         luList.get(1).Print();
 
+        int testArr[] = {1, 2, 3};
+        Print(testArr);
+        for(int indx = 0; indx < NumberOfPermutation(testArr.length, testArr.length) - 1; indx++){
+            System.out.print("Trial " + indx + " ");
+            testArr = NextPermutation(testArr);
+            Print(testArr);
+        }
         //myCSRMatrix.Add(myNormalMatrix);
         //myCSRMatrix.Print();
+    }
+
+    static int NumberOfPermutation(int spot, int numberOfChoice){
+        if (spot > numberOfChoice){
+            return 0;
+        }
+        int result = 1;
+        for(int indx = 0; indx < spot; indx++){
+            result *= numberOfChoice--;
+        }
+        return result;
+    }
+    static int[] NextPermutation(int[] currArr){
+        //Lexicological order
+        if (currArr == null || currArr.length < 2){
+            return currArr;
+        }
+        //Find the first element that is less than its previous element from right to left
+        int result[] = new int[currArr.length];
+        System.arraycopy(currArr, 0, result, 0, currArr.length);
+        int indx = currArr.length - 2, indx2 = currArr.length - 1;
+        for(; indx > 0; indx--){
+            if(result[indx] < result[indx + 1]) break;
+        }
+
+        //Find an element from right to left that is greater than the previous mentioned element
+        //  then swap
+        for(; indx2 > indx; indx2--){
+            if(result[indx] < result[indx2]){
+                break;
+            }
+        }
+
+        if (indx2 == 0 && indx == 0){
+            Reverse(result, 0, currArr.length - 1);
+            return result;
+        }
+
+        //Swap
+        result[indx] = currArr[indx2];
+        result[indx2] = currArr[indx];
+        //Then reverse from indx + 1 to length - 1
+        if (indx < result.length - 1){
+            Reverse(result, indx + 1, result.length - 1);
+        }
+        return result;
+    }
+    private static void Reverse(int[] nums, int left, int right){
+        while(left<right){
+            int temp = nums[left];
+            nums[left]=nums[right];
+            nums[right]=temp;
+            left++;
+            right--;
+        }
+    }
+    private static void Print(int[] arr){
+        System.out.println("~~Arr: ");
+        for(int entry: arr){
+            System.out.print(entry + " ");
+        }
+        System.out.println();
     }
 }
