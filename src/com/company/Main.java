@@ -8,8 +8,8 @@ import java.util.LinkedList;
 public class Main {
     static final String WHITESPACE = "\\s+";
     //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
-    static String testInput2 = "1 0 3\n4 0 6\n4 7 5";
-    static String testInput3 = "1 0 2\n0 3 5\n2 5 4";
+    static String testInput2 = "1 0 3\n4 0 6";
+    static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
 
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
         return value == null ? defaultValue : value;
@@ -33,7 +33,9 @@ public class Main {
             System.out.println("Is NOT symmetric!");
         }
 
-        myCSRMatrix.TimeCSRMatrix(myCSRMatrix3).Print();
+        Print(myCSRMatrix, "CSR Matrix 1");
+        Print(myCSRMatrix3, "CSR Matrix 3");
+        Print(myCSRMatrix.TimeCSRMatrix(myCSRMatrix3), "CSR Matrix 1 x CSR Matrix 3");
 
         Print(myCSRMatrix2, "CSR Matrix with Transpose of 1");
         PrintData(myCSRMatrix2, "CSR Matrix 2");

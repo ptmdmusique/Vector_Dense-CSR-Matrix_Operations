@@ -372,6 +372,9 @@ public class CSRMatrix {
             //Either the row is empty (-1) or has something in it (which we will store the start index)
             rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
         }
+        //Is last row empty?
+        rowCurCol[parmRow.length - 1] = parmRow[parmRow.length - 1] == parmData.length ? -1 : parmRow[parmRow.length - 1];
+
         for(int curRow = 0; curRow < row.length; curRow++){
             resultRow[curRow] = 0;
         }
@@ -392,12 +395,12 @@ public class CSRMatrix {
                     k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
                     k++){
                     //Only multiply non zero!
-                    if (parmData[rowCurCol[data[k].col]].col == parmCol){
+                    if (rowCurCol[data[k].col] > -1 && parmData[rowCurCol[data[k].col]].col == parmCol){
                         //Since we iterate the parmCol in the outer loop one by one,
                         //  if the col of the rowCurCol doesn't match the outer loop,
                         //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp = data[k].data * parmData[rowCurCol[k]].data;
+                        temp += data[k].data * parmData[rowCurCol[data[k].col]].data;
                     }
                 }
                 if (temp != 0){
@@ -411,7 +414,7 @@ public class CSRMatrix {
 
             //Increase the curCol
             for(int indx = 0; indx < rowCurCol.length; indx++){
-                if (parmCol == rowCurCol[indx]){
+                if (rowCurCol[indx] > -1 && parmCol == parmData[rowCurCol[indx]].col){
                     if ((indx >= parmRow.length - 1 && rowCurCol[indx] + 1 == parmData.length)
                      || (indx < parmRow.length - 1 && rowCurCol[indx] + 1 == parmRow[indx + 1])){
                         rowCurCol[indx] = -1;
@@ -433,6 +436,8 @@ public class CSRMatrix {
             //Either the row is empty (-1) or has something in it (which we will store the start index)
             rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
         }
+        //Is last row empty?
+        rowCurCol[parmRow.length - 1] = parmRow[parmRow.length - 1] == parmData.length ? -1 : parmRow[parmRow.length - 1];
 
         //Since accessing row-wise is much easier, we will put it in the inner loop
         for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
@@ -448,12 +453,12 @@ public class CSRMatrix {
                     k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
                     k++){
                     //Only multiply non zero!
-                    if (parmData[rowCurCol[data[k].col]].col == parmCol){
+                    if (rowCurCol[data[k].col] > -1 && parmData[rowCurCol[data[k].col]].col == parmCol){
                         //Since we iterate the parmCol in the outer loop one by one,
                         //  if the col of the rowCurCol doesn't match the outer loop,
                         //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp = data[k].data * parmData[rowCurCol[k]].data;
+                        temp += data[k].data * parmData[rowCurCol[data[k].col]].data;
                     }
                 }
 
@@ -465,6 +470,7 @@ public class CSRMatrix {
                         k++){
                         if (result.data[k] == null){
                             result.data[k] = new Data(temp, parmCol);
+                            break;
                         }
                     }
                 }
@@ -472,7 +478,7 @@ public class CSRMatrix {
 
             //Increase the curCol
             for(int indx = 0; indx < rowCurCol.length; indx++){
-                if (parmCol == rowCurCol[indx]){
+                if (rowCurCol[indx] > -1 && parmCol == parmData[rowCurCol[indx]].col){
                     if ((indx >= parmRow.length - 1 && rowCurCol[indx] + 1 == parmData.length)
                             || (indx < parmRow.length - 1 && rowCurCol[indx] + 1 == parmRow[indx + 1])){
                         rowCurCol[indx] = -1;
