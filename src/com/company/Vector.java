@@ -125,7 +125,7 @@ public class Vector {
         }
     }
     void Print(){
-        System.out.println("~~Vector: ");
+        System.out.println("Vector: ");
         for(double entry : data){
             System.out.printf("%6.2f ", entry);
         }

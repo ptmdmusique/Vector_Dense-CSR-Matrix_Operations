@@ -144,7 +144,7 @@ public class CSRMatrix {
         }
     }
     void Print(){
-        System.out.println("~~Sparse matrix: ");
+        System.out.println("Sparse matrix: ");
         for(int curRow = 0; curRow < row.length; curRow++){
             //Start and end index of the data array for the current row
             int rowStartIndx = row[curRow];
@@ -180,14 +180,15 @@ public class CSRMatrix {
         }
     }
     void PrintData(){
-        System.out.println("~!CSR Data: ");
+        if (data.length <= 0){
+            System.out.println("Matrix is empty!");
+            return;
+        }
+
         System.out.printf("%6s %6s %6s\n", "Data", "Col", "Row");
-        int curRow = 0;
-        int curIndx = 0;
-        for(Data curData: data){
-            System.out.printf("%6.2f %6d %6d\n", curData.data, curData.col, row[curRow]);
-            if (curIndx++ > row[curRow]){
-                curRow++;
+        for(int curRow = 0; curRow < row.length; curRow++){
+            for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1); indx++){
+                System.out.printf("%6.2f %6d %6d\n", data[indx].data, data[indx].col, curRow);
             }
         }
     }
@@ -500,21 +501,16 @@ public class CSRMatrix {
                 indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)) && data[indx].col < curRow;
                 indx++){
                 //Find the correct entry
-                double temp = 0;
                 for(int search = row[data[indx].col];
-                    search < (data[indx].col == row.length - 1 ? data.length - 1 : (row[data[indx].col + 1] - 1));
+                    search <= (data[indx].col == row.length - 1 ? data.length - 1 : (row[data[indx].col + 1] - 1));
                     search++
                 ){
-                    if (data[search].col == curRow){
-                        temp = data[search].data;
-                        break;
+                    if (data[search].col > curRow || (data[search].col == curRow && data[indx].data != data[search].data)){
+                        //Different data
+                        return false;
                     }
                 }
 
-                if (data[indx].data != temp){
-                    //Different data
-                    return false;
-                }
             }
         }
         return true;
