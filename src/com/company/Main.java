@@ -25,11 +25,14 @@ public class Main {
         myCSRMatrix2.PrintData();
         myCSRMatrix2.Print();
         myCSRMatrix.TimeVector(new Vector("1 2 3")).Print();
-        if (CSRMatrix.IsSymmetric(new CSRMatrix(testInput3))){
+        CSRMatrix myCSRMatrix3 = new CSRMatrix(testInput3);
+        if (CSRMatrix.IsSymmetric(myCSRMatrix3)){
             System.out.println("Is symmetric!");
         } else {
             System.out.println("Is NOT symmetric!");
         }
+
+        myCSRMatrix.TimeCSRMatrix(myCSRMatrix3).Print();
         /*
         //Matrix initialization test
         Matrix myMatrix = new Matrix(3, 3, 1);

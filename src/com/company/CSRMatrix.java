@@ -83,6 +83,7 @@ public class CSRMatrix {
         this.colSize = colSize;
         data = new Data[nnz];
     }
+    CSRMatrix(){};
 
     void TakeInput(String input){
         boolean reallocate = false;     //Are we going to allocate new array?
@@ -354,6 +355,133 @@ public class CSRMatrix {
             }
             result.SetEntry(curRow, temp);
         }
+        return result;
+    }
+    CSRMatrix TimeCSRMatrix(CSRMatrix matrix){
+        if (matrix.GetRowSize() != colSize){
+            return null;
+        }
+        int rowCurCol[] = new int[colSize];
+        int parmRow[] = matrix.GetRow();
+        Data parmData[] = matrix.GetData();
+        int resultRow[] = new int[row.length];  //This will be used as the row arr of the result matrix
+
+        //rowCurCol is used to keep track of the current col that we are reading
+        for(int curRow = 0; curRow < parmRow.length - 1; curRow++){
+            //Either the row is empty (-1) or has something in it (which we will store the start index)
+            rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
+        }
+        for(int curRow = 0; curRow < row.length; curRow++){
+            resultRow[curRow] = 0;
+        }
+
+        int nnz = 0;
+
+        //Since accessing row-wise is much easier, we will put it in the inner loop
+        for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
+            for(int curRow = 0; curRow < row.length; curRow++){
+                double temp = 0;
+                //k will go from the index of the first element in the current row to the end index
+                //  then data[k].col will be used as the row of parmData and
+                // we will use rowCurCol[data[k].col] to look aside the current element in parm
+                //Moreover, because we use the outer loop to iterate the parmCol,
+                // if parmCol != parmData[rowCurCol[data[k].col]].col
+                //  then parm[data[k].col][parmCol] == 0
+                for(int k = row[curRow];
+                    k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
+                    k++){
+                    //Only multiply non zero!
+                    if (parmData[rowCurCol[data[k].col]].col == parmCol){
+                        //Since we iterate the parmCol in the outer loop one by one,
+                        //  if the col of the rowCurCol doesn't match the outer loop,
+                        //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
+                        //Thus, we don't need to include it in our calculation
+                        temp = data[k].data * parmData[rowCurCol[k]].data;
+                    }
+                }
+                if (temp != 0){
+                    nnz++;
+                    //And update the row array of the result matrix
+                    for(int indx = curRow + 1; indx < row.length; indx++){
+                        resultRow[indx]++;
+                    }
+                }
+            }
+
+            //Increase the curCol
+            for(int indx = 0; indx < rowCurCol.length; indx++){
+                if (parmCol == rowCurCol[indx]){
+                    if ((indx >= parmRow.length - 1 && rowCurCol[indx] + 1 == parmData.length)
+                     || (indx < parmRow.length - 1 && rowCurCol[indx] + 1 == parmRow[indx + 1])){
+                        rowCurCol[indx] = -1;
+                    } else {
+                        rowCurCol[indx]++;
+                    }
+                }
+            }
+        }
+
+        //CSRMatrix result = new CSRMatrix(row.length, matrix.GetColSize(),nnz);
+        CSRMatrix result = new CSRMatrix();
+        result.row = resultRow;
+        result.colSize = matrix.GetColSize();
+        result.data = new Data[nnz];
+
+        //Reset!
+        for(int curRow = 0; curRow < parmRow.length - 1; curRow++){
+            //Either the row is empty (-1) or has something in it (which we will store the start index)
+            rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
+        }
+
+        //Since accessing row-wise is much easier, we will put it in the inner loop
+        for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
+            for(int curRow = 0; curRow < row.length; curRow++){
+                double temp = 0;
+                //k will go from the index of the first element in the current row to the end index
+                //  then data[k].col will be used as the row of parmData and
+                // we will use rowCurCol[data[k].col] to look aside the current element in parm
+                //Moreover, because we use the outer loop to iterate the parmCol,
+                // if parmCol != parmData[rowCurCol[data[k].col]].col
+                //  then parm[data[k].col][parmCol] == 0
+                for(int k = row[curRow];
+                    k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
+                    k++){
+                    //Only multiply non zero!
+                    if (parmData[rowCurCol[data[k].col]].col == parmCol){
+                        //Since we iterate the parmCol in the outer loop one by one,
+                        //  if the col of the rowCurCol doesn't match the outer loop,
+                        //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
+                        //Thus, we don't need to include it in our calculation
+                        temp = data[k].data * parmData[rowCurCol[k]].data;
+                    }
+                }
+
+                if (temp != 0){
+                    //Since we go from left to right (low parmCol to high parmCol)
+                    //  we only need to find a spot where it is empty to put the new entry in
+                    for(int k = resultRow[curRow];
+                        k <= (curRow == resultRow.length - 1 ? result.data.length - 1 : resultRow[curRow + 1] - 1);
+                        k++){
+                        if (result.data[k] == null){
+                            result.data[k] = new Data(temp, parmCol);
+                        }
+                    }
+                }
+            }
+
+            //Increase the curCol
+            for(int indx = 0; indx < rowCurCol.length; indx++){
+                if (parmCol == rowCurCol[indx]){
+                    if ((indx >= parmRow.length - 1 && rowCurCol[indx] + 1 == parmData.length)
+                            || (indx < parmRow.length - 1 && rowCurCol[indx] + 1 == parmRow[indx + 1])){
+                        rowCurCol[indx] = -1;
+                    } else {
+                        rowCurCol[indx]++;
+                    }
+                }
+            }
+        }
+
         return result;
     }
 
