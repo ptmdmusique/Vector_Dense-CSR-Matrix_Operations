@@ -46,30 +46,6 @@ public class Main {
         Print(myCSRMatrix.TimeVector(new Vector("1 2 3")), "Vector result of CSR Matrix 1 times a random vector: ");
         IsCSRSymmetric(new CSRMatrix(testInput3), "Test matrix with input 3");
         IsCSRSymmetric(myCSRMatrix, "CSR Matrix 1");
-        /*
-        //Matrix initialization test
-        Matrix myMatrix = new Matrix(3, 3, 1);
-        myMatrix.Print();
-
-        //Vector initialization test
-        Vector myVector = new Vector("1 2");
-        Vector myVector2 = new Vector("6 9");
-        Vector myVector3 = new Vector("3 5 6");
-        myVector.Print();
-        myVector2.Print();
-        myVector3.Print();
-
-        //Vector operation test
-        Matrix myMatrix2 = myVector.TimeRightMatrix(myVector3);
-        myMatrix2.Print();
-        myMatrix2 = GetValueOrDefault(myVector.TimeLeftMatrix(myVector3), myMatrix2);
-        myMatrix2.Print();
-        System.out.println("~~Inner product of 1 and 2: " + myVector.InnerProduct(myVector2));
-        myVector = GetValueOrDefault(myVector.Add(myVector2), myVector);
-        myVector.Print();
-        myVector = GetValueOrDefault(myVector.Add(5), myVector);
-        myVector.Print();
-*/
 
         //LU Factorization
         myMatrix3 = new Matrix("1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16");

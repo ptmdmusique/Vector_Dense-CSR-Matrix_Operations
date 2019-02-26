@@ -62,6 +62,19 @@ public class Matrix {
             matrix[row] = new Vector(newMatrix.GetRow(row));
         }
     }
+    Matrix(Vector vector, int option){
+        //Option: 1 -- Row-wise vector
+        //Option: 2 -- Column-wise vector
+        if (option == 1){
+            matrix = new Vector[1];
+            matrix[0] = new Vector(vector);
+        } else {
+            matrix = new Vector[vector.GetSize()];
+            for(int indx = 0; indx < matrix.length; indx++){
+                matrix[indx] = new Vector(1, vector.GetEntry(indx));
+            }
+        }
+    }
 
     public Matrix TimeRightMatrix(Matrix parm){
         //Multiply with parm on the right side
@@ -221,6 +234,9 @@ public class Matrix {
             result.add(upperMatrix);
         }
         return result;
+    }
+    public LinkedList<Matrix> QRFactorization(){
+        
     }
 
     void TakeInput(String input) {

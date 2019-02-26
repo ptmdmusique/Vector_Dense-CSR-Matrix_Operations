@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.colorchooser.ColorSelectionModel;
+import java.util.LinkedList;
 
 public class CSRMatrix {
     private static final String WHITESPACE = "\\s+";
@@ -194,98 +195,6 @@ public class CSRMatrix {
             }
         }
     }
-
-//    public Boolean Add(Matrix parm) {
-//        if (parm.GetColSize() != this.colSize || parm.GetRowSize() != this.rowSize){
-//            return false;
-//        }
-//
-//        int nnz = 0;                //Total number of non zero
-//
-//        //First calculate the nnz
-//        for(int curRow = 0; curRow < row.length; curRow++){
-//            int rowStartIndx = row[curRow]; //Start index in the data array
-//            int rowEndIndx = curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1;  //End index in the data array
-//            //If we are at the end then use the last index
-//
-//            if (rowEndIndx < rowStartIndx){
-//                //Empty row -- All 0 row
-//                for()
-//            }
-//        }
-//
-//        if (parm.GetColSize() == this.colSize && parm.GetRowSize() == this.rowSize) {
-//            int nnz = 0;            //Total number of non zero
-//
-//            int colIndx;
-//            int curRow;
-//            int curIndx;
-//            int rowEnd;
-//
-//            for(curRow = 0; curRow < this.rowSize; ++curRow) {
-//                colIndx = this.row[curRow];
-//                curRow = curRow == this.row.length - 1 ? this.data.length - 1 : this.row[curRow + 1] - 1;
-//                if (colIndx > curRow) {
-//                    for(curIndx = 0; curIndx < this.colSize; ++curIndx) {
-//                        if (parm.Get(curRow, curIndx) != 0) {
-//                            ++nnz;
-//                        }
-//                    }
-//                } else {
-//                    curIndx = colIndx;
-//
-//                    for(rowEnd = 0; rowEnd < this.colSize; ++rowEnd) {
-//                        if (curIndx <= curRow && curIndx < this.data.length && this.data[curIndx].col == rowEnd) {
-//                            if (this.data[curIndx].data + parm.Get(curRow, rowEnd) != 0) {
-//                                ++nnz;
-//                            }
-//
-//                            ++curIndx;
-//                        } else if (parm.Get(curRow, rowEnd) != 0) {
-//                            ++nnz;
-//                        }
-//                    }
-//                }
-//            }
-//
-//            CSRMatrix.Data[] temp = new CSRMatrix.Data[nnz];
-//            colIndx = 0;
-//
-//            for(curRow = 0; curRow < this.rowSize; ++curRow) {
-//                curIndx = this.row[curRow];
-//                rowEnd = curRow == this.row.length - 1 ? this.data.length - 1 : this.row[curRow + 1] - 1;
-//                this.row[curRow] = colIndx;
-//                if (curIndx > rowEnd) {
-//                    for(curIndx = 0; curIndx < this.colSize; ++curIndx) {
-//                        if (parm.Get(curRow, curIndx) != 0) {
-//                            temp[colIndx++] = new CSRMatrix.Data(parm.Get(curRow, curIndx), colIndx % this.colSize);
-//                        }
-//                    }
-//                } else {
-//                    curIndx = curIndx;
-//
-//                    for(int curCol = 0; curCol < this.colSize; ++curCol) {
-//                        if (curIndx <= rowEnd && curIndx < this.data.length && this.data[curIndx].col == curCol) {
-//                            if (this.data[curIndx].data + parm.Get(curRow, curCol) != 0) {
-//                                temp[colIndx] = new CSRMatrix.Data(parm.Get(curRow, curCol) + this.data[curIndx].data, colIndx % this.colSize);
-//                                ++colIndx;
-//                            }
-//
-//                            ++curIndx;
-//                        } else if (parm.Get(curRow, curCol) != 0) {
-//                            temp[colIndx] = new CSRMatrix.Data(parm.Get(curRow, curCol), colIndx % this.colSize);
-//                            ++colIndx;
-//                        }
-//                    }
-//                }
-//            }
-//
-//            this.data = temp;
-//            return true;
-//        } else {
-//
-//        }
-//    }
 
     Matrix GetMatrixForm(){
         //Return the CSR matrix in a normal form
@@ -530,6 +439,24 @@ public class CSRMatrix {
         }
 
         return result;
+    }
+
+    Vector IterationMethod(Vector rightSide){
+        final int STEP_LIMIT = 10;
+        final double TOLERANCE = 10e-6;
+        final double MAX_SEARCH_DIR = 50;
+
+        LinkedList<Vector> searchDirList = new LinkedList<>();
+        Vector solution = new Vector(rightSide);    //Create an initial vector
+        Vector residual = rightSide.Add(this.TimeVector(solution.Scale(-1)));       //Calculate the first residue
+        double norm = residual.GetLength();                                         //Calculate the norm
+        searchDirList.add(new Vector(residual.Normalize()));                        //Calculate the initial search direction
+        Matrix pMatrix = new Matrix(searchDirList.get(0), 2);
+        Matrix bMatrix = new Matrix(this.TimeVector(searchDirList.get(0)), 2);
+
+        for(int step = 1; step < STEP_LIMIT; step++){
+
+        }
     }
 
     static boolean IsSymmetric(CSRMatrix parm){
