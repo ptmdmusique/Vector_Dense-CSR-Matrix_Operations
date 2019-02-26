@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class Main {
     static final String WHITESPACE = "\\s+";
     //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
-    static String testInput2 = "1 0 3\n4 0 6";
+    static String testInput2 = "1 0 3\n4 0 6\n0 1 2";
     static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
 
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
@@ -35,7 +35,11 @@ public class Main {
 
         Print(myCSRMatrix, "CSR Matrix 1");
         Print(myCSRMatrix3, "CSR Matrix 3");
-        Print(myCSRMatrix.TimeCSRMatrix(myCSRMatrix3), "CSR Matrix 1 x CSR Matrix 3");
+        Print(myCSRMatrix.TimeMatrix(myCSRMatrix3), "CSR Matrix 1 x CSR Matrix 3");
+        Matrix myMatrix3 = new Matrix(testInput3);
+        Print(myCSRMatrix.TimeMatrix(myMatrix3), "CSR Matrix 1 x Matrix 3");
+        Matrix myMatrix2 = new Matrix(testInput2);
+        Print(myMatrix2.TimeRightMatrix(myMatrix3), "Matrix 2 x Matrix 3");
 
         Print(myCSRMatrix2, "CSR Matrix with Transpose of 1");
         PrintData(myCSRMatrix2, "CSR Matrix 2");
@@ -56,9 +60,9 @@ public class Main {
         myVector3.Print();
 
         //Vector operation test
-        Matrix myMatrix2 = myVector.RightMultiplication(myVector3);
+        Matrix myMatrix2 = myVector.TimeRightMatrix(myVector3);
         myMatrix2.Print();
-        myMatrix2 = GetValueOrDefault(myVector.LeftMultiplication(myVector3), myMatrix2);
+        myMatrix2 = GetValueOrDefault(myVector.TimeLeftMatrix(myVector3), myMatrix2);
         myMatrix2.Print();
         System.out.println("~~Inner product of 1 and 2: " + myVector.InnerProduct(myVector2));
         myVector = GetValueOrDefault(myVector.Add(myVector2), myVector);
@@ -68,7 +72,7 @@ public class Main {
 */
 
         //LU Factorization
-        Matrix myMatrix3 = new Matrix("1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16");
+        myMatrix3 = new Matrix("1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16");
         Print(myMatrix3, "My Matrix 3 with random test input");
         LinkedList<Matrix> luList = myMatrix3.LUFactorization();
         if (luList.size() > 0){

@@ -63,7 +63,7 @@ public class Matrix {
         }
     }
 
-    public Matrix RightMultiplication(Matrix parm){
+    public Matrix TimeRightMatrix(Matrix parm){
         //Multiply with parm on the right side
         if (GetColSize() != parm.GetRowSize()){
             System.out.println("\tSizes are different!");
@@ -83,7 +83,7 @@ public class Matrix {
         }
         return result;
     }
-    public Matrix LeftMultiplication(Matrix parm){
+    public Matrix TimeLeftMatrix(Matrix parm){
         //Multiply with parm on the left side
         if (parm.GetColSize() != GetRowSize()){
             System.out.println("\tSizes are different!");
@@ -147,7 +147,7 @@ public class Matrix {
                 //Set up the permutation matrix
                 permuMatrix.SetRow(indx, permuVectors[permuArr[indx]]);
             }
-            Matrix temp = new Matrix(this.RightMultiplication(permuMatrix));
+            Matrix temp = new Matrix(this.TimeRightMatrix(permuMatrix));
             //temp.Print();
 
             //The diagonal of the L matrix is 0

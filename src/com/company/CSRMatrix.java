@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.colorchooser.ColorSelectionModel;
+
 public class CSRMatrix {
     private static final String WHITESPACE = "\\s+";
 
@@ -358,7 +360,7 @@ public class CSRMatrix {
         }
         return result;
     }
-    CSRMatrix TimeCSRMatrix(CSRMatrix matrix){
+    CSRMatrix TimeMatrix(CSRMatrix matrix){
         if (matrix.GetRowSize() != colSize){
             return null;
         }
@@ -485,6 +487,44 @@ public class CSRMatrix {
                     } else {
                         rowCurCol[indx]++;
                     }
+                }
+            }
+        }
+
+        return result;
+    }
+    CSRMatrix TimeMatrix(Matrix matrix){
+        if (colSize != matrix.GetRowSize()){
+            return null;
+        }
+
+        Vector[] parmData = matrix.GetMatrix();
+
+        int nnz = 0;
+        for(int curRow = 0; curRow < row.length; curRow++){
+            for(int curCol = 0; curCol < matrix.GetColSize(); curCol++){
+                double temp = 0;
+                for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
+                    temp += data[indx].data * parmData[data[indx].col].GetEntry(curCol);
+                }
+                if (temp != 0){
+                    nnz++;
+                }
+            }
+        }
+
+        CSRMatrix result = new CSRMatrix(row.length, matrix.GetColSize(), nnz);
+
+        int curDataIndx = 0;
+        for(int curRow = 0; curRow < row.length; curRow++){
+            result.row[curRow] = curDataIndx;
+            for(int curCol = 0; curCol < matrix.GetColSize(); curCol++){
+                double temp = 0;
+                for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
+                    temp += data[indx].data * parmData[data[indx].col].GetEntry(curCol);
+                }
+                if (temp != 0){
+                    result.data[curDataIndx++] = new Data(temp, curCol);
                 }
             }
         }
