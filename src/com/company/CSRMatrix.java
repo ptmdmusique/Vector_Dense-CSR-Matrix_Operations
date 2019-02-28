@@ -455,6 +455,16 @@ public class CSRMatrix {
         Matrix bMatrix = new Matrix(this.TimeVector(searchDirList.get(0)), 2);
 
         for(int step = 1; step < STEP_LIMIT; step++){
+            //|r - bMatrix * alpha| -> min
+            //<=> least square(r = bMatrix * alpha)
+            //<=> least square(r = QR * alpha)
+            //<=> least square(Q^T r = R alpha)
+            //<=> beta = R * alpha => least square!
+            LinkedList<Matrix> qrFactor = bMatrix.QRFactorization();
+            if (qrFactor.size() < 2){
+                System.out.println("Can't do QR Factorization!!!");
+                return null;
+            }
 
         }
     }

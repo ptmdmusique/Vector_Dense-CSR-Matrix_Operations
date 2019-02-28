@@ -94,7 +94,7 @@ public class Matrix {
         }
     }
 
-    public Matrix TimeRightMatrix(Matrix parm){
+    Matrix TimeRightMatrix(Matrix parm){
         //Multiply with parm on the right side
         if (GetColSize() != parm.GetRowSize()){
             System.out.println("\tSizes are different!");
@@ -114,7 +114,7 @@ public class Matrix {
         }
         return result;
     }
-    public Matrix TimeLeftMatrix(Matrix parm){
+    Matrix TimeLeftMatrix(Matrix parm){
         //Multiply with parm on the left side
         if (parm.GetColSize() != GetRowSize()){
             System.out.println("\tSizes are different!");
@@ -134,7 +134,7 @@ public class Matrix {
         }
         return result;
     }
-    public Matrix Add(Matrix parm){
+    Matrix Add(Matrix parm){
         if (GetColSize() != parm.GetColSize() || GetRowSize() != parm.GetRowSize()){
             System.out.println("\tMatrices' size are different!");
             return null;
@@ -148,7 +148,7 @@ public class Matrix {
         }
         return result;
     }
-    public LinkedList<Matrix> LUFactorization(){
+    LinkedList<Matrix> LUFactorization(){
         if (GetRowSize() != GetColSize()){
             System.out.println("\tMatrix is not square!");
             return null;
@@ -253,7 +253,7 @@ public class Matrix {
         }
         return result;
     }
-    public LinkedList<Matrix> QRFactorization(){
+    LinkedList<Matrix> QRFactorization(){
         Vector[] rowVectors = GetColVector();
         Vector[] qList = new Vector[GetColSize()];
         LinkedList<Matrix> result = new LinkedList<>();
@@ -280,6 +280,37 @@ public class Matrix {
             }
         }
         result.add(rMatrix);
+
+        return result;
+    }
+    Vector BackwardSubstitution(Vector b){
+        //Should only do this for square matrix
+        if (GetColSize() != GetRowSize()){
+            System.out.println("Not a square matrix!");
+            return null;
+        }
+
+        //Ax = b where A is an upper triangular matrix
+        //Check if our matrix is an upper triangular matrix
+        for(int curRow = 1; curRow < matrix.length; curRow++){
+            for(int curCol = 0; curCol < curRow; curCol++){
+                if (GetEntry(curRow, curCol) != 0){
+                    System.out.println("Matrix is not an upper triangular matrix!!!");
+                    return null;
+                }
+            }
+        }
+
+        Vector result = new Vector(GetColSize(), 0);
+
+        for(int curRow = GetRowSize() - 1; curRow >= 0; curRow--){
+            double temp = b.GetEntry(curRow);
+            for(int curCol = curRow + 1; curCol < GetRowSize(); curCol++){
+                temp -= this.GetEntry(curRow, curCol);
+            }
+            temp /= this.GetEntry(curRow, curRow);
+            result.SetEntry(curRow, temp);
+        }
 
         return result;
     }
