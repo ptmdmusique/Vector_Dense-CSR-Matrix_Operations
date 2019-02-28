@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class Main {
     static final String WHITESPACE = "\\s+";
     //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
-    static String testInput2 = "1 0 3\n4 0 6\n0 1 2";
+    static String testInput2 = "1 1 0\n1 0 1\n0 1 1";
     static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
 
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
@@ -58,6 +58,9 @@ public class Main {
             luList.get(1).Print();
         }
 
+        //QR Factorization
+        Print(myMatrix2, "My Matrix 2");
+        Print(myMatrix2.QRFactorization(), "My matrix 2 QR Factorization");
         /*
         int testArr[] = {1, 2, 3};
         Print(testArr);
@@ -93,6 +96,15 @@ public class Main {
     static void Print(Matrix parm, String name){
         System.out.println("~~" + name);
         parm.Print();
+    }
+    static void Print(LinkedList<Matrix> matrices, String name){
+        if (matrices.size() <= 0){
+            System.out.println("~~Empty list!!!");
+        }
+        System.out.println("~~" + name);
+        for(Matrix matrix : matrices){
+            matrix.Print();
+        }
     }
 
     static int NumberOfPermutation(int spot, int numberOfChoice){

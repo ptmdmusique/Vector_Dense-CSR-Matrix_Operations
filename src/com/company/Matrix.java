@@ -36,6 +36,18 @@ public class Matrix {
         }
         return true;
     }
+    Matrix GetTranspose(){
+        Matrix result = new Matrix(GetColSize(), GetRowSize());
+        for(int curRow = 0; curRow < GetRowSize(); curRow++){
+            for(int curCol = 0; curCol < GetColSize(); curCol++){
+                result.SetEntry(curCol, curRow, matrix[curRow].GetEntry(curCol));
+            }
+        }
+        return result;
+    }
+    Vector[] GetColVector(){
+        return GetTranspose().GetMatrix();
+    }
 
     Matrix(int rowSize, int colSize) {
         this.matrix = new Vector[rowSize];
@@ -73,6 +85,12 @@ public class Matrix {
             for(int indx = 0; indx < matrix.length; indx++){
                 matrix[indx] = new Vector(1, vector.GetEntry(indx));
             }
+        }
+    }
+    Matrix(Vector[] vectors){
+        matrix = new Vector[vectors.length];
+        for(int indx = 0; indx < vectors.length; indx++){
+            matrix[indx] = new Vector(vectors[indx]);
         }
     }
 
@@ -236,7 +254,34 @@ public class Matrix {
         return result;
     }
     public LinkedList<Matrix> QRFactorization(){
-        
+        Vector[] rowVectors = GetColVector();
+        Vector[] qList = new Vector[GetColSize()];
+        LinkedList<Matrix> result = new LinkedList<>();
+        Matrix rMatrix = new Matrix(GetColSize(), GetColSize());
+
+
+        //Q matrix
+        for(int indx = 0; indx < GetColSize(); indx++){
+            Vector temp = new Vector(rowVectors[indx]);
+            for(int indx2 = 0; indx2 < indx; indx2++){
+                double scaler = rowVectors[indx].InnerProduct(qList[indx2]);
+                temp = temp.Add(qList[indx2].Scale(-scaler));
+            }
+            temp = temp.Normalize();
+            qList[indx] = temp;
+        }
+
+        result.add((new Matrix(qList).GetTranspose()));
+
+        //R matrix
+        for(int curRow = 0; curRow < GetColSize(); curRow++){
+            for(int curCol = curRow; curCol < GetColSize(); curCol++){
+                rMatrix.SetEntry(curRow, curCol, rowVectors[curCol].InnerProduct(qList[curRow]));
+            }
+        }
+        result.add(rMatrix);
+
+        return result;
     }
 
     void TakeInput(String input) {

@@ -79,14 +79,14 @@ public class Vector {
         }
         return result;
     }
-    Integer InnerProduct(Vector parm){
+    Double InnerProduct(Vector parm){
         if (parm.GetSize() != data.length){
             //Make sure the size are equal
             System.out.println("\tSizes are different!");
             return null;
         }
 
-        int result = 0;
+        Double result = 0.0;
         for(int indx = 0; indx < data.length; indx++){
             result += parm.GetEntry(indx) * data[indx];
         }
