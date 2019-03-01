@@ -444,17 +444,20 @@ public class CSRMatrix {
     Vector IterationMethod(Vector rightSide){
         final int STEP_LIMIT = 10;
         final double TOLERANCE = 10e-6;
-        final double MAX_SEARCH_DIR = 50;
+        final int MAX_SEARCH_DIR = 50;
 
         LinkedList<Vector> searchDirList = new LinkedList<>();
-        Vector solution = new Vector(rightSide);    //Create an initial vector
+        int searchDirIndx = 0;                                                      //Is it time to restart the search dir yet?
+        //Vector solution = new Vector(rightSide);    //Create an initial vector
+        Vector solution = new Vector(rightSide.GetSize(), 0);
         Vector residual = rightSide.Add(this.TimeVector(solution.Scale(-1)));       //Calculate the first residue
         double norm = residual.GetLength();                                         //Calculate the norm
+        double initialNorm = norm;
         searchDirList.add(new Vector(residual.Normalize()));                        //Calculate the initial search direction
         Matrix pMatrix = new Matrix(searchDirList.get(0), 2);
         Matrix bMatrix = new Matrix(this.TimeVector(searchDirList.get(0)), 2);
 
-        for(int step = 1; step < STEP_LIMIT; step++){
+        for(int step = 1; step < STEP_LIMIT && norm > initialNorm * TOLERANCE; step++){
             //|r - bMatrix * alpha| -> min
             //<=> least square(r = bMatrix * alpha)
             //<=> least square(r = QR * alpha)
@@ -466,7 +469,43 @@ public class CSRMatrix {
                 return null;
             }
 
+            //Calculate alpha
+            Vector alpha = qrFactor.get(1).BackwardSubstitution(qrFactor.get(0).GetTranspose().TimeVector(residual));
+            //Calculate next iterate
+            solution = solution.Add(pMatrix.TimeVector(alpha));
+            //Calculate next residual
+            residual = residual.Add(bMatrix.TimeVector(alpha).Scale(-1));
+            //Calculate residual norm
+            norm = residual.GetLength();
+
+            //Calculate next search dir less than max, or else move back to the first one
+            Vector curSearchDir;
+            if (searchDirIndx  < MAX_SEARCH_DIR){
+                searchDirList.add((curSearchDir = new Vector(residual)));
+                searchDirIndx++;
+
+                //r - Sigma (k = 1->searchDirIndx)((r,p(k)) * p(k))
+                for(int k = 0; k < searchDirIndx; k++){
+                    Vector preSearchDir = searchDirList.get(k);
+                    //+ (- (r,p(k)) * p(k))
+                    curSearchDir = curSearchDir.Add(preSearchDir.Scale(preSearchDir.InnerProduct(residual)).Scale(-1));
+                }
+                curSearchDir = curSearchDir.Normalize();
+
+                pMatrix = pMatrix.AugmentVectorAtEnd(curSearchDir);
+                bMatrix = bMatrix.AugmentVectorAtEnd(this.TimeVector(curSearchDir));
+            } else {
+                //Restart
+                searchDirIndx = 0;
+                curSearchDir = searchDirList.get(searchDirIndx);
+                curSearchDir.Copy(residual.Normalize());
+
+                pMatrix = new Matrix(curSearchDir, 2);
+                bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
+            }
         }
+
+        return solution;
     }
 
     static boolean IsSymmetric(CSRMatrix parm){

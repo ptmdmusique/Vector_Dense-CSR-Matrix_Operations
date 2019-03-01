@@ -114,6 +114,15 @@ public class Vector {
     Vector Normalize(){
         return new Vector(this.Scale(1.0 / GetLength()));
     }
+    void Copy(Vector parm){
+        if (parm.GetSize() != GetSize()){
+            data = new double[parm.GetSize()];
+        }
+
+        for(int indx = 0; indx < GetSize(); indx++){
+            data[indx] = parm.GetEntry(indx);
+        }
+    }
 
     void TakeInput(String input){
         String entries[] = input.split(Main.WHITESPACE);

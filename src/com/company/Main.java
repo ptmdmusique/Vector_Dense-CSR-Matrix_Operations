@@ -10,6 +10,8 @@ public class Main {
     //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
     static String testInput2 = "1 1 0\n1 0 1\n0 1 1";
     static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
+    static String iterationInput = "2 5 4\n2 3 7\n4 6 8";
+    static String bIterationInput = "1 8 10";
 
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
         return value == null ? defaultValue : value;
@@ -61,17 +63,10 @@ public class Main {
         //QR Factorization
         Print(myMatrix2, "My Matrix 2");
         Print(myMatrix2.QRFactorization(), "My matrix 2 QR Factorization");
-        /*
-        int testArr[] = {1, 2, 3};
-        Print(testArr);
-        for(int indx = 0; indx < NumberOfPermutation(testArr.length, testArr.length) - 1; indx++){
-            System.out.print("Trial " + indx + " ");
-            testArr = NextPermutation(testArr);
-            Print(testArr);
-        }
-        */
-        //myCSRMatrix.Add(myNormalMatrix);
-        //myCSRMatrix.Print();
+
+        //Iteration Method
+        CSRMatrix iterationCSR = new CSRMatrix(iterationInput);
+        Print(iterationCSR.IterationMethod(new Vector(bIterationInput)), "Iteration Method with iteraionCSR!");
     }
 
     static void IsCSRSymmetric(CSRMatrix parm, String name){

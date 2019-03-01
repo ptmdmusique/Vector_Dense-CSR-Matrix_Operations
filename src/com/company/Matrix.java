@@ -134,6 +134,23 @@ public class Matrix {
         }
         return result;
     }
+    Vector TimeVector(Vector parm){
+        if (parm.GetSize() != GetColSize()){
+            System.out.println("Different size!");
+            return null;
+        }
+        //Vector on the right side
+        Vector result = new Vector(GetRowSize(), 0);
+        for(int curRow = 0; curRow < GetRowSize(); curRow++){
+            double temp = 0;
+            for(int curCol = 0; curCol < GetColSize(); curCol++){
+                temp += GetEntry(curRow, curCol) * parm.GetEntry(curCol);
+            }
+            result.SetEntry(curRow, temp);
+        }
+
+        return result;
+    }
     Matrix Add(Matrix parm){
         if (GetColSize() != parm.GetColSize() || GetRowSize() != parm.GetRowSize()){
             System.out.println("\tMatrices' size are different!");
@@ -146,6 +163,24 @@ public class Matrix {
                 result.SetEntry(row, col, GetEntry(row, col) + parm.GetEntry(row, col));
             }
         }
+        return result;
+    }
+    Matrix AugmentVectorAtEnd(Vector parm){
+        if (parm.GetSize() != GetRowSize()){
+            System.out.println("Different size to augment!");
+            return null;
+        }
+        //Augment the matrix with a col vector at the end
+        Matrix result = new Matrix(GetRowSize(), GetColSize() + 1);
+        Vector[] resultMatrix = result.GetMatrix();
+        for(int curRow = 0; curRow < GetRowSize(); curRow++){
+            resultMatrix[curRow] = new Vector(GetColSize() + 1, 0);
+            for(int curCol = 0; curCol < GetColSize(); curCol++){
+                resultMatrix[curRow].SetEntry(curCol, GetEntry(curRow, curCol));
+            }
+            resultMatrix[curRow].SetEntry(GetColSize(), parm.GetEntry(curRow));
+        }
+
         return result;
     }
     LinkedList<Matrix> LUFactorization(){
@@ -258,7 +293,6 @@ public class Matrix {
         Vector[] qList = new Vector[GetColSize()];
         LinkedList<Matrix> result = new LinkedList<>();
         Matrix rMatrix = new Matrix(GetColSize(), GetColSize());
-
 
         //Q matrix
         for(int indx = 0; indx < GetColSize(); indx++){
