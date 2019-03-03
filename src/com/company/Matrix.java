@@ -340,7 +340,7 @@ public class Matrix {
         for(int curRow = GetRowSize() - 1; curRow >= 0; curRow--){
             double temp = b.GetEntry(curRow);
             for(int curCol = curRow + 1; curCol < GetRowSize(); curCol++){
-                temp -= this.GetEntry(curRow, curCol);
+                temp -= this.GetEntry(curRow, curCol) * result.GetEntry(curCol);
             }
             temp /= this.GetEntry(curRow, curRow);
             result.SetEntry(curRow, temp);

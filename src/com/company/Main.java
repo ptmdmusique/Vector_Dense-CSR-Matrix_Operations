@@ -10,8 +10,8 @@ public class Main {
     //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
     static String testInput2 = "1 1 0\n1 0 1\n0 1 1";
     static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
-    static String iterationInput = "2 5 4\n2 3 7\n4 6 8";
-    static String bIterationInput = "1 8 10";
+    static String iterationInput = "2 4 2 5\n5 4 1 10\n9 7 5 1\n22 48 15";
+    static String bIterationInput = "9 50 3 2";
 
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
         return value == null ? defaultValue : value;

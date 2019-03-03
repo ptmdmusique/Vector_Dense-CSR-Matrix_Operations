@@ -442,7 +442,7 @@ public class CSRMatrix {
     }
 
     Vector IterationMethod(Vector rightSide){
-        final int STEP_LIMIT = 10;
+        final int STEP_LIMIT = 20;
         final double TOLERANCE = 10e-6;
         final int MAX_SEARCH_DIR = 50;
 
@@ -453,9 +453,10 @@ public class CSRMatrix {
         Vector residual = rightSide.Add(this.TimeVector(solution.Scale(-1)));       //Calculate the first residue
         double norm = residual.GetLength();                                         //Calculate the norm
         double initialNorm = norm;
-        searchDirList.add(new Vector(residual.Normalize()));                        //Calculate the initial search direction
-        Matrix pMatrix = new Matrix(searchDirList.get(0), 2);
-        Matrix bMatrix = new Matrix(this.TimeVector(searchDirList.get(0)), 2);
+        Vector curSearchDir;
+        searchDirList.add(curSearchDir = new Vector(residual.Normalize()));                        //Calculate the initial search direction
+        Matrix pMatrix = new Matrix(curSearchDir, 2);
+        Matrix bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
 
         for(int step = 1; step < STEP_LIMIT && norm > initialNorm * TOLERANCE; step++){
             //|r - bMatrix * alpha| -> min
@@ -479,7 +480,6 @@ public class CSRMatrix {
             norm = residual.GetLength();
 
             //Calculate next search dir less than max, or else move back to the first one
-            Vector curSearchDir;
             if (searchDirIndx  < MAX_SEARCH_DIR){
                 searchDirList.add((curSearchDir = new Vector(residual)));
                 searchDirIndx++;
