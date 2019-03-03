@@ -93,6 +93,7 @@ public class CSRMatrix {
 
         //Split the string into multiple regex
         String[] rows = input.split("\n");
+
         int rowSize = rows.length;
 
         if (rowSize <= 0){
@@ -127,6 +128,7 @@ public class CSRMatrix {
                 int curCol = 0;
                 row[curRow] = totalCol;
                 for(String number : rows[curRow++].split(WHITESPACE)){
+                    number = number.replaceAll("\\s+","");
                     if (!number.equals("0")){
                         data[totalCol++] = new Data(Double.parseDouble(number), curCol);
                     }

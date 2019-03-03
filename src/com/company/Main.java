@@ -1,6 +1,9 @@
 package com.company;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 //FOR PRINTING:
 // ~~ Means for general purpose
@@ -17,7 +20,7 @@ public class Main {
         return value == null ? defaultValue : value;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         //CSRMatrix Matrix initialization test
         CSRMatrix myCSRMatrix = new CSRMatrix(testInput2);
         Print(myCSRMatrix, "CSR Matrix 1 with test Input 2");
@@ -66,7 +69,9 @@ public class Main {
 
         //Iteration Method
         CSRMatrix iterationCSR = new CSRMatrix(iterationInput);
-        Print(iterationCSR.IterationMethod(new Vector(bIterationInput)), "Iteration Method with iteraionCSR!");
+        Print(iterationCSR.IterationMethod(new Vector(bIterationInput)), "Iteration Method with iteration CSR!");
+
+        Print(new CSRMatrix(ReadCSRFromFile("e05r0000.mtx")), "CSR From mtx file");
     }
 
     static void IsCSRSymmetric(CSRMatrix parm, String name){
@@ -162,5 +167,53 @@ public class Main {
             System.out.print(entry + " ");
         }
         System.out.println();
+    }
+
+    private static String ReadCSRFromFile(String fileName) throws FileNotFoundException {
+        //Index start at 1!!!
+        //https://math.nist.gov/MatrixMarket/formats.html#mtx
+        StringBuilder result = new StringBuilder();
+
+        File file =
+                new File(fileName);
+        Scanner sc = new Scanner(file);
+
+        //Initialization
+        String tempLine = "";
+        while((tempLine = sc.nextLine()) != null && tempLine.startsWith("%"));
+        String[] temps = tempLine.split(" ");
+        int row = Integer.parseInt(temps[0]);
+        int col = Integer.parseInt(temps[1]);
+        int totalLine = Integer.parseInt(temps[2]);
+        StringBuilder[] rows = new StringBuilder[row];
+        int[] lastCol = new int[row];
+        for(int indx = 0; indx < row; indx++){
+            rows[indx] = new StringBuilder();
+            lastCol[indx] = -1;
+        }
+
+        //Taking input in
+        for(int indx = 0; indx < totalLine; indx++){
+            int curRow = sc.nextInt() - 1;
+            int curCol = sc.nextInt();
+            double curData = sc.nextDouble();
+
+            if (lastCol[curRow] != curCol - 1){
+                //Some 0s are missing
+                for(int indx2 = 0; indx2 < curCol - lastCol[curRow]; indx2++){
+                    rows[curRow].append(" " + 0);
+                }
+            }
+            rows[curRow].append(" ");
+            rows[curRow].append(curData);
+            lastCol[curRow] = curCol;
+        }
+
+        for(int indx = 0; indx < row; indx++){
+            result.append(rows[indx]);
+            result.append("\n");
+        }
+
+        return result.toString();
     }
 }

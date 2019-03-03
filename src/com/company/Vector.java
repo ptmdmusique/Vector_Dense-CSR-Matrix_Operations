@@ -126,6 +126,10 @@ public class Vector {
 
     void TakeInput(String input){
         String entries[] = input.split(Main.WHITESPACE);
+        for(String entry: entries){
+            entry = entry.replaceAll("\\s+","");
+        }
+
         if (entries.length != data.length){
             data = new double[entries.length];
         }

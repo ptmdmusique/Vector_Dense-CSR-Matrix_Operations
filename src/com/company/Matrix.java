@@ -351,6 +351,7 @@ public class Matrix {
 
     void TakeInput(String input) {
         String[] split = input.split("\n");
+
         if (split.length <= 0){
             return;
         }
@@ -366,6 +367,9 @@ public class Matrix {
 
         for(int curRow = 0; curRow < GetRowSize(); ++curRow) {
             String[] entries = split[curRow].split(Main.WHITESPACE);
+            for(String entry: entries){
+                entry = entry.replaceAll("\\s+","");
+            }
             for(int curCol = 0; curCol < GetColSize(); curCol++){
                 matrix[curRow].SetEntry(curCol, Double.parseDouble(entries[curCol]));
             }
