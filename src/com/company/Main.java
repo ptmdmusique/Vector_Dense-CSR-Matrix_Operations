@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ import java.util.Scanner;
 // ~~ Means for general purpose
 // ~! For debugging purpose
 public class Main {
+    static int BIGDECIMAL_SCALE = 10;
+
     static final String WHITESPACE = "\\s+";
     //static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0\n8 7 6 0";
     static String testInput2 = "1 1 0\n1 0 1\n0 1 1";
@@ -216,4 +219,5 @@ public class Main {
 
         return result.toString();
     }
+
 }

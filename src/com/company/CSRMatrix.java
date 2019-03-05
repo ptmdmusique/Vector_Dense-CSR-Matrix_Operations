@@ -1,35 +1,35 @@
 package com.company;
 
-import javax.swing.colorchooser.ColorSelectionModel;
+import java.math.BigDecimal;
 import java.util.LinkedList;
 
-public class CSRMatrix {
+class CSRMatrix {
     private static final String WHITESPACE = "\\s+";
 
     private class Data{
-        double data;
+        BigDecimal data;
         int col;
 
-        Data(double data, int col){
+        Data(BigDecimal data, int col){
             Change(data, col);
         }
-        void Change(double data, int col){
+        void Change(BigDecimal data, int col){
             this.data = data;
             this.col = col;
         }
     }
     private Data[] data;            //Data array
-    private int row[];              //Start column of each row
+    private int[] row;              //Start column of each row
     private int colSize = 0;
 
     int GetNNZ(){
         return data == null ? 0 : data.length;
     }
-    int GetRowSize(){
+    private int GetRowSize(){
         return row == null ? 0 : row.length;
     }
-    int GetColSize() { return colSize;}
-    double GetEntry(int row, int col){
+    private int GetColSize() { return colSize;}
+    private BigDecimal GetEntry(int row, int col){
         int rowStart = this.row[row];
         int rowEnd = row == this.row.length - 1 ? data.length - 1 : (this.row[row + 1] - 1);
 
@@ -37,19 +37,19 @@ public class CSRMatrix {
             if (data[i].col == col){
                 return data[i].data;
             } else if (data[i].col > col){
-                return 0;
+                return BigDecimal.ZERO;
             }
         }
 
-        return 0;
+        return BigDecimal.ZERO;
     }
-    int[] GetRow(){return row;}
-    Data[] GetData(){return data;}
+    private int[] GetRow(){return row;}
+    private Data[] GetData(){return data;}
 
-    void SetRow(int indx, int newRow){row[indx] = newRow;}
-    void SetEntry(int row, int col, int value){
-        if (GetEntry(row, col) != 0){
-            if (value != 0){
+    private void SetRow(int indx, int newRow){row[indx] = newRow;}
+    void SetEntry(int row, int col, BigDecimal value){
+        if (!GetEntry(row, col).equals(BigDecimal.ZERO)){
+            if (!value.equals(BigDecimal.ZERO)){
                 //We are fine...
                 for (int i = this.row[row];
                      i < (row == this.row.length - 1 ? data.length - 1 : (this.row[row + 1] - 1));
@@ -64,13 +64,13 @@ public class CSRMatrix {
                 //TODO: SET 0 FOR A NON ZERO ENTRY IN MATIX!!!
             }
         } else {
-            if (value != 0){
+            if (!value.equals(BigDecimal.ZERO)){
                 //Oh no...............
                 //TODO: SET ENTRY FOR A ZERO ENTRY IN MATRIX!!!
             }
         }
     }
-    void SetData(int indx, double value, int col){
+    private void SetData(int indx, BigDecimal value, int col){
         if (data[indx] == null){
             data[indx] = new Data(value, col);
         } else {
@@ -81,14 +81,14 @@ public class CSRMatrix {
     CSRMatrix(String input){
         TakeInput(input);
     }
-    CSRMatrix(int rowSize, int colSize, int nnz){
+    private CSRMatrix(int rowSize, int colSize, int nnz){
         row = new int[rowSize];
         this.colSize = colSize;
         data = new Data[nnz];
     }
-    CSRMatrix(){};
+    private CSRMatrix(){};
 
-    void TakeInput(String input){
+    private void TakeInput(String input){
         boolean reallocate = false;     //Are we going to allocate new array?
 
         //Split the string into multiple regex
@@ -130,7 +130,7 @@ public class CSRMatrix {
                 for(String number : rows[curRow++].split(WHITESPACE)){
                     number = number.replaceAll("\\s+","");
                     if (!number.equals("0")){
-                        data[totalCol++] = new Data(Double.parseDouble(number), curCol);
+                        data[totalCol++] = new Data(BigDecimal.valueOf(Double.parseDouble(number)), curCol);
                     }
                     curCol++;
                 }
@@ -141,7 +141,7 @@ public class CSRMatrix {
                 row[curRow] = totalCol;
                 for(String number : rows[curRow++].split(WHITESPACE)){
                     if (!number.equals("0")){
-                        data[totalCol++].Change(Double.parseDouble(number), curCol);
+                        data[totalCol++].Change(BigDecimal.valueOf(Double.parseDouble(number)), curCol);
                     }
                     curCol++;
                 }
@@ -224,7 +224,7 @@ public class CSRMatrix {
         CSRMatrix result = new CSRMatrix(colSize, row.length, data.length);
 
         //Record the index of the data that we are taking a look at in each row
-        int rowCurCol[] = new int[row.length];
+        int[] rowCurCol = new int[row.length];
         for(int curRow = 0; curRow < row.length - 1; curRow++){
             //Either the row is empty or has something in it
             rowCurCol[curRow] = row[curRow] == row[curRow + 1] ?  -1 : row[curRow];
@@ -260,12 +260,12 @@ public class CSRMatrix {
         return result;
     }
     Vector TimeVector(Vector parm){
-        Vector result = new Vector(row.length, 0);
+        Vector result = new Vector(row.length, BigDecimal.ZERO);
 
         for(int curRow = 0; curRow < row.length; curRow++){
-            double temp = 0;
+            BigDecimal temp = BigDecimal.ZERO;
             for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
-                temp += data[indx].data * parm.GetEntry(data[indx].col);
+                temp = temp.add(data[indx].data.multiply(parm.GetEntry(data[indx].col)));
             }
             result.SetEntry(curRow, temp);
         }
@@ -275,10 +275,10 @@ public class CSRMatrix {
         if (matrix.GetRowSize() != colSize){
             return null;
         }
-        int rowCurCol[] = new int[colSize];
-        int parmRow[] = matrix.GetRow();
-        Data parmData[] = matrix.GetData();
-        int resultRow[] = new int[row.length];  //This will be used as the row arr of the result matrix
+        int[] rowCurCol = new int[colSize];
+        int[] parmRow = matrix.GetRow();
+        Data[] parmData = matrix.GetData();
+        int[] resultRow = new int[row.length];  //This will be used as the row arr of the result matrix
 
         //rowCurCol is used to keep track of the current col that we are reading
         for(int curRow = 0; curRow < parmRow.length - 1; curRow++){
@@ -297,7 +297,7 @@ public class CSRMatrix {
         //Since accessing row-wise is much easier, we will put it in the inner loop
         for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
             for(int curRow = 0; curRow < row.length; curRow++){
-                double temp = 0;
+                BigDecimal temp = BigDecimal.ZERO;
                 //k will go from the index of the first element in the current row to the end index
                 //  then data[k].col will be used as the row of parmData and
                 // we will use rowCurCol[data[k].col] to look aside the current element in parm
@@ -313,10 +313,10 @@ public class CSRMatrix {
                         //  if the col of the rowCurCol doesn't match the outer loop,
                         //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp += data[k].data * parmData[rowCurCol[data[k].col]].data;
+                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data));
                     }
                 }
-                if (temp != 0){
+                if (!temp.equals(BigDecimal.ZERO)){
                     nnz++;
                     //And update the row array of the result matrix
                     for(int indx = curRow + 1; indx < row.length; indx++){
@@ -355,7 +355,7 @@ public class CSRMatrix {
         //Since accessing row-wise is much easier, we will put it in the inner loop
         for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
             for(int curRow = 0; curRow < row.length; curRow++){
-                double temp = 0;
+                BigDecimal temp = BigDecimal.ZERO;
                 //k will go from the index of the first element in the current row to the end index
                 //  then data[k].col will be used as the row of parmData and
                 // we will use rowCurCol[data[k].col] to look aside the current element in parm
@@ -371,11 +371,11 @@ public class CSRMatrix {
                         //  if the col of the rowCurCol doesn't match the outer loop,
                         //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp += data[k].data * parmData[rowCurCol[data[k].col]].data;
+                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data));
                     }
                 }
 
-                if (temp != 0){
+                if (!temp.equals(BigDecimal.ZERO)){
                     //Since we go from left to right (low parmCol to high parmCol)
                     //  we only need to find a spot where it is empty to put the new entry in
                     for(int k = resultRow[curRow];
@@ -414,11 +414,11 @@ public class CSRMatrix {
         int nnz = 0;
         for(int curRow = 0; curRow < row.length; curRow++){
             for(int curCol = 0; curCol < matrix.GetColSize(); curCol++){
-                double temp = 0;
+                BigDecimal temp = BigDecimal.ZERO;
                 for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
-                    temp += data[indx].data * parmData[data[indx].col].GetEntry(curCol);
+                    temp = temp.add(data[indx].data.multiply(parmData[data[indx].col].GetEntry(curCol)));
                 }
-                if (temp != 0){
+                if (!temp.equals(BigDecimal.ZERO)){
                     nnz++;
                 }
             }
@@ -430,11 +430,11 @@ public class CSRMatrix {
         for(int curRow = 0; curRow < row.length; curRow++){
             result.row[curRow] = curDataIndx;
             for(int curCol = 0; curCol < matrix.GetColSize(); curCol++){
-                double temp = 0;
+                BigDecimal temp = BigDecimal.ZERO;
                 for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
-                    temp += data[indx].data * parmData[data[indx].col].GetEntry(curCol);
+                    temp = temp.add(data[indx].data.multiply(parmData[data[indx].col].GetEntry(curCol)));
                 }
-                if (temp != 0){
+                if (!temp.equals(BigDecimal.ZERO)){
                     result.data[curDataIndx++] = new Data(temp, curCol);
                 }
             }
@@ -451,16 +451,16 @@ public class CSRMatrix {
         LinkedList<Vector> searchDirList = new LinkedList<>();
         int searchDirIndx = 0;                                                      //Is it time to restart the search dir yet?
         //Vector solution = new Vector(rightSide);    //Create an initial vector
-        Vector solution = new Vector(rightSide.GetSize(), 0);
-        Vector residual = rightSide.Add(this.TimeVector(solution.Scale(-1)));       //Calculate the first residue
-        double norm = residual.GetLength();                                         //Calculate the norm
-        double initialNorm = norm;
+        Vector solution = new Vector(rightSide.GetSize(), BigDecimal.ZERO);
+        Vector residual = rightSide.Add(this.TimeVector(solution.Scale(BigDecimal.valueOf(-1))));       //Calculate the first residue
+        BigDecimal norm = residual.GetLength();                                         //Calculate the norm
+        BigDecimal initialNorm = norm;
         Vector curSearchDir;
         searchDirList.add(curSearchDir = new Vector(residual.Normalize()));                        //Calculate the initial search direction
         Matrix pMatrix = new Matrix(curSearchDir, 2);
         Matrix bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
 
-        for(int step = 1; step < STEP_LIMIT && norm > initialNorm * TOLERANCE; step++){
+        for(int step = 1; step < STEP_LIMIT && norm.compareTo(initialNorm.multiply(BigDecimal.valueOf(TOLERANCE))) > 0; step++){
             //|r - bMatrix * alpha| -> min
             //<=> least square(r = bMatrix * alpha)
             //<=> least square(r = QR * alpha)
@@ -477,7 +477,7 @@ public class CSRMatrix {
             //Calculate next iterate
             solution = solution.Add(pMatrix.TimeVector(alpha));
             //Calculate next residual
-            residual = residual.Add(bMatrix.TimeVector(alpha).Scale(-1));
+            residual = residual.Add(bMatrix.TimeVector(alpha).Scale(BigDecimal.valueOf(-1)));
             //Calculate residual norm
             norm = residual.GetLength();
 
@@ -490,7 +490,7 @@ public class CSRMatrix {
                 for(int k = 0; k < searchDirIndx; k++){
                     Vector preSearchDir = searchDirList.get(k);
                     //+ (- (r,p(k)) * p(k))
-                    curSearchDir = curSearchDir.Add(preSearchDir.Scale(preSearchDir.InnerProduct(residual)).Scale(-1));
+                    curSearchDir = curSearchDir.Add(preSearchDir.Scale(preSearchDir.InnerProduct(residual)).Scale(BigDecimal.valueOf(-1)));
                 }
                 curSearchDir = curSearchDir.Normalize();
 
@@ -529,7 +529,7 @@ public class CSRMatrix {
                     search <= (data[indx].col == row.length - 1 ? data.length - 1 : (row[data[indx].col + 1] - 1));
                     search++
                 ){
-                    if (data[search].col > curRow || (data[search].col == curRow && data[indx].data != data[search].data)){
+                    if (data[search].col > curRow || (data[search].col == curRow && !data[indx].data.equals(data[search].data))){
                         //Different data
                         return false;
                     }

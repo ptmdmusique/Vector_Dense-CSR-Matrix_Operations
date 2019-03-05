@@ -2,9 +2,9 @@ package com.company;
 
 import java.math.BigDecimal;
 
-public class Vector {
+class Vector {
     //Treat this as neutral matrix, no row or col major
-    private BigDecimal data[];
+    private BigDecimal[] data;
 
     BigDecimal[] GetData(){
         return data;
@@ -20,41 +20,42 @@ public class Vector {
     }
     BigDecimal GetLength(){
         BigDecimal result = BigDecimal.ZERO;
-        for(int indx = 0; indx < data.length; indx++){
-            result = result.add(data[indx].multiply(data[indx]));
+        for (BigDecimal datum : data) {
+            result = result.add(datum.multiply(datum));
         }
-        return sqrt(result, );
+        return sqrt(result);
     }
-    public static BigDecimal sqrt(BigDecimal A, final int SCALE) {
+    static BigDecimal sqrt(BigDecimal A) {
         BigDecimal x0 = new BigDecimal("0");
         BigDecimal x1 = new BigDecimal(Math.sqrt(A.doubleValue()));
         while (!x0.equals(x1)) {
             x0 = x1;
-            x1 = A.divide(x0, SCALE, BigDecimal.ROUND_HALF_UP);
+            x1 = A.divide(x0, Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
             x1 = x1.add(x0);
-            x1 = x1.divide(BigDecimal.valueOf(2), SCALE, BigDecimal.ROUND_HALF_UP);
+            x1 = x1.divide(BigDecimal.valueOf(2), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
 
         }
         return x1;
     }
-    Vector(BigDecimal data[]){
+
+    Vector(BigDecimal[] data){
         this.data = new BigDecimal[data.length];
 
         System.arraycopy(data, 0, this.data, 0, data.length);
     }
     Vector(String data){
-        String splitData[] = data.split(Main.WHITESPACE);
+        String[] splitData = data.split(Main.WHITESPACE);
 
         this.data = new BigDecimal[splitData.length];
         for(int indx = 0; indx < splitData.length; indx++){
-            this.data[indx] = Integer.parseInt(splitData[indx]);
+            this.data[indx] = BigDecimal.valueOf(Double.parseDouble(splitData[indx]));
         }
     }
     Vector(int size, BigDecimal data){
         this.data = new BigDecimal[size];
 
         for(int indx = 0; indx < size; indx++){
-            this.data[indx] = data;
+            this.data[indx] = data.setScale(Main.BIGDECIMAL_SCALE);
         }
     }
     Vector(Vector parm){
@@ -68,7 +69,7 @@ public class Vector {
         //Add all entries in the vector with a number
         Vector result = new Vector(this);
         for(int indx = 0; indx < this.data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx) + data);
+            result.SetEntry(indx, result.GetEntry(indx).add(data));
         }
         return result;
     }
@@ -80,7 +81,7 @@ public class Vector {
         }
         Vector result = new Vector(this);
         for(int indx = 0; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx) + parm.GetEntry(indx));
+            result.SetEntry(indx, result.GetEntry(indx).add(parm.GetEntry(indx)));
         }
         return result;
     }
@@ -88,7 +89,7 @@ public class Vector {
         //Scale vector with a given value
         Vector result = new Vector(this);
         for(int indx = 0 ; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx) * value);
+            result.SetEntry(indx, result.GetEntry(indx).multiply(value));
         }
         return result;
     }
@@ -99,9 +100,9 @@ public class Vector {
             return null;
         }
 
-        BigDecimal result = 0.0;
+        BigDecimal result = BigDecimal.ZERO;
         for(int indx = 0; indx < data.length; indx++){
-            result += parm.GetEntry(indx) * data[indx];
+            result = result.add(parm.GetEntry(indx).multiply(data[indx]));
         }
 
         return result;
@@ -125,7 +126,7 @@ public class Vector {
         return result;
     }
     Vector Normalize(){
-        return new Vector(this.Scale(1.0 / GetLength()));
+        return new Vector(this.Scale(BigDecimal.ONE.divide(GetLength(), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP)));
     }
     void Copy(Vector parm){
         if (parm.GetSize() != GetSize()){
@@ -147,7 +148,7 @@ public class Vector {
             data = new BigDecimal[entries.length];
         }
         for(int indx = 0; indx < data.length; indx++){
-            data[indx] = BigDecimal.parseBigDecimal(entries[indx]);
+            data[indx] = BigDecimal.valueOf(Double.parseDouble(entries[indx]));
         }
     }
     void Print(){
