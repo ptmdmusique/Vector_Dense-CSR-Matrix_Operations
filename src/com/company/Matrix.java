@@ -107,7 +107,7 @@ class Matrix {
             for(int col = 0; col < parm.GetColSize(); col++){
                 BigDecimal temp = BigDecimal.ZERO;
                 for(int indx = 0; indx < GetColSize(); indx++){
-                    temp = temp.add(matrix[row].GetEntry(indx).multiply(parm.GetEntry(indx, col)));
+                    temp = temp.add(matrix[row].GetEntry(indx).multiply(parm.GetEntry(indx, col), Main.mathContext), Main.mathContext);
                 }
                 result.SetEntry(row, col, temp);
             }
@@ -127,7 +127,7 @@ class Matrix {
             for(int col = 0; col < GetColSize(); col++){
                 BigDecimal temp = BigDecimal.ZERO;
                 for(int indx = 0; indx < parm.GetColSize(); indx++){
-                    temp = temp.add(parm.GetEntry(row, indx).multiply(matrix[indx].GetEntry(col)));
+                    temp = temp.add(parm.GetEntry(row, indx).multiply(matrix[indx].GetEntry(col), Main.mathContext), Main.mathContext);
                 }
                 result.SetEntry(row, col, temp);
             }
@@ -144,7 +144,7 @@ class Matrix {
         for(int curRow = 0; curRow < GetRowSize(); curRow++){
             BigDecimal temp = BigDecimal.ZERO;
             for(int curCol = 0; curCol < GetColSize(); curCol++){
-                temp = temp.add(GetEntry(curRow, curCol).multiply(parm.GetEntry(curCol)));
+                temp = temp.add(GetEntry(curRow, curCol).multiply(parm.GetEntry(curCol), Main.mathContext), Main.mathContext);
             }
             result.SetEntry(curRow, temp);
         }
@@ -160,7 +160,7 @@ class Matrix {
         Matrix result = new Matrix(GetRowSize(), GetColSize());
         for(int row = 0; row < GetRowSize(); row++){
             for(int col = 0; col < GetColSize(); col++){
-                result.SetEntry(row, col, GetEntry(row, col).add(parm.GetEntry(row, col)));
+                result.SetEntry(row, col, GetEntry(row, col).add(parm.GetEntry(row, col), Main.mathContext));
             }
         }
         return result;
@@ -249,7 +249,7 @@ class Matrix {
                     for (int indx = col - 1; indx >= 0; indx--){
                         //Secret trick!
                         sum = sum.add(lowerMatrix.GetMatrix()[row].GetEntry(indx).multiply(
-                                upperMatrix.GetMatrix()[indx].GetEntry(col)));
+                                upperMatrix.GetMatrix()[indx].GetEntry(col), Main.mathContext), Main.mathContext);
                     }
                     //System.out.println(upperMatrix.GetMatrix()[col].GetEntry(col) + "     " + temp.GetMatrix()[row].GetEntry(col).add(sum.multiply(BigDecimal.valueOf(-1))));
                     if (upperMatrix.GetMatrix()[col].GetEntry(col).compareTo(BigDecimal.ZERO) == 0){
@@ -257,7 +257,7 @@ class Matrix {
                         //lowerMatrix.SetEntry(row, col, BigDecimal.valueOf(100));
                     } else {
                         lowerMatrix.SetEntry(row, col,
-                                (temp.GetMatrix()[row].GetEntry(col).add(sum.multiply(BigDecimal.valueOf(-1)))).divide(
+                                (temp.GetMatrix()[row].GetEntry(col).subtract(sum, Main.mathContext)).divide(
                                         upperMatrix.GetMatrix()[col].GetEntry(col), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP));
                     }
                 }
@@ -268,13 +268,13 @@ class Matrix {
                     BigDecimal sum = BigDecimal.ZERO;
                     for(int indx = 0; indx < row; indx++){
                         sum = sum.add(lowerMatrix.GetMatrix()[row].GetEntry(indx).multiply(
-                                upperMatrix.GetMatrix()[indx].GetEntry(col)));
+                                upperMatrix.GetMatrix()[indx].GetEntry(col), Main.mathContext), Main.mathContext);
                     }
                     upperMatrix.SetEntry(row, col,
-                            (temp.GetMatrix()[row].GetEntry(col).add(sum.multiply(BigDecimal.valueOf(-1)))).divide(
+                            (temp.GetMatrix()[row].GetEntry(col).subtract(sum, Main.mathContext)).divide(
                                     lowerMatrix.GetMatrix()[row].GetEntry(row), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP));
                 }
-                
+
                 if(upperMatrix.GetEntry(row, row).compareTo(BigDecimal.ZERO) == 0){
                     //Now, this gets tricky, we need permutation!
                     break;
@@ -307,7 +307,7 @@ class Matrix {
             Vector temp = new Vector(rowVectors[indx]);
             for(int indx2 = 0; indx2 < indx; indx2++){
                 BigDecimal scaler = rowVectors[indx].InnerProduct(qList[indx2]);
-                temp = temp.Add(qList[indx2].Scale(scaler.multiply(BigDecimal.valueOf(-1))));
+                temp = temp.Add(qList[indx2].Scale(scaler.multiply(BigDecimal.valueOf(-1), Main.mathContext)));
             }
             temp = temp.Normalize();
             qList[indx] = temp;
@@ -348,7 +348,8 @@ class Matrix {
         for(int curRow = GetRowSize() - 1; curRow >= 0; curRow--){
             BigDecimal temp = b.GetEntry(curRow);
             for(int curCol = curRow + 1; curCol < GetRowSize(); curCol++){
-                temp = temp.add(this.GetEntry(curRow, curCol).multiply(result.GetEntry(curCol)).multiply(BigDecimal.valueOf(-1)));
+                temp = temp.add(this.GetEntry(curRow, curCol).multiply(result.GetEntry(curCol), Main.mathContext)
+                        .multiply(BigDecimal.valueOf(-1), Main.mathContext), Main.mathContext);
             }
             temp = temp.divide(this.GetEntry(curRow, curRow), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
             result.SetEntry(curRow, temp);
@@ -385,10 +386,10 @@ class Matrix {
 
     }
     void Print() {
-        System.out.println("Matrix: ");
+        System.out.println("%Matrix: ");
         for(int row = 0; row < GetRowSize(); ++row) {
             for(int col = 0; col < GetColSize(); ++col) {
-                System.out.printf("%6.2f ", this.matrix[row].GetEntry(col));
+                System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f ", this.matrix[row].GetEntry(col));
             }
             System.out.println();
         }
