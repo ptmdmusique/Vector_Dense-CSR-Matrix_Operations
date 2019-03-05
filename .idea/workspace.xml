@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81f56a78-739d-46db-87a2-96d5feeaf736" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Vector.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,19 +15,20 @@
     <session id="-197215209">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1479" />
+          <entry key="java" value="1580" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1479" />
+          <entry key="JAVA" value="1580" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -51,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="195" column="52" lean-forward="true" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="52" />
+            <state relative-caret-position="1785">
+              <caret line="195" column="52" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="52" />
               <folding>
                 <element signature="n#!!doc;n#Main#0" />
                 <element signature="method#IsCSRSymmetric#0;class#Main#0" />
@@ -63,10 +60,8 @@
                 <element signature="method#Print#3;class#Main#0" />
                 <element signature="method#NumberOfPermutation#0;class#Main#0" />
                 <element signature="method#NextPermutation#0;class#Main#0" />
-                <element signature="e#4840#4928#0" />
                 <element signature="method#Reverse#0;class#Main#0" />
                 <element signature="method#Print#4;class#Main#0" />
-                <element signature="e#6059#6080#0" />
               </folding>
             </state>
           </provider>
@@ -75,32 +70,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="126" column="32" lean-forward="true" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
+            <state relative-caret-position="277">
+              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding>
-                <element signature="method#GetLength#0;class#Vector#0" />
-                <element signature="method#Vector#0;class#Vector#0" />
-                <element signature="method#Vector#1;class#Vector#0" />
-                <element signature="method#Vector#2;class#Vector#0" />
-                <element signature="method#Vector#3;class#Vector#0" />
-                <element signature="method#Add#0;class#Vector#0" />
-                <element signature="method#Add#1;class#Vector#0" />
-                <element signature="method#Scale#0;class#Vector#0" />
-                <element signature="method#InnerProduct#0;class#Vector#0" />
-                <element signature="method#RightMultiplication#0;class#Vector#0" />
-                <element signature="method#LeftMultiplication#0;class#Vector#0" />
-                <element signature="method#Copy#0;class#Vector#0" />
-                <element signature="method#Print#0;class#Vector#0" />
+                <element signature="e#158#159#0" expanded="true" />
+                <element signature="e#185#186#0" expanded="true" />
+                <element signature="e#220#221#0" expanded="true" />
+                <element signature="e#253#254#0" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#387#388#0" expanded="true" />
+                <element signature="e#3481#3482#0" expanded="true" />
+                <element signature="e#3545#3546#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="130" column="58" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
+            <state relative-caret-position="318">
+              <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
               <folding>
                 <element signature="class#Data#0;class#CSRMatrix#0" />
                 <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
@@ -114,35 +106,36 @@
                 <element signature="e#1981#2003#0" />
                 <element signature="method#SetData#0;class#CSRMatrix#0" />
                 <element signature="method#CSRMatrix#1;class#CSRMatrix#0" />
+                <element signature="method#TakeInput#0;class#CSRMatrix#0" />
                 <element signature="method#Print#0;class#CSRMatrix#0" />
-                <element signature="e#4770#4825#0" />
-                <element signature="e#5466#5550#0" />
+                <element signature="e#4830#4885#0" />
+                <element signature="e#5526#5610#0" />
                 <element signature="method#PrintData#0;class#CSRMatrix#0" />
                 <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
-                <element signature="e#7092#7147#0" />
+                <element signature="e#7152#7207#0" />
                 <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
-                <element signature="e#8761#8805#0" />
+                <element signature="e#8821#8865#0" />
                 <element signature="method#TimeVector#0;class#CSRMatrix#0" />
                 <element signature="method#TimeMatrix#0;class#CSRMatrix#0" />
-                <element signature="e#11288#11371#0" />
-                <element signature="e#12089#12149#0" />
-                <element signature="e#14358#14441#0" />
-                <element signature="e#15159#15219#0" />
-                <element signature="e#15662#15724#0" />
+                <element signature="e#11348#11431#0" />
+                <element signature="e#12149#12209#0" />
+                <element signature="e#14418#14501#0" />
+                <element signature="e#15219#15279#0" />
+                <element signature="e#15722#15784#0" />
                 <element signature="method#TimeMatrix#1;class#CSRMatrix#0" />
                 <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
-                <element signature="e#19432#19462#0" />
+                <element signature="e#19492#19522#0" />
                 <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="351" column="33" selection-start-line="351" selection-start-column="33" selection-end-line="351" selection-end-column="33" />
+            <state relative-caret-position="510">
+              <caret line="290" column="40" selection-start-line="290" selection-start-column="40" selection-end-line="290" selection-end-column="40" />
               <folding>
                 <element signature="method#SetRow#0;class#Matrix#0" />
                 <element signature="method#GetTranspose#0;class#Matrix#0" />
@@ -197,9 +190,12 @@
       <find>int</find>
       <find>curRow</find>
       <find>take</find>
+      <find>this</find>
+      <find>double</find>
     </findStrings>
     <replaceStrings>
       <replace>CSRMatrix</replace>
+      <replace>BigDecimal</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -212,15 +208,15 @@
         <option value="$PROJECT_DIR$/src/com/company/SparseMatrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/Tuple.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Vector.java" />
         <option value="$PROJECT_DIR$/src/com/company/Matrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/CSRMatrix.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Vector.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1905" />
-    <option name="width" value="1948" />
+    <option name="width" value="1950" />
     <option name="height" value="2075" />
   </component>
   <component name="ProjectView">
@@ -228,8 +224,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -252,6 +246,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,7 +309,7 @@
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25419182" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25754526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -465,8 +461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="195" column="52" lean-forward="true" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="52" />
+        <state relative-caret-position="1785">
+          <caret line="195" column="52" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="52" />
           <folding>
             <element signature="n#!!doc;n#Main#0" />
             <element signature="method#IsCSRSymmetric#0;class#Main#0" />
@@ -477,40 +473,76 @@
             <element signature="method#Print#3;class#Main#0" />
             <element signature="method#NumberOfPermutation#0;class#Main#0" />
             <element signature="method#NextPermutation#0;class#Main#0" />
-            <element signature="e#4840#4928#0" />
             <element signature="method#Reverse#0;class#Main#0" />
             <element signature="method#Print#4;class#Main#0" />
-            <element signature="e#6059#6080#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="126" column="32" lean-forward="true" selection-start-line="126" selection-start-column="32" selection-end-line="126" selection-end-column="32" />
+        <state relative-caret-position="277">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding>
-            <element signature="method#GetLength#0;class#Vector#0" />
-            <element signature="method#Vector#0;class#Vector#0" />
-            <element signature="method#Vector#1;class#Vector#0" />
-            <element signature="method#Vector#2;class#Vector#0" />
-            <element signature="method#Vector#3;class#Vector#0" />
-            <element signature="method#Add#0;class#Vector#0" />
-            <element signature="method#Add#1;class#Vector#0" />
-            <element signature="method#Scale#0;class#Vector#0" />
-            <element signature="method#InnerProduct#0;class#Vector#0" />
-            <element signature="method#RightMultiplication#0;class#Vector#0" />
-            <element signature="method#LeftMultiplication#0;class#Vector#0" />
-            <element signature="method#Copy#0;class#Vector#0" />
-            <element signature="method#Print#0;class#Vector#0" />
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#185#186#0" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#3481#3482#0" expanded="true" />
+            <element signature="e#3545#3546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+          <folding>
+            <element signature="class#Data#0;class#CSRMatrix#0" />
+            <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
+            <element signature="method#GetColSize#0;class#CSRMatrix#0" />
+            <element signature="method#GetEntry#0;class#CSRMatrix#0" />
+            <element signature="method#GetRow#0;class#CSRMatrix#0" />
+            <element signature="method#GetData#0;class#CSRMatrix#0" />
+            <element signature="method#SetRow#0;class#CSRMatrix#0" />
+            <element signature="method#SetEntry#0;class#CSRMatrix#0" />
+            <element signature="e#1825#1841#0" />
+            <element signature="e#1981#2003#0" />
+            <element signature="method#SetData#0;class#CSRMatrix#0" />
+            <element signature="method#CSRMatrix#1;class#CSRMatrix#0" />
+            <element signature="method#TakeInput#0;class#CSRMatrix#0" />
+            <element signature="method#Print#0;class#CSRMatrix#0" />
+            <element signature="e#4830#4885#0" />
+            <element signature="e#5526#5610#0" />
+            <element signature="method#PrintData#0;class#CSRMatrix#0" />
+            <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
+            <element signature="e#7152#7207#0" />
+            <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
+            <element signature="e#8821#8865#0" />
+            <element signature="method#TimeVector#0;class#CSRMatrix#0" />
+            <element signature="method#TimeMatrix#0;class#CSRMatrix#0" />
+            <element signature="e#11348#11431#0" />
+            <element signature="e#12149#12209#0" />
+            <element signature="e#14418#14501#0" />
+            <element signature="e#15219#15279#0" />
+            <element signature="e#15722#15784#0" />
+            <element signature="method#TimeMatrix#1;class#CSRMatrix#0" />
+            <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
+            <element signature="e#19492#19522#0" />
+            <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="351" column="33" selection-start-line="351" selection-start-column="33" selection-end-line="351" selection-end-column="33" />
+        <state relative-caret-position="510">
+          <caret line="290" column="40" selection-start-line="290" selection-start-column="40" selection-end-line="290" selection-end-column="40" />
           <folding>
             <element signature="method#SetRow#0;class#Matrix#0" />
             <element signature="method#GetTranspose#0;class#Matrix#0" />
@@ -535,46 +567,6 @@
             <element signature="method#TakeInput#0;class#Matrix#0" />
             <element signature="method#Print#0;class#Matrix#0" />
             <element signature="method#IsSymmetric#0;class#Matrix#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="130" column="58" selection-start-line="130" selection-start-column="58" selection-end-line="130" selection-end-column="58" />
-          <folding>
-            <element signature="class#Data#0;class#CSRMatrix#0" />
-            <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
-            <element signature="method#GetColSize#0;class#CSRMatrix#0" />
-            <element signature="method#GetEntry#0;class#CSRMatrix#0" />
-            <element signature="method#GetRow#0;class#CSRMatrix#0" />
-            <element signature="method#GetData#0;class#CSRMatrix#0" />
-            <element signature="method#SetRow#0;class#CSRMatrix#0" />
-            <element signature="method#SetEntry#0;class#CSRMatrix#0" />
-            <element signature="e#1825#1841#0" />
-            <element signature="e#1981#2003#0" />
-            <element signature="method#SetData#0;class#CSRMatrix#0" />
-            <element signature="method#CSRMatrix#1;class#CSRMatrix#0" />
-            <element signature="method#Print#0;class#CSRMatrix#0" />
-            <element signature="e#4770#4825#0" />
-            <element signature="e#5466#5550#0" />
-            <element signature="method#PrintData#0;class#CSRMatrix#0" />
-            <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
-            <element signature="e#7092#7147#0" />
-            <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
-            <element signature="e#8761#8805#0" />
-            <element signature="method#TimeVector#0;class#CSRMatrix#0" />
-            <element signature="method#TimeMatrix#0;class#CSRMatrix#0" />
-            <element signature="e#11288#11371#0" />
-            <element signature="e#12089#12149#0" />
-            <element signature="e#14358#14441#0" />
-            <element signature="e#15159#15219#0" />
-            <element signature="e#15662#15724#0" />
-            <element signature="method#TimeMatrix#1;class#CSRMatrix#0" />
-            <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
-            <element signature="e#19432#19462#0" />
-            <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
           </folding>
         </state>
       </provider>
