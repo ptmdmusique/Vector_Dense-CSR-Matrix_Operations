@@ -110,10 +110,6 @@ class CSRMatrix {
         for(String row : rows){
             //Find the number of non zero
             for(String number: row.split(WHITESPACE)){
-                if (number.equals("") || number.equals(WHITESPACE)){
-                    continue;
-                }
-                number = number.replaceAll("\\s+","");
                 if (!number.equals("0")){
                     nnz++;
                 }
@@ -132,9 +128,6 @@ class CSRMatrix {
                 int curCol = 0;
                 row[curRow] = totalCol;
                 for(String number : rows[curRow++].split(WHITESPACE)){
-                    if (number.equals("") || number.equals(WHITESPACE)){
-                        continue;
-                    }
                     number = number.replaceAll("\\s+","");
                     if (!number.equals("0")){
                         data[totalCol++] = new Data(BigDecimal.valueOf(Double.parseDouble(number)), curCol);
@@ -170,7 +163,7 @@ class CSRMatrix {
             if (rowStartIndx > rowEndIndx){
                 //Empty row, all 0
                 for(int indx = 0; indx < colSize; indx++){
-                    System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f ", 0.0);
+                    System.out.printf("%6.2f ", 0.0);
                 }
             } else {
                 int curIndx = rowStartIndx;
@@ -178,13 +171,13 @@ class CSRMatrix {
                     if (curIndx < data.length && data[curIndx].col == curCol){
                         //If the current column matches the column of the non-zero entries we are looking at
                         //  then move on with the index and print out the corresponding data
-                        System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f ", data[curIndx].data);
+                        System.out.printf("%6.2f ", data[curIndx].data);
                         if(curIndx < rowEndIndx){
                             curIndx++;
                         }
                     } else {
                         //If not then just print 0
-                        System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f ", 0.0);
+                        System.out.printf("%6.2f ", 0.0);
                     }
                 }
             }
@@ -197,13 +190,10 @@ class CSRMatrix {
             return;
         }
 
-        System.out.printf("%" + Main.MAX_SLOT + "s " + "%" + Main.MAX_SLOT + "s " + "%" + Main.MAX_SLOT + "s\n", "Data", "Col", "Row");
-        //System.out.printf("%6s %6s %6s\n", "Data", "Col", "Row");
+        System.out.printf("%6s %6s %6s\n", "Data", "Col", "Row");
         for(int curRow = 0; curRow < row.length; curRow++){
             for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1); indx++){
-                System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f %" + Main.MAX_SLOT + "d %" + Main.MAX_SLOT + "d\n"
-                        , data[indx].data, data[indx].col, curRow);
-                //System.out.printf("%6.2f %6d %6d\n", data[indx].data, data[indx].col, curRow);
+                System.out.printf("%6.2f %6d %6d\n", data[indx].data, data[indx].col, curRow);
             }
         }
     }
@@ -275,7 +265,7 @@ class CSRMatrix {
         for(int curRow = 0; curRow < row.length; curRow++){
             BigDecimal temp = BigDecimal.ZERO;
             for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
-                temp = temp.add(data[indx].data.multiply(parm.GetEntry(data[indx].col), Main.mathContext), Main.mathContext);
+                temp = temp.add(data[indx].data.multiply(parm.GetEntry(data[indx].col)));
             }
             result.SetEntry(curRow, temp);
         }
@@ -323,7 +313,7 @@ class CSRMatrix {
                         //  if the col of the rowCurCol doesn't match the outer loop,
                         //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data, Main.mathContext), Main.mathContext);
+                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data));
                     }
                 }
                 if (!temp.equals(BigDecimal.ZERO)){
@@ -381,7 +371,7 @@ class CSRMatrix {
                         //  if the col of the rowCurCol doesn't match the outer loop,
                         //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data, Main.mathContext), Main.mathContext);
+                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data));
                     }
                 }
 
@@ -426,7 +416,7 @@ class CSRMatrix {
             for(int curCol = 0; curCol < matrix.GetColSize(); curCol++){
                 BigDecimal temp = BigDecimal.ZERO;
                 for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
-                    temp = temp.add(data[indx].data.multiply(parmData[data[indx].col].GetEntry(curCol)), Main.mathContext);
+                    temp = temp.add(data[indx].data.multiply(parmData[data[indx].col].GetEntry(curCol)));
                 }
                 if (!temp.equals(BigDecimal.ZERO)){
                     nnz++;
@@ -442,7 +432,7 @@ class CSRMatrix {
             for(int curCol = 0; curCol < matrix.GetColSize(); curCol++){
                 BigDecimal temp = BigDecimal.ZERO;
                 for(int indx = row[curRow]; indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)); indx++){
-                    temp = temp.add(data[indx].data.multiply(parmData[data[indx].col].GetEntry(curCol)), Main.mathContext);
+                    temp = temp.add(data[indx].data.multiply(parmData[data[indx].col].GetEntry(curCol)));
                 }
                 if (!temp.equals(BigDecimal.ZERO)){
                     result.data[curDataIndx++] = new Data(temp, curCol);
@@ -454,7 +444,7 @@ class CSRMatrix {
     }
 
     Vector IterationMethod(Vector rightSide){
-        final int STEP_LIMIT = 100;
+        final int STEP_LIMIT = 20;
         final double TOLERANCE = 10e-6;
         final int MAX_SEARCH_DIR = 50;
 
@@ -470,7 +460,7 @@ class CSRMatrix {
         Matrix pMatrix = new Matrix(curSearchDir, 2);
         Matrix bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
 
-        for(int step = 1; step < STEP_LIMIT && norm.compareTo(initialNorm.multiply(BigDecimal.valueOf(TOLERANCE), Main.mathContext)) > 0; step++){
+        for(int step = 1; step < STEP_LIMIT && norm.compareTo(initialNorm.multiply(BigDecimal.valueOf(TOLERANCE))) > 0; step++){
             //|r - bMatrix * alpha| -> min
             //<=> least square(r = bMatrix * alpha)
             //<=> least square(r = QR * alpha)

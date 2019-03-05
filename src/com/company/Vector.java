@@ -1,7 +1,6 @@
 package com.company;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 class Vector {
     //Treat this as neutral matrix, no row or col major
@@ -22,7 +21,7 @@ class Vector {
     BigDecimal GetLength(){
         BigDecimal result = BigDecimal.ZERO;
         for (BigDecimal datum : data) {
-            result = result.add(datum.multiply(datum, Main.mathContext), Main.mathContext);
+            result = result.add(datum.multiply(datum));
         }
         return sqrt(result);
     }
@@ -32,7 +31,7 @@ class Vector {
         while (!x0.equals(x1)) {
             x0 = x1;
             x1 = A.divide(x0, Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
-            x1 = x1.add(x0, Main.mathContext);
+            x1 = x1.add(x0);
             x1 = x1.divide(BigDecimal.valueOf(2), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
 
         }
@@ -46,14 +45,9 @@ class Vector {
     }
     Vector(String data){
         String[] splitData = data.split(Main.WHITESPACE);
-        int length = splitData.length;
-        for (String splitDatum : splitData) {
-            if (splitDatum.equals(""))
-                length--;
-        }
 
-        this.data = new BigDecimal[length];
-        for(int indx = 0; indx < length; indx++){
+        this.data = new BigDecimal[splitData.length];
+        for(int indx = 0; indx < splitData.length; indx++){
             this.data[indx] = BigDecimal.valueOf(Double.parseDouble(splitData[indx]));
         }
     }
@@ -61,7 +55,7 @@ class Vector {
         this.data = new BigDecimal[size];
 
         for(int indx = 0; indx < size; indx++){
-            this.data[indx] = data.setScale(Main.BIGDECIMAL_SCALE, RoundingMode.HALF_UP);
+            this.data[indx] = data.setScale(Main.BIGDECIMAL_SCALE);
         }
     }
     Vector(Vector parm){
@@ -75,7 +69,7 @@ class Vector {
         //Add all entries in the vector with a number
         Vector result = new Vector(this);
         for(int indx = 0; indx < this.data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).add(data, Main.mathContext));
+            result.SetEntry(indx, result.GetEntry(indx).add(data));
         }
         return result;
     }
@@ -87,7 +81,7 @@ class Vector {
         }
         Vector result = new Vector(this);
         for(int indx = 0; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).add(parm.GetEntry(indx), Main.mathContext));
+            result.SetEntry(indx, result.GetEntry(indx).add(parm.GetEntry(indx)));
         }
         return result;
     }
@@ -95,7 +89,7 @@ class Vector {
         //Scale vector with a given value
         Vector result = new Vector(this);
         for(int indx = 0 ; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).multiply(value, Main.mathContext));
+            result.SetEntry(indx, result.GetEntry(indx).multiply(value));
         }
         return result;
     }
@@ -108,7 +102,7 @@ class Vector {
 
         BigDecimal result = BigDecimal.ZERO;
         for(int indx = 0; indx < data.length; indx++){
-            result = result.add(parm.GetEntry(indx).multiply(data[indx], Main.mathContext), Main.mathContext);
+            result = result.add(parm.GetEntry(indx).multiply(data[indx]));
         }
 
         return result;
@@ -145,7 +139,7 @@ class Vector {
     }
 
     void TakeInput(String input){
-        String[] entries = input.split(Main.WHITESPACE);
+        String entries[] = input.split(Main.WHITESPACE);
         for(String entry: entries){
             entry = entry.replaceAll("\\s+","");
         }
@@ -160,7 +154,7 @@ class Vector {
     void Print(){
         System.out.println("Vector: ");
         for(BigDecimal entry : data){
-            System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f ", entry);
+            System.out.printf("%6.2f ", entry);
         }
         System.out.println();
     }
