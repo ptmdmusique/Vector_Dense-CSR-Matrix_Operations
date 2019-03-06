@@ -6,6 +6,10 @@ import java.util.LinkedList;
 class CSRMatrix {
     private static final String WHITESPACE = "\\s+";
 
+    static int STEP_LIMIT = 100;
+    static double TOLERANCE = 10e-6;
+    static int MAX_SEARCH_DIR = 50;
+
     private class Data{
         BigDecimal data;
         int col;
@@ -233,40 +237,26 @@ class CSRMatrix {
     CSRMatrix GetTranspose(){
         CSRMatrix result = new CSRMatrix(colSize, row.length, data.length);
 
-        //Record the index of the data that we are taking a look at in each row
+        //Find the number of element in each rows
         int[] rowCurCol = new int[row.length];
-        for(int curRow = 0; curRow < row.length - 1; curRow++){
+
+        for(int curRow = 0; curRow < rowCurCol.length - 1; curRow++){
             //Either the row is empty or has something in it
             rowCurCol[curRow] = row[curRow] == row[curRow + 1] ?  -1 : row[curRow];
         }
-        //Is last row empty?
         rowCurCol[row.length - 1] = row[row.length - 1] == data.length ? -1 : row[row.length - 1];
 
-        //Every entry with the same col in all rows in A should be in the same row in A^T
-        int curRow = 0;
-        int newTotalCol = 0;
-        for(int curCol = 0; curCol < colSize; curCol++){
-            result.SetRow(curRow++, newTotalCol);
-            int newCol = 0;
-            for(int row = 0; row < this.row.length; row++){
-                if (rowCurCol[row] != -1){
-                    //Not empty or still has something on that row
-                    if (data[rowCurCol[row]].col == curCol){
-                        //We are taking a look at the same column!!!
-                        //  Add to the new list and move on!
-                        result.SetData(newTotalCol++, data[rowCurCol[row]].data, newCol++);
-
-                        //Either we are at the end of the list or we are at the end of the row
-                        rowCurCol[row] = (row >= this.row.length - 1 && rowCurCol[row] + 1 == data.length)
-                                //At the end of the row
-                                || (row < this.row.length - 1 && rowCurCol[row] + 1 == this.row[row + 1])
-                                //Disable or move on to the next index
-                                ? -1 : rowCurCol[row] + 1;
-                    }
+        int filledElement = 0;
+        int parmCurRow = 0;
+        while(filledElement < GetNNZ()){
+            result.row[parmCurRow] = filledElement;
+            for(int curRow = 0; curRow < row.length; curRow++){
+                if (rowCurCol[curRow] > -1 && data[rowCurCol[curRow]].col == parmCurRow){
+                    result.data[filledElement++] = new Data(data[rowCurCol[curRow]++].data, curRow);
                 }
             }
+            parmCurRow++;
         }
-
         return result;
     }
     Vector TimeVector(Vector parm){
@@ -454,10 +444,6 @@ class CSRMatrix {
     }
 
     Vector IterationMethod(Vector rightSide){
-        final int STEP_LIMIT = 100;
-        final double TOLERANCE = 10e-6;
-        final int MAX_SEARCH_DIR = 50;
-
         LinkedList<Vector> searchDirList = new LinkedList<>();
         int searchDirIndx = 0;                                                      //Is it time to restart the search dir yet?
         //Vector solution = new Vector(rightSide);    //Create an initial vector
