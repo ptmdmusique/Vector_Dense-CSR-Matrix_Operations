@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 //FOR PRINTING:
-// %~~ Means for general purpose
+// \n%~~ Means for general purpose
 // ~! For debugging purpose
 public class Main {
     //NOTE: LOW BIGDECIMAL_SCALE CAN LEADS TO 0 AS ROUNDING RESULT!!!
@@ -21,14 +21,14 @@ public class Main {
 
     static int ENTRY_MAX_SLOT = 5;                                              //Max slot of column and row value
     static int DATA_MAX_SLOT = 30;                                              //For CSRMatrix.PrintData() only
-    private static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0 2";
+    private static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0 0";
     private static String testInputVector1 = "4 5 3 1";
     private static String testInput2 = "1 1 0\n1 0 1\n0 1 1";
     private static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
+    private static String testInput4 = "2 3 1 4\n1 2 9 0\n0 0 2 0";
     private static String iterationInput = "2 4 2 5\n5 4 1 10\n9 7 5 1\n22 48 15 1";
     private static String bIterationInput = "9 50 3 2";
 
-    private static String outFileName = "out";
     static String iterationOutputFileName = "iterationOut";
     private static String extension = ".txt";
 
@@ -38,10 +38,11 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         //Set output stream
-        PrintStream fileOut = new PrintStream("./" + outFileName + extension);
+        PrintStream fileOut = new PrintStream("./preTask" + extension);
         System.setOut(fileOut);
 
         //Test pre-task
+        //CSR x Vector
         CSRMatrix csrMatrix = new CSRMatrix(testInput);
         Matrix matrix = new Matrix(testInput);
         Vector vector = new Vector(testInputVector1);
@@ -50,41 +51,57 @@ public class Main {
         Print(vector, "Vector 1");
         Print(csrMatrix.TimeVector(vector), "CSR 1 x Vector 1");
         Print(matrix.TimeVector(vector), "Matrix 1 x Vector 1");
-
+        //CSR^T x Vector
         Print(csrMatrix.GetTranspose(), "CSR 1^T");
         Print(matrix.GetTranspose(), "Matrix 1^T");
-//        Print(csrMatrix.GetTranspose().TimeVector(vector), "CSR^T 1 x Vector 1");
-//        Print(matrix.GetTranspose().TimeVector(vector), "Matrix^T 1 x Vector 1");
+        Print(csrMatrix.GetTranspose().TimeVector(vector), "CSR^T 1 x Vector 1");
+        Print(matrix.GetTranspose().TimeVector(vector), "Matrix^T 1 x Vector 1");
+
+        //CSR x CSR
+        CSRMatrix csrMatrix2 = new CSRMatrix(testInput2);
+        CSRMatrix csrMatrix3 = new CSRMatrix(testInput3);
+        Matrix matrix2 = new Matrix(testInput2);
+        Matrix matrix3 = new Matrix(testInput3);
+        Print(csrMatrix2, "CSR 2");
+        Print(csrMatrix3, "CSR 3");
+        Print(matrix2, "Matrix 2");
+        Print(matrix3, "Matrix 3");
+        Print(csrMatrix2.TimeMatrix(csrMatrix3), "CSR 2 x CSR 2");
+        Print(matrix2.TimeRightMatrix(matrix3), "Matrix 2 x Matrix 3");
+
+        //Task 1
+        CSRMatrix csrMatrix4 = new CSRMatrix(testInput4);
+
     }
 
     private static void IsCSRSymmetric(CSRMatrix parm, String name){
         if (CSRMatrix.IsSymmetric(parm)){
-            System.out.println("%~~" + name + " is symmetric!");
+            System.out.println("\n%~~" + name + " is symmetric!");
         } else {
-            System.out.println("%~~" + name + " is NOT symmetric!");
+            System.out.println("\n%~~" + name + " is NOT symmetric!");
         }
     }
     private static void Print(CSRMatrix parm, String name){
-        System.out.println("%~~" + name);
+        System.out.println("\n%~~" + name);
         parm.Print();
     }
     private static void PrintData(CSRMatrix parm, String name){
-        System.out.println("%~!" + name + " data:");
+        System.out.println("\n%~!" + name + " data:");
         parm.PrintData();
     }
     private static void Print(Vector parm, String name){
-        System.out.println("%~~" + name);
+        System.out.println("\n%~~" + name);
         parm.Print();
     }
     private static void Print(Matrix parm, String name){
-        System.out.println("%~~" + name);
+        System.out.println("\n%~~" + name);
         parm.Print();
     }
     private static void Print(LinkedList<Matrix> matrices, String name){
         if (matrices.size() <= 0){
-            System.out.println("%~~Empty list!!!");
+            System.out.println("\n%~~Empty list!!!");
         }
-        System.out.println("%~~" + name);
+        System.out.println("\n%~~" + name);
         for(Matrix matrix : matrices){
             matrix.Print();
         }
@@ -145,7 +162,7 @@ public class Main {
         }
     }
     private static void Print(int[] arr){
-        System.out.println("%%~~Arr: ");
+        System.out.println("%\n%~~Arr: ");
         for(int entry: arr){
             System.out.print(entry + " ");
         }

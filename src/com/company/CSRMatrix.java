@@ -26,7 +26,7 @@ class CSRMatrix {
     private int[] row;              //Start column of each row
     private int colSize = 0;
 
-    int GetNNZ(){
+    private int GetNNZ(){
         return data == null ? 0 : data.length;
     }
     private int GetRowSize(){
@@ -248,10 +248,25 @@ class CSRMatrix {
 
         int filledElement = 0;
         int parmCurRow = 0;
+
+        //Repeat until the transpose has the same nnz
         while(filledElement < GetNNZ()){
+            //Mark the beginning of this trip as the parm's current row's start
             result.row[parmCurRow] = filledElement;
+
+            //Iterate through each row, if the element has the same column as the row we are checking then add it
+            /*Ex:
+                Row:    0 0 0 0 | 1 1 1 1 | 2 2 2 2
+                Data:   1 2 3 4 | 4 2 1 3 | 7 1 2 3
+                Col:    1 2 3 5 | 4 2 1 3 | 4 5 6 7
+
+                Since we need to fill out the parm.data with the data that have the column in increasing order
+                   (meaning parm.data[i].col > parm.data[i-1].col if their row are the same),
+                   if we iterate from row (which will become parm.data.col) 0 to row.length - 1 of this.data,
+                   we will be able to satisfy the condition of the increasing order
+             */
             for(int curRow = 0; curRow < row.length; curRow++){
-                if (rowCurCol[curRow] > -1 && data[rowCurCol[curRow]].col == parmCurRow){
+                if (rowCurCol[curRow] < data.length&& rowCurCol[curRow] > -1  && data[rowCurCol[curRow]].col == parmCurRow){
                     result.data[filledElement++] = new Data(data[rowCurCol[curRow]++].data, curRow);
                 }
             }
@@ -273,6 +288,7 @@ class CSRMatrix {
     }
     CSRMatrix TimeMatrix(CSRMatrix matrix){
         if (matrix.GetRowSize() != colSize){
+            System.out.println("Different size!");
             return null;
         }
         int[] rowCurCol = new int[colSize];
@@ -443,12 +459,16 @@ class CSRMatrix {
         return result;
     }
 
-    Vector IterationMethod(Vector rightSide){
+    Vector IterationMethod(Vector rightSide, LinkedList<Vector> residualList){
         LinkedList<Vector> searchDirList = new LinkedList<>();
         int searchDirIndx = 0;                                                      //Is it time to restart the search dir yet?
         //Vector solution = new Vector(rightSide);    //Create an initial vector
         Vector solution = new Vector(rightSide.GetSize(), BigDecimal.ZERO);
         Vector residual = rightSide.Add(this.TimeVector(solution.Scale(BigDecimal.valueOf(-1))));       //Calculate the first residue
+        if (residualList != null){
+            residualList.add(residual);
+        }
+
         BigDecimal norm = residual.GetLength();                                         //Calculate the norm
         BigDecimal initialNorm = norm;
         Vector curSearchDir;
@@ -474,6 +494,9 @@ class CSRMatrix {
             solution = solution.Add(pMatrix.TimeVector(alpha));
             //Calculate next residual
             residual = residual.Add(bMatrix.TimeVector(alpha).Scale(BigDecimal.valueOf(-1)));
+            if (residualList != null){
+                residualList.add(residual);
+            }
             //Calculate residual norm
             norm = residual.GetLength();
 
