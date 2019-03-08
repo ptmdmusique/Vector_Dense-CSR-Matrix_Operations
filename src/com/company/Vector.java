@@ -131,6 +131,7 @@ class Vector {
         }
         return result;
     }
+
     Vector Normalize(){
         return new Vector(this.Scale(BigDecimal.ONE.divide(GetLength(), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP)));
     }
@@ -142,6 +143,21 @@ class Vector {
         for(int indx = 0; indx < GetSize(); indx++){
             data[indx] = parm.GetEntry(indx);
         }
+    }
+    boolean Equal(Vector parm){
+        if (GetSize() != parm.GetSize()){
+            return false;
+        }
+
+        for(int indx = 0; indx < data.length; indx++){
+            //Set scale so that 0 is equal 0.00000 ...
+            if (!data[indx].setScale(Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP)
+                    .equals(parm.data[indx].setScale(Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP))){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     void TakeInput(String input){

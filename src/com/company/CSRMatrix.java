@@ -56,7 +56,7 @@ class CSRMatrix {
             if (!value.equals(BigDecimal.ZERO)){
                 //We are fine...
                 for (int i = this.row[row];
-                     i < (row == this.row.length - 1 ? data.length - 1 : (this.row[row + 1] - 1));
+                     i <= (row == this.row.length - 1 ? data.length - 1 : (this.row[row + 1] - 1));
                      i++) {
                     if (data[i].col == col){
                         data[i].data = value;
@@ -266,8 +266,15 @@ class CSRMatrix {
                    we will be able to satisfy the condition of the increasing order
              */
             for(int curRow = 0; curRow < row.length; curRow++){
-                if (rowCurCol[curRow] < data.length&& rowCurCol[curRow] > -1  && data[rowCurCol[curRow]].col == parmCurRow){
-                    result.data[filledElement++] = new Data(data[rowCurCol[curRow]++].data, curRow);
+                if (rowCurCol[curRow] < data.length && rowCurCol[curRow] > -1  && data[rowCurCol[curRow]].col == parmCurRow){
+                    result.data[filledElement++] = new Data(data[rowCurCol[curRow]].data, curRow);
+                    if ((curRow == row.length - 1 && rowCurCol[curRow] == row.length - 1) || (curRow < row.length - 1 && rowCurCol[curRow] >= rowCurCol[curRow + 1] - 1)){
+                        //Only do this if we haven't reached the boundary
+                        rowCurCol[curRow] = -1;
+                    } else {
+                        //Else just disable the check
+                        rowCurCol[curRow]++;
+                    }
                 }
             }
             parmCurRow++;
@@ -296,7 +303,9 @@ class CSRMatrix {
         Data[] parmData = matrix.GetData();
         int[] resultRow = new int[row.length];  //This will be used as the row arr of the result matrix
 
-        //rowCurCol is used to keep track of the current col that we are reading
+        //rowCurCol is used to keep track of the current col that we are reading on each row
+        //  so that we won't have to search for the correct element each time we move on to the next row every single time
+        //Additional space complexity: O(rowSize) which is very insignificant comparing to the total number of elements.
         for(int curRow = 0; curRow < parmRow.length - 1; curRow++){
             //Either the row is empty (-1) or has something in it (which we will store the start index)
             rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
@@ -308,7 +317,13 @@ class CSRMatrix {
             resultRow[curRow] = 0;
         }
 
-        int nnz = 0;
+        int totalSize = 0;
+        LinkedList<Data>[] tempResult = new LinkedList[row.length];     //Temporarily store the data here
+        for(int indx = 0; indx < row.length; indx++){
+            tempResult[indx] = new LinkedList<>();
+        }
+        //I will use naive multiplication here
+        //  rowA * colB until the very end
 
         //Since accessing row-wise is much easier, we will put it in the inner loop
         for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
@@ -319,7 +334,7 @@ class CSRMatrix {
                 // we will use rowCurCol[data[k].col] to look aside the current element in parm
                 //Moreover, because we use the outer loop to iterate the parmCol,
                 // if parmCol != parmData[rowCurCol[data[k].col]].col
-                //  then parm[data[k].col][parmCol] == 0
+                //  then it means parm[data[k].col][parmCol] == 0. Thus, we don't need to count it in the actual calculation
                 for(int k = row[curRow];
                     k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
                     k++){
@@ -333,11 +348,9 @@ class CSRMatrix {
                     }
                 }
                 if (!temp.equals(BigDecimal.ZERO)){
-                    nnz++;
-                    //And update the row array of the result matrix
-                    for(int indx = curRow + 1; indx < row.length; indx++){
-                        resultRow[indx]++;
-                    }
+                    //If the calculation is not 0, then we can simply add it to the list
+                    tempResult[curRow].add(new Data(temp, parmCol));
+                    totalSize++;
                 }
             }
 
@@ -354,70 +367,26 @@ class CSRMatrix {
             }
         }
 
+        //Create new matrix
         //CSRMatrix result = new CSRMatrix(row.length, matrix.GetColSize(),nnz);
         CSRMatrix result = new CSRMatrix();
         result.row = resultRow;
         result.colSize = matrix.GetColSize();
-        result.data = new Data[nnz];
+        result.data = new Data[totalSize];
 
-        //Reset!
-        for(int curRow = 0; curRow < parmRow.length - 1; curRow++){
-            //Either the row is empty (-1) or has something in it (which we will store the start index)
-            rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
-        }
-        //Is last row empty?
-        rowCurCol[parmRow.length - 1] = parmRow[parmRow.length - 1] == parmData.length ? -1 : parmRow[parmRow.length - 1];
+        //Copy the result from the temp linked list to the new matrix
+            //Since our array is a an array of pointer to data, even though the data will be scattered in the memory
+            // we won't use any additional memory. Thus, this will make sure that the total data used is O(nnz)
+            //However, this still ensure that the access is O(1)
+        int curIndx = 0;
+        for(int indx = 0; indx < tempResult.length; indx++){
+            resultRow[indx] = curIndx;
 
-        //Since accessing row-wise is much easier, we will put it in the inner loop
-        for(int parmCol = 0; parmCol < matrix.GetColSize(); parmCol++){
-            for(int curRow = 0; curRow < row.length; curRow++){
-                BigDecimal temp = BigDecimal.ZERO;
-                //k will go from the index of the first element in the current row to the end index
-                //  then data[k].col will be used as the row of parmData and
-                // we will use rowCurCol[data[k].col] to look aside the current element in parm
-                //Moreover, because we use the outer loop to iterate the parmCol,
-                // if parmCol != parmData[rowCurCol[data[k].col]].col
-                //  then parm[data[k].col][parmCol] == 0
-                for(int k = row[curRow];
-                    k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
-                    k++){
-                    //Only multiply non zero!
-                    if (rowCurCol[data[k].col] > -1 && parmData[rowCurCol[data[k].col]].col == parmCol){
-                        //Since we iterate the parmCol in the outer loop one by one,
-                        //  if the col of the rowCurCol doesn't match the outer loop,
-                        //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
-                        //Thus, we don't need to include it in our calculation
-                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data, Main.mathContext), Main.mathContext);
-                    }
-                }
-
-                if (!temp.equals(BigDecimal.ZERO)){
-                    //Since we go from left to right (low parmCol to high parmCol)
-                    //  we only need to find a spot where it is empty to put the new entry in
-                    for(int k = resultRow[curRow];
-                        k <= (curRow == resultRow.length - 1 ? result.data.length - 1 : resultRow[curRow + 1] - 1);
-                        k++){
-                        if (result.data[k] == null){
-                            result.data[k] = new Data(temp, parmCol);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            //Increase the curCol
-            for(int indx = 0; indx < rowCurCol.length; indx++){
-                if (rowCurCol[indx] > -1 && parmCol == parmData[rowCurCol[indx]].col){
-                    if ((indx >= parmRow.length - 1 && rowCurCol[indx] + 1 == parmData.length)
-                            || (indx < parmRow.length - 1 && rowCurCol[indx] + 1 == parmRow[indx + 1])){
-                        rowCurCol[indx] = -1;
-                    } else {
-                        rowCurCol[indx]++;
-                    }
-                }
+            int rowSize = tempResult[indx].size();
+            for(int indx2 = 0; indx2 < rowSize; indx2++){
+                result.data[curIndx++] = tempResult[indx].removeFirst();
             }
         }
-
         return result;
     }
     CSRMatrix TimeMatrix(Matrix matrix){
@@ -529,6 +498,47 @@ class CSRMatrix {
         return solution;
     }
 
+    Boolean Equal(Matrix parm){
+        if (parm.GetColSize() != colSize || parm.GetRowSize() != GetRowSize()){
+            return false;
+        }
+
+        //Check one by one
+        int curIndx = 0;
+        for(int curRow = 0; curRow < GetRowSize(); curRow++){
+            for(int curCol = 0; curCol < colSize; curCol++){
+                if (curCol == data[curIndx].col){
+                    if (!parm.GetEntry(curRow, curCol).equals(data[curIndx].data)){
+                        return false;
+                    } else{
+                        curIndx++;
+                    }
+                } else if (!parm.GetEntry(curRow, curCol).equals(BigDecimal.ZERO)){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+    Boolean Equal(CSRMatrix parm){
+        if (parm.GetColSize() != colSize || parm.GetRowSize() != GetRowSize()){
+            return false;
+        }
+
+        for(int indx = 0; indx < GetRowSize(); indx++){
+            if (parm.row[indx] != row[indx]){
+                return false;
+            }
+        }
+
+        for(int indx = 0; indx < colSize; indx++){
+            if (parm.data[indx].col != data[indx].col || !parm.data[indx].data.equals(data[indx].data)){
+                return false;
+            }
+        }
+        return true;
+    }
     static boolean IsSymmetric(CSRMatrix parm){
         if (parm.GetRowSize() != parm.GetColSize()){
             //Not a square matrix!

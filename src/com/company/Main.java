@@ -1,5 +1,7 @@
 package com.company;
 
+import javafx.concurrent.Task;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -23,8 +25,8 @@ public class Main {
     static int DATA_MAX_SLOT = 30;                                              //For CSRMatrix.PrintData() only
     private static String testInput = "1 2 0 3\n0 5 6 4\n7 0 9 6\n0 0 0 0";
     private static String testInputVector1 = "4 5 3 1";
-    private static String testInput2 = "1 1 0\n1 0 1\n0 1 1";
-    private static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0";
+    private static String testInput2 = "1 1 0 4\n1 0 1 5\n0 1 11 9";
+    private static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0\n1 2 5 99";
     private static String testInput4 = "2 3 1 4\n1 2 9 0\n0 0 2 0";
     private static String iterationInput = "2 4 2 5\n5 4 1 10\n9 7 5 1\n22 48 15 1";
     private static String bIterationInput = "9 50 3 2";
@@ -42,35 +44,12 @@ public class Main {
         System.setOut(fileOut);
 
         //Test pre-task
-        //CSR x Vector
-        CSRMatrix csrMatrix = new CSRMatrix(testInput);
-        Matrix matrix = new Matrix(testInput);
-        Vector vector = new Vector(testInputVector1);
-        Print(csrMatrix, "CSR Matrix 1");
-        Print(matrix, "Matrix 1");
-        Print(vector, "Vector 1");
-        Print(csrMatrix.TimeVector(vector), "CSR 1 x Vector 1");
-        Print(matrix.TimeVector(vector), "Matrix 1 x Vector 1");
-        //CSR^T x Vector
-        Print(csrMatrix.GetTranspose(), "CSR 1^T");
-        Print(matrix.GetTranspose(), "Matrix 1^T");
-        Print(csrMatrix.GetTranspose().TimeVector(vector), "CSR^T 1 x Vector 1");
-        Print(matrix.GetTranspose().TimeVector(vector), "Matrix^T 1 x Vector 1");
-
-        //CSR x CSR
-        CSRMatrix csrMatrix2 = new CSRMatrix(testInput2);
-        CSRMatrix csrMatrix3 = new CSRMatrix(testInput3);
-        Matrix matrix2 = new Matrix(testInput2);
-        Matrix matrix3 = new Matrix(testInput3);
-        Print(csrMatrix2, "CSR 2");
-        Print(csrMatrix3, "CSR 3");
-        Print(matrix2, "Matrix 2");
-        Print(matrix3, "Matrix 3");
-        Print(csrMatrix2.TimeMatrix(csrMatrix3), "CSR 2 x CSR 2");
-        Print(matrix2.TimeRightMatrix(matrix3), "Matrix 2 x Matrix 3");
+        System.out.println("%``````````````Pretask``````````````%");
+        CheckCSRTimeVector(testInput, testInputVector1);
+        CheckCSRMultiplication(testInput2, testInput3);
 
         //Task 1
-        CSRMatrix csrMatrix4 = new CSRMatrix(testInput4);
+        Task1();
 
     }
 
@@ -105,6 +84,107 @@ public class Main {
         for(Matrix matrix : matrices){
             matrix.Print();
         }
+    }
+
+    //Pretask
+    private static void CheckCSRMultiplication(String input1, String input2){
+        System.out.println("%~~~~~~~~~~~~~~~~~~CSR Multiplication~~~~~~~~~~~~~~~~~~%");
+        //CSR x CSR
+        CSRMatrix csrMatrix2 = new CSRMatrix(input1);
+        CSRMatrix csrMatrix3 = new CSRMatrix(input2);
+        Matrix matrix2 = new Matrix(input1);
+        Matrix matrix3 = new Matrix(input2);
+        Print(csrMatrix2, "CSR 1");
+        Print(csrMatrix3, "CSR 2");
+        Print(matrix2, "Matrix 1");
+        Print(matrix3, "Matrix 2");
+
+        CSRMatrix result1 = csrMatrix2.TimeMatrix(csrMatrix3);
+        Matrix result2 = matrix2.TimeRightMatrix(matrix3);
+        Print(result1, "CSR 1 x CSR 2");
+        Print(result2, "Matrix 1 x Matrix 2");
+
+        System.out.println();
+        if (result1.Equal(result2)){
+            System.out.println("%Test Passed!!!");
+        } else {
+            System.out.println("%Test failed!!!");
+        }
+
+        System.out.println("%~~~~~~~~~~~~~~~~~~CSR Multiplication~~~~~~~~~~~~~~~~~~%");
+        System.out.println();
+    }
+    private static void CheckCSRTimeVector(String input1, String input2){
+        System.out.println("%~~~~~~~~~~~~~~~~~~CSR and Transpose Time Vector~~~~~~~~~~~~~~~~~~%");
+        //CSR x Vector
+        CSRMatrix csrMatrix = new CSRMatrix(input1);
+        Matrix matrix = new Matrix(input1);
+        Vector vector = new Vector(input2);
+        Print(csrMatrix, "CSR Matrix 1");
+        Print(matrix, "Matrix 1");
+        Print(vector, "Vector 1");
+
+        Vector result1 = csrMatrix.TimeVector(vector);
+        Vector result2 = matrix.TimeVector(vector);
+        Print(result1, "CSR 1 x Vector 1");
+        Print(result2, "Matrix 1 x Vector 1");
+        System.out.println();
+        if (result1.Equal(result2)){
+            System.out.println("%CSR x Vector Test Passed!!!");
+        } else {
+            System.out.println("%CSR x Vector Test failed!!!");
+        }
+
+        //CSR^T x Vector
+        Print(csrMatrix.GetTranspose(), "CSR 1^T");
+        Print(matrix.GetTranspose(), "Matrix 1^T");
+
+        Vector result3 = csrMatrix.GetTranspose().TimeVector(vector);
+        Vector result4 = matrix.GetTranspose().TimeVector(vector);
+        Print(result3, "CSR^T 1 x Vector 1");
+        Print(result4, "Matrix^T 1 x Vector 1");
+        System.out.println();
+        if (result3.Equal(result4)){
+            System.out.println("%CSR^T x Vector Test Passed!!!");
+        } else {
+            System.out.println("%CSR^T x Vector Test failed!!!");
+        }
+
+        System.out.println("%~~~~~~~~~~~~~~~~~~CSR and Transpose Time Vector~~~~~~~~~~~~~~~~~~%");
+        System.out.println();
+    }
+    //Task 1
+    private static void Task1(){
+        System.out.println("%~~~~~~~~~~~~~~~~~~Task 1~~~~~~~~~~~~~~~~~~%");
+
+        String testInput = "1 0 0\n0 1 0\n0 0 1";
+        CSRMatrix matrix1 = new CSRMatrix(testInput);
+        CSRMatrix transpose1 = matrix1.GetTranspose();
+        Print(matrix1, "CSR Matrix 1");
+        Print(transpose1, "CSR Transpose 1");
+
+        System.out.println("%This matrix x matrix^T should be symmetric...");
+        if (CSRMatrix.IsSymmetric(matrix1.TimeMatrix(transpose1))){
+            System.out.println("%Matrix x Matrix^T is Symmetric! Test Passed!!!");
+        } else {
+            System.out.println("%Matrix x Matrix^T is not Symmetric! Test failed!!!");
+        }
+
+        String testInput2 = "55 16 97\n16 5213 24\n97 24 210\n0 91 2";
+        CSRMatrix matrix2 = new CSRMatrix(testInput2);
+        CSRMatrix transpose2 = matrix2.GetTranspose();
+        Print(matrix2, "CSR Matrix 2");
+        Print(transpose2, "CSR Transpose 2");
+
+
+        System.out.println("%This matrix x matrix^T should NOT be symmetric...");
+        if (!CSRMatrix.IsSymmetric(matrix2.TimeMatrix(transpose2))){
+            System.out.println("%Matrix x Matrix^T is not Symmetric! Test Passed!!!");
+        } else {
+            System.out.println("%Matrix x Matrix^T is Symmetric! Test Failed!!!");
+        }
+        System.out.println("%~~~~~~~~~~~~~~~~~~Task 1~~~~~~~~~~~~~~~~~~%");
+        System.out.println();
     }
 
     static int NumberOfPermutation(int spot, int numberOfChoice){

@@ -15,13 +15,13 @@ class Matrix {
     Vector[] GetMatrix() {
         return this.matrix;
     }
-    private BigDecimal GetEntry(int row, int col){
+    BigDecimal GetEntry(int row, int col){
         return matrix[row].GetEntry(col);
     }
     void SetEntry(int row, int col, BigDecimal value){
         matrix[row].SetEntry(col, value);
     }
-    private Vector GetRow(int row){
+    Vector GetRow(int row){
         return matrix[row];
     }
     void SetRow(int rowNumber, Vector row){
