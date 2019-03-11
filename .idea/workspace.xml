@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="81f56a78-739d-46db-87a2-96d5feeaf736" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MTH 343.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MTH 343.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e05r0000.mtx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e05r0000.mtx.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e05r0000_rhs1.mtx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e05r0000_rhs1.mtx.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e05r0100.mtx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e05r0100.mtx.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preTask.txt" beforeDir="false" afterPath="$PROJECT_DIR$/preTask.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Matrix.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,10 +17,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+            <state relative-caret-position="171">
+              <caret line="215" column="78" selection-start-line="215" selection-start-column="78" selection-end-line="215" selection-end-column="78" />
               <folding>
                 <element signature="n#!!doc;n#Main#0" />
+                <element signature="class#SolutionOutput#0;class#Main#0" />
                 <element signature="method#main#0;class#Main#0" />
                 <element signature="method#IsCSRSymmetric#0;class#Main#0" />
                 <element signature="e#2879#2957#1" />
@@ -263,7 +254,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/Hoc/PSU/MTH 343/src/com/company/Vector.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552280070892" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552284025323" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/gson-2.8.5.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -330,7 +321,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.26523477" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -342,7 +332,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41348088" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41348088" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40204272" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -485,10 +475,11 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/math/BigDecimal.java" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+        <state relative-caret-position="171">
+          <caret line="215" column="78" selection-start-line="215" selection-start-column="78" selection-end-line="215" selection-end-column="78" />
           <folding>
             <element signature="n#!!doc;n#Main#0" />
+            <element signature="class#SolutionOutput#0;class#Main#0" />
             <element signature="method#main#0;class#Main#0" />
             <element signature="method#IsCSRSymmetric#0;class#Main#0" />
             <element signature="e#2879#2957#1" />

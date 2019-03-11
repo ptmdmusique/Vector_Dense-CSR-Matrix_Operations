@@ -1,0 +1,3 @@
+E:\Hoc\PSU\MTH 343\NodeJS\obj\Debug\SolutionGraph.njsprojAssemblyReference.cache
+E:\Hoc\PSU\MTH 343\NodeJS\obj\Debug\SolutionGraph.njsproj.CoreCompileInputs.cache
+E:\Hoc\PSU\MTH 343\NodeJS\bin\Microsoft.NodejsTools.WebRole.dll

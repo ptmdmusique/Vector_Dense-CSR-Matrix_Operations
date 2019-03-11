@@ -39,7 +39,8 @@ public class Main {
     static String inputPath = ".\\bigMatrices\\";
     static String outputPath = ".\\solutionOutput\\";
     static String solutionOutName = "solutionOut";
-    private static String extension = ".txt";
+    private static String textExtension = ".txt";
+    private static String jsonExtension = ".json";
     private static PrintStream stdout = System.out;
     private static PrintStream fileOut;
     private static Gson gson = new Gson();
@@ -49,7 +50,7 @@ public class Main {
         BigDecimal error;
         LinkedList<BigDecimal> residualLength;
 
-        public SolutionOutput(BigDecimal error, Long runTime, int maxStep, LinkedList<BigDecimal> residualLength) {
+        SolutionOutput(BigDecimal error, Long runTime, int maxStep, LinkedList<BigDecimal> residualLength) {
             this.error = error;
             this.runTime = runTime;
             this.maxStep = maxStep;
@@ -62,7 +63,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         //Set output stream
-        fileOut = new PrintStream("./preTask" + extension);
+        fileOut = new PrintStream("./preTask" + textExtension);
         System.setOut(fileOut);
 
         //Test pre-task
@@ -212,9 +213,10 @@ public class Main {
     }
     private static void Task2() throws FileNotFoundException {
         //Set up new output stream
-        System.setOut(stdout);
+        fileOut = new PrintStream(outputPath + solutionOutName + jsonExtension);
+        System.setOut(fileOut);
 
-        System.out.println("%``````````````Task 1``````````````%");
+        System.out.println("%``````````````Task 2``````````````%");
 
         String csrFromFile1 = ReadCSRFromFile(inputPath + "e05r0000.mtx");
         String rhsFromFile1 = ReadVectorFromFile(inputPath + "e05r0000_rhs1.mtx");
@@ -257,7 +259,7 @@ public class Main {
 //            System.out.println();
         }
 
-        System.out.println("%``````````````Task 1``````````````%");
+        System.out.println("%``````````````Task 2``````````````%");
         System.out.println();
     }
 
