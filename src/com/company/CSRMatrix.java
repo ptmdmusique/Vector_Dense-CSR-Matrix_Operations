@@ -8,7 +8,8 @@ class CSRMatrix {
 
     static int STEP_LIMIT = 100;
     static double TOLERANCE = 10e-6;
-    static int MAX_SEARCH_DIR = 50;
+    static int MAX_SEARCH_DIR = 150;
+    static LinkedList<BigDecimal> residualLengthList;
 
     private class Data{
         BigDecimal data;
@@ -238,13 +239,13 @@ class CSRMatrix {
         CSRMatrix result = new CSRMatrix(colSize, row.length, data.length);
 
         //Find the number of element in each rows
-        int[] rowCurCol = new int[row.length];
+        int[] rowCurIndx = new int[row.length];
 
-        for(int curRow = 0; curRow < rowCurCol.length - 1; curRow++){
+        for(int curRow = 0; curRow < rowCurIndx.length - 1; curRow++){
             //Either the row is empty or has something in it
-            rowCurCol[curRow] = row[curRow] == row[curRow + 1] ?  -1 : row[curRow];
+            rowCurIndx[curRow] = row[curRow] == row[curRow + 1] ?  -1 : row[curRow];
         }
-        rowCurCol[row.length - 1] = row[row.length - 1] == data.length ? -1 : row[row.length - 1];
+        rowCurIndx[row.length - 1] = row[row.length - 1] == data.length ? -1 : row[row.length - 1];
 
         int filledElement = 0;
         int parmCurRow = 0;
@@ -266,14 +267,14 @@ class CSRMatrix {
                    we will be able to satisfy the condition of the increasing order
              */
             for(int curRow = 0; curRow < row.length; curRow++){
-                if (rowCurCol[curRow] < data.length && rowCurCol[curRow] > -1  && data[rowCurCol[curRow]].col == parmCurRow){
-                    result.data[filledElement++] = new Data(data[rowCurCol[curRow]].data, curRow);
-                    if ((curRow == row.length - 1 && rowCurCol[curRow] == row.length - 1) || (curRow < row.length - 1 && rowCurCol[curRow] >= rowCurCol[curRow + 1] - 1)){
+                if (rowCurIndx[curRow] < data.length && rowCurIndx[curRow] > -1  && data[rowCurIndx[curRow]].col == parmCurRow){
+                    result.data[filledElement++] = new Data(data[rowCurIndx[curRow]].data, curRow);
+                    if ((curRow == row.length - 1 && rowCurIndx[curRow] == row.length - 1) || (curRow < row.length - 1 && rowCurIndx[curRow] >= row[curRow + 1] - 1)){
                         //Only do this if we haven't reached the boundary
-                        rowCurCol[curRow] = -1;
+                        rowCurIndx[curRow] = -1;
                     } else {
                         //Else just disable the check
-                        rowCurCol[curRow]++;
+                        rowCurIndx[curRow]++;
                     }
                 }
             }
@@ -428,17 +429,19 @@ class CSRMatrix {
         return result;
     }
 
-    Vector IterationMethod(Vector rightSide, LinkedList<Vector> residualList){
+    Vector IterationMethod(Vector rightSide){
         LinkedList<Vector> searchDirList = new LinkedList<>();
         int searchDirIndx = 0;                                                      //Is it time to restart the search dir yet?
         //Vector solution = new Vector(rightSide);    //Create an initial vector
         Vector solution = new Vector(rightSide.GetSize(), BigDecimal.ZERO);
         Vector residual = rightSide.Add(this.TimeVector(solution.Scale(BigDecimal.valueOf(-1))));       //Calculate the first residue
-        if (residualList != null){
-            residualList.add(residual);
-        }
 
         BigDecimal norm = residual.GetLength();                                         //Calculate the norm
+
+        //For stat only
+        residualLengthList = new LinkedList<>();
+        residualLengthList.add(norm);
+
         BigDecimal initialNorm = norm;
         Vector curSearchDir;
         searchDirList.add(curSearchDir = new Vector(residual.Normalize()));                        //Calculate the initial search direction
@@ -463,11 +466,16 @@ class CSRMatrix {
             solution = solution.Add(pMatrix.TimeVector(alpha));
             //Calculate next residual
             residual = residual.Add(bMatrix.TimeVector(alpha).Scale(BigDecimal.valueOf(-1)));
-            if (residualList != null){
-                residualList.add(residual);
-            }
             //Calculate residual norm
-            norm = residual.GetLength();
+            BigDecimal tempNorm = residual.GetLength();
+            if (tempNorm.equals(norm)){
+                //No solution
+                return null;
+            }
+            norm = tempNorm;
+
+            //For stat only!
+            residualLengthList.add(norm);
 
             //Calculate next search dir less than max, or else move back to the first one
             if (searchDirIndx  < MAX_SEARCH_DIR){

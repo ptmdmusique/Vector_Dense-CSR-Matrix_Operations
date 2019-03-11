@@ -1,10 +1,11 @@
 package com.company;
 
-import javafx.concurrent.Task;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -12,9 +13,12 @@ import java.util.Scanner;
 //FOR PRINTING:
 // \n%~~ Means for general purpose
 // ~! For debugging purpose
+//FOR JSON: use GSON: https://github.com/google/gson
 public class Main {
     //NOTE: LOW BIGDECIMAL_SCALE CAN LEADS TO 0 AS ROUNDING RESULT!!!
-    static int BIGDECIMAL_SCALE = 15;                                           //Max decimal used
+    //NOTE: USE HIGHER BIGDECIMAL_SCALE IF RESIDUAL GET BIGGER INSTEAD OF GETTING MINIMIZED
+    //NOTE: Data can be found here: https://math.nist.gov/MatrixMarket/
+    static int BIGDECIMAL_SCALE = 50;                                           //Max decimal used
     static MathContext mathContext = new MathContext(BIGDECIMAL_SCALE);         //Max decimal used in BigDecimal
 
     static final String WHITESPACE = "\\s+";
@@ -28,19 +32,37 @@ public class Main {
     private static String testInput2 = "1 1 0 4\n1 0 1 5\n0 1 11 9";
     private static String testInput3 = "1 0 2 3\n0 3 5 0\n2 5 4 0\n1 2 5 99";
     private static String testInput4 = "2 3 1 4\n1 2 9 0\n0 0 2 0";
-    private static String iterationInput = "2 4 2 5\n5 4 1 10\n9 7 5 1\n22 48 15 1";
-    private static String bIterationInput = "9 50 3 2";
+    private static String iterationInput = "97110 4452 5789 542\n4112 4457 0 112\n0 97213 11778 0\n124 8872 345 781";
+    private static String bIterationInput = "442 0 879 6647";
 
-    static String iterationOutputFileName = "iterationOut";
+    //Outputing
+    static String inputPath = ".\\bigMatrices\\";
+    static String outputPath = ".\\solutionOutput\\";
+    static String solutionOutName = "solutionOut";
     private static String extension = ".txt";
+    private static PrintStream stdout = System.out;
+    private static PrintStream fileOut;
+    private static Gson gson = new Gson();
+    private static class SolutionOutput{
+        int maxStep;
+        Long runTime;
+        BigDecimal error;
+        LinkedList<BigDecimal> residualLength;
 
+        public SolutionOutput(BigDecimal error, Long runTime, int maxStep, LinkedList<BigDecimal> residualLength) {
+            this.error = error;
+            this.runTime = runTime;
+            this.maxStep = maxStep;
+            this.residualLength = residualLength;
+        }
+    }
     public static <T> T GetValueOrDefault(T value, T defaultValue) {
         return value == null ? defaultValue : value;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         //Set output stream
-        PrintStream fileOut = new PrintStream("./preTask" + extension);
+        fileOut = new PrintStream("./preTask" + extension);
         System.setOut(fileOut);
 
         //Test pre-task
@@ -51,6 +73,8 @@ public class Main {
         //Task 1
         Task1();
 
+        //Task 2
+        Task2();
     }
 
     private static void IsCSRSymmetric(CSRMatrix parm, String name){
@@ -155,7 +179,7 @@ public class Main {
     }
     //Task 1
     private static void Task1(){
-        System.out.println("%~~~~~~~~~~~~~~~~~~Task 1~~~~~~~~~~~~~~~~~~%");
+        System.out.println("%``````````````Task 1``````````````%");
 
         String testInput = "1 0 0\n0 1 0\n0 0 1";
         CSRMatrix matrix1 = new CSRMatrix(testInput);
@@ -183,7 +207,57 @@ public class Main {
         } else {
             System.out.println("%Matrix x Matrix^T is Symmetric! Test Failed!!!");
         }
-        System.out.println("%~~~~~~~~~~~~~~~~~~Task 1~~~~~~~~~~~~~~~~~~%");
+        System.out.println("%``````````````Task 1``````````````%");
+        System.out.println();
+    }
+    private static void Task2() throws FileNotFoundException {
+        //Set up new output stream
+        System.setOut(stdout);
+
+        System.out.println("%``````````````Task 1``````````````%");
+
+        String csrFromFile1 = ReadCSRFromFile(inputPath + "e05r0000.mtx");
+        String rhsFromFile1 = ReadVectorFromFile(inputPath + "e05r0000_rhs1.mtx");
+        CSRMatrix fileCSR1 = new CSRMatrix(csrFromFile1);
+        Vector fileVector1 = new Vector(rhsFromFile1);
+//        CSRMatrix fileCSR1 = new CSRMatrix(iterationInput);
+//        Vector fileVector1 = new Vector(bIterationInput);
+
+        for(int maxStep = 5; maxStep <= 100; maxStep += 5){
+
+            CSRMatrix.STEP_LIMIT = maxStep;
+
+            long runTime = -System.currentTimeMillis();     //Start the time counter
+            Vector solution = fileCSR1.IterationMethod(fileVector1);
+            if (solution == null){
+                System.out.println("%No solution!");
+                break;
+            }
+            runTime += System.currentTimeMillis();          //End the time counter
+            //Find out the error
+            BigDecimal error = fileVector1.Add(fileCSR1.TimeVector(solution).Scale(BigDecimal.valueOf(-1))).GetLength();
+
+            //Report in a json file
+            SolutionOutput temp = new SolutionOutput(error, runTime, maxStep, CSRMatrix.residualLengthList);
+                //Convert to json
+            String json = gson.toJson(temp);
+            System.out.println(json);
+//            System.out.println("~!Maxstep=" + maxStep + " completed under " + runTime + " milliseconds with error=" + error + "!");
+//            System.out.print("\t");
+//            for (BigDecimal bigDecimal : residualLength) {
+//                //Print the residual
+//                System.out.print(" " + bigDecimal);
+//            }
+//            System.out.println();
+//            System.out.print("\t");
+//            for (int indx = 0; indx < solution.GetSize(); indx++) {
+//                //Print the residual
+//                System.out.print(" " + solution.GetEntry(indx));
+//            }
+//            System.out.println();
+        }
+
+        System.out.println("%``````````````Task 1``````````````%");
         System.out.println();
     }
 
@@ -261,6 +335,7 @@ public class Main {
         //Initialization
         String tempLine;
         while((tempLine = sc.nextLine()) != null && tempLine.startsWith("%"));
+        assert tempLine != null;
         String[] temps = tempLine.split(" ");
         int row = Integer.parseInt(temps[0]);
         int col = Integer.parseInt(temps[1]);
@@ -314,6 +389,7 @@ public class Main {
         //Initialization
         String tempLine;
         while((tempLine = sc.nextLine()) != null && tempLine.startsWith("%"));
+        assert tempLine != null;
         int row = Integer.parseInt(tempLine.split(" ")[0]);
 
         //Taking input in
@@ -327,5 +403,7 @@ public class Main {
 
         return result.toString();
     }
+
+
 
 }

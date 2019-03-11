@@ -348,8 +348,9 @@ class Matrix {
         for(int curRow = GetRowSize() - 1; curRow >= 0; curRow--){
             BigDecimal temp = b.GetEntry(curRow);
             for(int curCol = curRow + 1; curCol < GetRowSize(); curCol++){
-                temp = temp.add(this.GetEntry(curRow, curCol).multiply(result.GetEntry(curCol), Main.mathContext)
-                        .multiply(BigDecimal.valueOf(-1), Main.mathContext), Main.mathContext);
+//                temp = temp.add(this.GetEntry(curRow, curCol).multiply(result.GetEntry(curCol), Main.mathContext).
+//                        multiply(BigDecimal.valueOf(-1), Main.mathContext), Main.mathContext);
+                temp = temp.subtract(this.GetEntry(curRow, curCol).multiply(result.GetEntry(curCol), Main.mathContext), Main.mathContext);
             }
             temp = temp.divide(this.GetEntry(curRow, curRow), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
             result.SetEntry(curRow, temp);
