@@ -212,10 +212,8 @@ public class Main {
         System.out.println();
     }
     private static void Task2() throws FileNotFoundException {
-        //Set up new output stream
-        fileOut = new PrintStream(outputPath + solutionOutName + jsonExtension);
-        System.setOut(fileOut);
 
+        System.setOut(stdout);
         System.out.println("%``````````````Task 2``````````````%");
 
         String csrFromFile1 = ReadCSRFromFile(inputPath + "e05r0000.mtx");
@@ -225,7 +223,9 @@ public class Main {
 //        CSRMatrix fileCSR1 = new CSRMatrix(iterationInput);
 //        Vector fileVector1 = new Vector(bIterationInput);
 
-        for(int maxStep = 5; maxStep <= 100; maxStep += 5){
+        LinkedList<SolutionOutput> solutionList = new LinkedList<>();
+
+        for(int maxStep = 5; maxStep <= 150; maxStep += 5){
 
             CSRMatrix.STEP_LIMIT = maxStep;
 
@@ -239,28 +239,27 @@ public class Main {
             //Find out the error
             BigDecimal error = fileVector1.Add(fileCSR1.TimeVector(solution).Scale(BigDecimal.valueOf(-1))).GetLength();
 
-            //Report in a json file
-            SolutionOutput temp = new SolutionOutput(error, runTime, maxStep, CSRMatrix.residualLengthList);
-                //Convert to json
-            String json = gson.toJson(temp);
-            System.out.println(json);
-//            System.out.println("~!Maxstep=" + maxStep + " completed under " + runTime + " milliseconds with error=" + error + "!");
-//            System.out.print("\t");
-//            for (BigDecimal bigDecimal : residualLength) {
-//                //Print the residual
-//                System.out.print(" " + bigDecimal);
-//            }
-//            System.out.println();
-//            System.out.print("\t");
-//            for (int indx = 0; indx < solution.GetSize(); indx++) {
-//                //Print the residual
-//                System.out.print(" " + solution.GetEntry(indx));
-//            }
-//            System.out.println();
+            //Temporarily store the solution in a list
+            solutionList.add(new SolutionOutput(error, runTime, maxStep, CSRMatrix.residualLengthList));
+            System.out.println("~!Maxstep=" + maxStep + " completed under " + runTime + " milliseconds with error=" + error + "!");
+            System.out.print("\t");
+            for (int indx = 0; indx < solution.GetSize(); indx++) {
+                //Print the residual
+                System.out.print(" " + solution.GetEntry(indx));
+            }
+            System.out.println();
         }
 
         System.out.println("%``````````````Task 2``````````````%");
         System.out.println();
+
+        //Set up new output stream
+        fileOut = new PrintStream(outputPath + solutionOutName + jsonExtension);
+        System.setOut(fileOut);
+        //Report in a json file
+        //Convert to json
+        String json = gson.toJson(solutionList);
+        System.out.println(json);
     }
 
     static int NumberOfPermutation(int spot, int numberOfChoice){

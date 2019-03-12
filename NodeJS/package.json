@@ -4,5 +4,8 @@
   "description": "SolutionGraph",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "plotly": "^1.0.6"
   }
 }
