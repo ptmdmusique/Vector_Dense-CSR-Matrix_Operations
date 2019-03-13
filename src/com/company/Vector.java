@@ -1,6 +1,7 @@
 package com.company;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 class Vector {
     //Treat this as neutral matrix, no row or col major
@@ -21,7 +22,7 @@ class Vector {
     BigDecimal GetLength(){
         BigDecimal result = BigDecimal.ZERO;
         for (BigDecimal datum : data) {
-            result = result.add(datum.multiply(datum));
+            result = result.add(datum.multiply(datum, Main.mathContext), Main.mathContext);
         }
         return sqrt(result);
     }
@@ -31,7 +32,7 @@ class Vector {
         while (!x0.equals(x1)) {
             x0 = x1;
             x1 = A.divide(x0, Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
-            x1 = x1.add(x0);
+            x1 = x1.add(x0, Main.mathContext);
             x1 = x1.divide(BigDecimal.valueOf(2), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP);
 
         }
@@ -45,9 +46,14 @@ class Vector {
     }
     Vector(String data){
         String[] splitData = data.split(Main.WHITESPACE);
+        int length = splitData.length;
+        for (String splitDatum : splitData) {
+            if (splitDatum.equals(""))
+                length--;
+        }
 
-        this.data = new BigDecimal[splitData.length];
-        for(int indx = 0; indx < splitData.length; indx++){
+        this.data = new BigDecimal[length];
+        for(int indx = 0; indx < length; indx++){
             this.data[indx] = BigDecimal.valueOf(Double.parseDouble(splitData[indx]));
         }
     }
@@ -55,7 +61,7 @@ class Vector {
         this.data = new BigDecimal[size];
 
         for(int indx = 0; indx < size; indx++){
-            this.data[indx] = data.setScale(Main.BIGDECIMAL_SCALE);
+            this.data[indx] = data.setScale(Main.BIGDECIMAL_SCALE, RoundingMode.HALF_UP);
         }
     }
     Vector(Vector parm){
@@ -65,11 +71,11 @@ class Vector {
         }
     }
 
-    Vector Add(BigDecimal data){
+    Vector Add(BigDecimal parm){
         //Add all entries in the vector with a number
         Vector result = new Vector(this);
         for(int indx = 0; indx < this.data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).add(data));
+            result.SetEntry(indx, result.GetEntry(indx).add(parm, Main.mathContext));
         }
         return result;
     }
@@ -81,15 +87,15 @@ class Vector {
         }
         Vector result = new Vector(this);
         for(int indx = 0; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).add(parm.GetEntry(indx)));
+            result.SetEntry(indx, result.GetEntry(indx).add(parm.GetEntry(indx), Main.mathContext));
         }
         return result;
     }
-    Vector Scale(BigDecimal value){
+    Vector Scale(BigDecimal parm){
         //Scale vector with a given value
         Vector result = new Vector(this);
         for(int indx = 0 ; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).multiply(value));
+            result.SetEntry(indx, result.GetEntry(indx).multiply(parm, Main.mathContext));
         }
         return result;
     }
@@ -102,12 +108,12 @@ class Vector {
 
         BigDecimal result = BigDecimal.ZERO;
         for(int indx = 0; indx < data.length; indx++){
-            result = result.add(parm.GetEntry(indx).multiply(data[indx]));
+            result = result.add(parm.GetEntry(indx).multiply(data[indx], Main.mathContext), Main.mathContext);
         }
 
         return result;
     }
-    Matrix RightMultiplication(Vector parm){
+    Matrix Multiply(Vector parm){
         //Multiply 2 vector with parm on the right side
         Matrix result = new Matrix(data.length, parm.GetSize());
 
@@ -116,15 +122,7 @@ class Vector {
         }
         return result;
     }
-    Matrix LeftMultiplication(Vector parm){
-        //Multiply 2 vector with parm on the left side
-        Matrix result = new Matrix(parm.GetSize(), data.length);
 
-        for(int curRow = 0; curRow < parm.GetSize(); curRow++){
-            result.SetRow(curRow, this.Scale(parm.GetEntry(curRow)));
-        }
-        return result;
-    }
     Vector Normalize(){
         return new Vector(this.Scale(BigDecimal.ONE.divide(GetLength(), Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP)));
     }
@@ -137,9 +135,24 @@ class Vector {
             data[indx] = parm.GetEntry(indx);
         }
     }
+    boolean Equal(Vector parm){
+        if (GetSize() != parm.GetSize()){
+            return false;
+        }
+
+        for(int indx = 0; indx < data.length; indx++){
+            //Set scale so that 0 is equal 0.00000 ...
+            if (!data[indx].setScale(Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP)
+                    .equals(parm.data[indx].setScale(Main.BIGDECIMAL_SCALE, BigDecimal.ROUND_HALF_UP))){
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     void TakeInput(String input){
-        String entries[] = input.split(Main.WHITESPACE);
+        String[] entries = input.split(Main.WHITESPACE);
         for(String entry: entries){
             entry = entry.replaceAll("\\s+","");
         }
@@ -152,9 +165,9 @@ class Vector {
         }
     }
     void Print(){
-        System.out.println("Vector: ");
+        System.out.println("%Vector: ");
         for(BigDecimal entry : data){
-            System.out.printf("%6.2f ", entry);
+            System.out.printf("%" + Main.MAX_SLOT + "." + Main.PRECISION + "f ", entry);
         }
         System.out.println();
     }

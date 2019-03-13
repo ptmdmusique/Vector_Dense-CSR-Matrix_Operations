@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81f56a78-739d-46db-87a2-96d5feeaf736" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
@@ -21,21 +20,69 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="12" column="36" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="36" />
+            <state relative-caret-position="256">
+              <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
               <folding>
                 <element signature="n#!!doc;n#Main#0" />
-                <element signature="method#IsCSRSymmetric#0;class#Main#0" />
-                <element signature="method#Print#0;class#Main#0" />
-                <element signature="method#PrintData#0;class#Main#0" />
-                <element signature="method#Print#1;class#Main#0" />
-                <element signature="method#Print#2;class#Main#0" />
-                <element signature="method#Print#3;class#Main#0" />
-                <element signature="method#NumberOfPermutation#0;class#Main#0" />
-                <element signature="method#NextPermutation#0;class#Main#0" />
-                <element signature="method#Reverse#0;class#Main#0" />
-                <element signature="method#Print#4;class#Main#0" />
-                <element signature="method#ReadCSRFromFile#0;class#Main#0" />
+                <element signature="e#2302#2734#0" />
+                <element signature="e#2464#2728#0" />
+                <element signature="e#2868#3344#0" />
+                <element signature="e#3350#3627#0" />
+                <element signature="e#3455#3533#1" />
+                <element signature="e#3539#3621#1" />
+                <element signature="e#3632#3759#0" />
+                <element signature="e#3764#3910#0" />
+                <element signature="e#3915#4039#0" />
+                <element signature="e#4044#4168#0" />
+                <element signature="e#4173#4467#0" />
+                <element signature="e#4275#4340#1" />
+                <element signature="e#4422#4461#1" />
+                <element signature="e#4473#5543#0" />
+                <element signature="e#5288#5350#1" />
+                <element signature="e#5356#5418#1" />
+                <element signature="e#5548#7138#0" />
+                <element signature="e#6257#6332#1" />
+                <element signature="e#6338#6413#1" />
+                <element signature="e#6842#6919#1" />
+                <element signature="e#6925#7002#1" />
+                <element signature="e#7143#8564#0" />
+                <element signature="e#7644#7738#1" />
+                <element signature="e#7744#7842#1" />
+                <element signature="e#8262#8360#1" />
+                <element signature="e#8366#8460#1" />
+                <element signature="e#8569#10767#0" />
+                <element signature="e#9000#9061#0" />
+                <element signature="e#9252#10372#1" />
+                <element signature="e#9487#9578#1" />
+                <element signature="e#10211#10328#1" />
+                <element signature="e#10629#10652#0" />
+                <element signature="e#10773#11053#0" />
+                <element signature="e#10869#10902#1" />
+                <element signature="e#10973#11024#1" />
+                <element signature="e#11058#12251#0" />
+                <element signature="e#11183#11222#1" />
+                <element signature="e#11525#11591#1" />
+                <element signature="e#11601#11689#0" />
+                <element signature="e#11748#11842#1" />
+                <element signature="e#11794#11832#1" />
+                <element signature="e#11880#11970#1" />
+                <element signature="e#12153#12222#1" />
+                <element signature="e#12256#12502#0" />
+                <element signature="e#12343#12496#1" />
+                <element signature="e#12507#12705#0" />
+                <element signature="e#12615#12669#1" />
+                <element signature="e#12711#14549#0" />
+                <element signature="e#12805#12826#0" />
+                <element signature="e#13529#13618#1" />
+                <element signature="e#13697#14166#1" />
+                <element signature="e#13876#14076#1" />
+                <element signature="e#13993#14062#1" />
+                <element signature="e#14241#14378#1" />
+                <element signature="e#14310#14368#1" />
+                <element signature="e#14425#14508#1" />
+                <element signature="e#14554#15425#0" />
+                <element signature="e#14651#14672#0" />
+                <element signature="e#15179#15384#1" />
               </folding>
             </state>
           </provider>
@@ -44,181 +91,51 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="384">
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
               <folding>
                 <element signature="n#!!block;n#GetData#0;n#Vector#0" />
                 <element signature="n#!!block;n#GetEntry#0;n#Vector#0" />
                 <element signature="n#!!block;n#GetSize#0;n#Vector#0" />
                 <element signature="n#!!block;n#SetEntry#0;n#Vector#0" />
                 <element signature="method#GetLength#0;class#Vector#0" />
-                <element signature="e#523#590#1" />
+                <element signature="e#554#657#1" />
                 <element signature="method#sqrt#0;class#Vector#0" />
-                <element signature="e#813#1015#1" />
+                <element signature="e#880#1140#1" />
                 <element signature="method#Vector#0;class#Vector#0" />
                 <element signature="method#Vector#1;class#Vector#0" />
-                <element signature="e#1387#1485#1" />
+                <element signature="e#1482#1558#1" />
+                <element signature="e#1652#1750#1" />
+                <element signature="method#Vector#2;class#Vector#0" />
+                <element signature="e#1885#1986#1" />
                 <element signature="method#Vector#3;class#Vector#0" />
-                <element signature="e#1799#1856#1" />
+                <element signature="e#2118#2175#1" />
                 <element signature="method#Add#0;class#Vector#0" />
-                <element signature="e#2051#2130#1" />
+                <element signature="e#2370#2467#1" />
                 <element signature="method#Add#1;class#Vector#0" />
-                <element signature="e#2260#2354#1" />
-                <element signature="e#2450#2544#1" />
+                <element signature="e#2597#2691#1" />
+                <element signature="e#2787#2899#1" />
                 <element signature="method#Scale#0;class#Vector#0" />
-                <element signature="e#2748#2833#1" />
+                <element signature="e#3103#3206#1" />
                 <element signature="method#InnerProduct#0;class#Vector#0" />
-                <element signature="e#2947#3084#1" />
-                <element signature="e#3184#3270#1" />
+                <element signature="e#3320#3457#1" />
+                <element signature="e#3557#3679#1" />
                 <element signature="method#RightMultiplication#0;class#Vector#0" />
-                <element signature="e#3527#3599#1" />
-                <element signature="method#LeftMultiplication#0;class#Vector#0" />
-                <element signature="e#3856#3937#1" />
+                <element signature="e#3936#4008#1" />
                 <element signature="method#Normalize#0;class#Vector#0" />
                 <element signature="method#Copy#0;class#Vector#0" />
-                <element signature="e#4140#4202#1" />
-                <element signature="e#4255#4312#1" />
+                <element signature="e#4599#4661#1" />
+                <element signature="e#4714#4771#1" />
+                <element signature="method#Equal#0;class#Vector#0" />
+                <element signature="e#4850#4887#1" />
+                <element signature="e#4942#5243#1" />
+                <element signature="e#5188#5233#1" />
                 <element signature="method#TakeInput#0;class#Vector#0" />
-                <element signature="e#4445#4505#1" />
-                <element signature="e#4549#4611#1" />
-                <element signature="e#4665#4756#1" />
+                <element signature="e#5398#5458#1" />
+                <element signature="e#5502#5564#1" />
+                <element signature="e#5618#5709#1" />
                 <element signature="method#Print#0;class#Vector#0" />
-                <element signature="e#4857#4916#1" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="462" column="102" selection-start-line="462" selection-start-column="102" selection-end-line="462" selection-end-column="102" />
-              <folding>
-                <element signature="class#Data#0;class#CSRMatrix#0" />
-                <element signature="n#!!block;n#Data#0;n#Data#0;n#CSRMatrix#0" />
-                <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
-                <element signature="n#!!block;n#GetNNZ#0;n#CSRMatrix#0" />
-                <element signature="n#!!block;n#GetRowSize#0;n#CSRMatrix#0" />
-                <element signature="method#GetColSize#0;class#CSRMatrix#0" />
-                <element signature="method#GetEntry#0;class#CSRMatrix#0" />
-                <element signature="e#974#1142#1" />
-                <element signature="e#1011#1063#1" />
-                <element signature="e#1091#1132#1" />
-                <element signature="method#GetRow#0;class#CSRMatrix#0" />
-                <element signature="method#GetData#0;class#CSRMatrix#0" />
-                <element signature="method#SetRow#0;class#CSRMatrix#0" />
-                <element signature="method#SetEntry#0;class#CSRMatrix#0" />
-                <element signature="e#1403#1939#1" />
-                <element signature="e#1432#1813#1" />
-                <element signature="e#1636#1799#1" />
-                <element signature="e#1681#1781#1" />
-                <element signature="e#1836#1852#0" />
-                <element signature="e#1945#2102#1" />
-                <element signature="e#1992#2014#0" />
-                <element signature="method#SetData#0;class#CSRMatrix#0" />
-                <element signature="e#2203#2261#1" />
-                <element signature="e#2267#2321#1" />
-                <element signature="n#!!block;n#CSRMatrix#0;n#CSRMatrix#0" />
-                <element signature="method#CSRMatrix#1;class#CSRMatrix#0" />
-                <element signature="method#TakeInput#0;class#CSRMatrix#0" />
-                <element signature="e#2841#2872#1" />
-                <element signature="e#2980#3081#1" />
-                <element signature="e#3134#3343#1" />
-                <element signature="e#3231#3333#1" />
-                <element signature="e#3273#3319#1" />
-                <element signature="e#3392#3468#1" />
-                <element signature="e#3543#4021#1" />
-                <element signature="e#3581#4011#1" />
-                <element signature="e#3724#3997#1" />
-                <element signature="e#3829#3949#1" />
-                <element signature="e#4027#4442#1" />
-                <element signature="e#4065#4432#1" />
-                <element signature="e#4208#4418#1" />
-                <element signature="e#4254#4370#1" />
-                <element signature="method#Print#0;class#CSRMatrix#0" />
-                <element signature="e#4572#6182#1" />
-                <element signature="e#4885#4940#0" />
-                <element signature="e#5180#5361#1" />
-                <element signature="e#5274#5347#1" />
-                <element signature="e#5367#6138#1" />
-                <element signature="e#5476#6124#1" />
-                <element signature="e#5555#5968#1" />
-                <element signature="e#5581#5665#0" />
-                <element signature="e#5880#5946#1" />
-                <element signature="e#5974#6106#1" />
-                <element signature="method#PrintData#0;class#CSRMatrix#0" />
-                <element signature="e#6240#6323#1" />
-                <element signature="e#6449#6694#1" />
-                <element signature="e#6574#6684#1" />
-                <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
-                <element signature="e#6894#7731#1" />
-                <element signature="e#7207#7262#0" />
-                <element signature="e#7503#7721#1" />
-                <element signature="e#7604#7707#1" />
-                <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
-                <element signature="e#8057#8213#1" />
-                <element signature="e#8541#9632#1" />
-                <element signature="e#8679#9622#1" />
-                <element signature="e#8722#9608#1" />
-                <element signature="e#8850#9590#1" />
-                <element signature="e#8876#8920#0" />
-                <element signature="method#TimeVector#0;class#CSRMatrix#0" />
-                <element signature="e#9809#10110#1" />
-                <element signature="e#9969#10057#1" />
-                <element signature="method#TimeMatrix#0;class#CSRMatrix#0" />
-                <element signature="e#10227#10263#1" />
-                <element signature="e#10645#10856#1" />
-                <element signature="e#11068#11114#1" />
-                <element signature="e#11292#13521#1" />
-                <element signature="e#11356#12960#1" />
-                <element signature="e#11411#11494#0" />
-                <element signature="e#12035#12661#1" />
-                <element signature="e#12186#12643#1" />
-                <element signature="e#12212#12272#0" />
-                <element signature="e#12692#12946#1" />
-                <element signature="e#12862#12928#1" />
-                <element signature="e#13058#13511#1" />
-                <element signature="e#13145#13497#1" />
-                <element signature="e#13338#13407#1" />
-                <element signature="e#13413#13479#1" />
-                <element signature="e#13847#14058#1" />
-                <element signature="e#14366#16948#1" />
-                <element signature="e#14430#16380#1" />
-                <element signature="e#14485#14568#0" />
-                <element signature="e#15109#15735#1" />
-                <element signature="e#15260#15717#1" />
-                <element signature="e#15286#15346#0" />
-                <element signature="e#15767#16366#1" />
-                <element signature="e#15789#15851#0" />
-                <element signature="e#16141#16348#1" />
-                <element signature="e#16194#16326#1" />
-                <element signature="e#16478#16938#1" />
-                <element signature="e#16565#16924#1" />
-                <element signature="e#16765#16834#1" />
-                <element signature="e#16840#16906#1" />
-                <element signature="method#TimeMatrix#1;class#CSRMatrix#0" />
-                <element signature="e#17063#17099#1" />
-                <element signature="e#17229#17679#1" />
-                <element signature="e#17302#17669#1" />
-                <element signature="e#17470#17578#1" />
-                <element signature="e#17924#17970#1" />
-                <element signature="e#17849#18391#1" />
-                <element signature="e#17968#18381#1" />
-                <element signature="e#18136#18244#1" />
-                <element signature="e#18275#18367#1" />
-                <element signature="e#19478#21566#1" />
-                <element signature="e#19492#19522#0" />
-                <element signature="e#19827#19939#1" />
-                <element signature="e#20520#21224#1" />
-                <element signature="e#20752#20999#1" />
-                <element signature="e#21230#21556#1" />
-                <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
-                <element signature="e#21699#21771#1" />
-                <element signature="e#21912#22687#1" />
-                <element signature="e#22159#22677#1" />
-                <element signature="e#22418#22662#1" />
-                <element signature="e#22542#22644#1" />
+                <element signature="e#5811#5911#1" />
               </folding>
             </state>
           </provider>
@@ -227,99 +144,248 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="259" column="102" lean-forward="true" selection-start-line="259" selection-start-column="102" selection-end-line="259" selection-end-column="102" />
+            <state relative-caret-position="360">
+              <caret line="164" column="5" lean-forward="true" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
               <folding>
                 <element signature="n#!!block;n#GetEntry#0;n#Matrix#0" />
                 <element signature="n#!!block;n#SetEntry#0;n#Matrix#0" />
                 <element signature="n#!!block;n#GetRow#0;n#Matrix#0" />
                 <element signature="method#SetRow#0;class#Matrix#0" />
-                <element signature="e#703#831#1" />
-                <element signature="e#837#1028#1" />
-                <element signature="e#885#924#1" />
+                <element signature="e#687#815#1" />
+                <element signature="e#821#1012#1" />
+                <element signature="e#869#908#1" />
                 <element signature="method#GetTranspose#0;class#Matrix#0" />
-                <element signature="e#1186#1359#1" />
-                <element signature="e#1252#1349#1" />
+                <element signature="e#1170#1343#1" />
+                <element signature="e#1236#1333#1" />
                 <element signature="n#!!block;n#GetColVector#0;n#Matrix#0" />
                 <element signature="method#Matrix#0;class#Matrix#0" />
-                <element signature="e#1609#1685#1" />
+                <element signature="e#1593#1669#1" />
+                <element signature="method#Matrix#2;class#Matrix#0" />
+                <element signature="e#1892#1958#1" />
                 <element signature="method#Matrix#3;class#Matrix#0" />
-                <element signature="e#2124#2196#1" />
+                <element signature="e#2108#2180#1" />
                 <element signature="method#Matrix#4;class#Matrix#0" />
-                <element signature="e#2250#2280#0" />
-                <element signature="e#2347#2438#1" />
-                <element signature="e#2444#2650#1" />
-                <element signature="e#2556#2640#1" />
+                <element signature="e#2234#2264#0" />
+                <element signature="e#2331#2422#1" />
+                <element signature="e#2428#2634#1" />
+                <element signature="e#2540#2624#1" />
                 <element signature="method#Matrix#5;class#Matrix#0" />
-                <element signature="e#2796#2861#1" />
-                <element signature="method#TimeRightMatrix#0;class#Matrix#0" />
-                <element signature="e#3003#3097#1" />
-                <element signature="e#3220#3589#1" />
-                <element signature="e#3282#3579#1" />
-                <element signature="e#3397#3516#1" />
-                <element signature="method#TimeLeftMatrix#0;class#Matrix#0" />
-                <element signature="e#3751#3845#1" />
-                <element signature="e#3973#4342#1" />
-                <element signature="e#4030#4332#1" />
-                <element signature="e#4150#4269#1" />
-                <element signature="method#TimeVector#0;class#Matrix#0" />
-                <element signature="e#4451#4538#1" />
-                <element signature="e#4701#4973#1" />
-                <element signature="e#4814#4920#1" />
+                <element signature="e#2780#2845#1" />
+                <element signature="method#Multiply#0;class#Matrix#0" />
+                <element signature="e#2987#3081#1" />
+                <element signature="e#3204#3609#1" />
+                <element signature="e#3266#3599#1" />
+                <element signature="e#3381#3536#1" />
+                <element signature="method#Multiply#0;class#Matrix#0" />
+                <element signature="e#4507#4594#1" />
+                <element signature="e#4757#5065#1" />
+                <element signature="e#4870#5012#1" />
                 <element signature="method#Add#0;class#Matrix#0" />
-                <element signature="e#5116#5219#1" />
-                <element signature="e#5336#5510#1" />
-                <element signature="e#5393#5500#1" />
+                <element signature="e#5208#5311#1" />
+                <element signature="e#5428#5620#1" />
+                <element signature="e#5485#5610#1" />
                 <element signature="method#AugmentVectorAtEnd#0;class#Matrix#0" />
-                <element signature="e#5627#5725#1" />
-                <element signature="e#5964#6298#1" />
-                <element signature="e#6112#6208#1" />
-                <element signature="e#6412#6507#1" />
-                <element signature="e#6842#7117#1" />
-                <element signature="e#7476#7611#1" />
-                <element signature="e#7697#7712#0" />
-                <element signature="e#7831#7924#1" />
-                <element signature="e#8043#8153#1" />
-                <element signature="e#8264#8432#1" />
-                <element signature="e#8567#8639#0" />
-                <element signature="e#8767#8850#0" />
-                <element signature="e#9380#9597#1" />
-                <element signature="e#9727#9831#1" />
-                <element signature="e#9924#10481#1" />
-                <element signature="e#10080#10257#1" />
-                <element signature="e#10554#10666#1" />
-                <element signature="e#10710#10841#1" />
-                <element signature="e#10879#10964#1" />
-                <element signature="e#11406#11479#1" />
+                <element signature="e#5737#5835#1" />
+                <element signature="e#6074#6408#1" />
+                <element signature="e#6222#6318#1" />
+                <element signature="method#LUFactorization#0;class#Matrix#0" />
+                <element signature="e#6522#6617#1" />
+                <element signature="e#6952#7227#1" />
+                <element signature="e#7422#11779#1" />
+                <element signature="e#7586#7721#1" />
+                <element signature="e#7807#7822#0" />
+                <element signature="e#7941#8034#1" />
+                <element signature="e#8153#8263#1" />
+                <element signature="e#8374#8597#1" />
+                <element signature="e#8714#11608#1" />
+                <element signature="e#8732#8804#0" />
+                <element signature="e#8910#10589#1" />
+                <element signature="e#8932#9015#0" />
+                <element signature="e#9559#9829#1" />
+                <element signature="e#10105#10242#1" />
+                <element signature="e#10248#10571#1" />
+                <element signature="e#10692#11398#1" />
+                <element signature="e#10862#11092#1" />
+                <element signature="e#11482#11594#1" />
+                <element signature="e#11638#11769#1" />
+                <element signature="e#11799#11884#1" />
+                <element signature="e#11890#11963#1" />
                 <element signature="method#QRFactorization#0;class#Matrix#0" />
-                <element signature="e#11328#11676#1" />
-                <element signature="e#11439#11597#1" />
-                <element signature="e#11814#12008#1" />
-                <element signature="e#11885#11998#1" />
+                <element signature="e#12327#12725#1" />
+                <element signature="e#12438#12646#1" />
+                <element signature="e#12863#13057#1" />
+                <element signature="e#12934#13047#1" />
                 <element signature="method#BackwardSubstitution#0;class#Matrix#0" />
-                <element signature="e#12200#12292#1" />
-                <element signature="e#12302#12348#0" />
-                <element signature="e#12470#12745#1" />
-                <element signature="e#12530#12735#1" />
-                <element signature="e#12582#12721#1" />
-                <element signature="e#12866#13191#1" />
-                <element signature="e#12991#13087#1" />
+                <element signature="e#13249#13341#1" />
+                <element signature="e#13351#13397#0" />
+                <element signature="e#13519#13821#1" />
+                <element signature="e#13579#13811#1" />
+                <element signature="e#13658#13797#1" />
+                <element signature="e#13956#14614#1" />
+                <element signature="e#14081#14449#1" />
+                <element signature="e#14083#14199#0" />
                 <element signature="method#TakeInput#0;class#Matrix#0" />
-                <element signature="e#13333#13364#1" />
-                <element signature="e#13424#13487#1" />
-                <element signature="e#13574#13745#1" />
-                <element signature="e#13634#13735#1" />
-                <element signature="e#13808#14169#1" />
-                <element signature="e#13917#13985#1" />
-                <element signature="e#14050#14159#1" />
+                <element signature="e#14764#14795#1" />
+                <element signature="e#14855#14918#1" />
+                <element signature="e#15005#15190#1" />
+                <element signature="e#15065#15180#1" />
+                <element signature="e#15253#15626#1" />
+                <element signature="e#15362#15430#1" />
+                <element signature="e#15495#15616#1" />
                 <element signature="method#Print#0;class#Matrix#0" />
-                <element signature="e#14288#14482#1" />
-                <element signature="e#14346#14438#1" />
+                <element signature="e#15746#15981#1" />
+                <element signature="e#15804#15937#1" />
                 <element signature="method#IsSymmetric#0;class#Matrix#0" />
-                <element signature="e#14586#14623#1" />
-                <element signature="e#14727#14931#1" />
-                <element signature="e#14775#14921#1" />
-                <element signature="e#14854#14907#1" />
+                <element signature="e#16085#16122#1" />
+                <element signature="e#16226#16443#1" />
+                <element signature="e#16274#16433#1" />
+                <element signature="e#16366#16419#1" />
+                <marker date="1552448948556" expanded="false" signature="13280:13475" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="685">
+              <caret line="283" column="5" selection-start-line="283" selection-start-column="5" selection-end-line="283" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#Data#0;class#CSRMatrix#0" />
+                <element signature="n#!!block;n#Data#0;n#Data#0;n#CSRMatrix#0" />
+                <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
+                <element signature="n#!!block;n#GetNNZ#0;n#CSRMatrix#0" />
+                <element signature="n#!!block;n#GetRowSize#0;n#CSRMatrix#0" />
+                <element signature="method#GetColSize#0;class#CSRMatrix#0" />
+                <element signature="method#GetEntry#0;class#CSRMatrix#0" />
+                <element signature="e#1166#1348#1" />
+                <element signature="e#1203#1255#1" />
+                <element signature="e#1283#1338#1" />
+                <element signature="method#GetRow#0;class#CSRMatrix#0" />
+                <element signature="method#GetData#0;class#CSRMatrix#0" />
+                <element signature="method#SetRow#0;class#CSRMatrix#0" />
+                <element signature="method#SetEntry#0;class#CSRMatrix#0" />
+                <element signature="e#1650#2207#1" />
+                <element signature="e#1699#2081#1" />
+                <element signature="e#1904#2067#1" />
+                <element signature="e#1949#2049#1" />
+                <element signature="e#2104#2120#0" />
+                <element signature="e#2213#2390#1" />
+                <element signature="e#2280#2302#0" />
+                <element signature="method#SetData#0;class#CSRMatrix#0" />
+                <element signature="e#2491#2549#1" />
+                <element signature="e#2555#2609#1" />
+                <element signature="n#!!block;n#CSRMatrix#0;n#CSRMatrix#0" />
+                <element signature="method#CSRMatrix#1;class#CSRMatrix#0" />
+                <element signature="method#TakeInput#0;class#CSRMatrix#0" />
+                <element signature="e#3137#3168#1" />
+                <element signature="e#3276#3377#1" />
+                <element signature="e#3430#3811#1" />
+                <element signature="e#3527#3801#1" />
+                <element signature="e#3596#3645#1" />
+                <element signature="e#3741#3787#1" />
+                <element signature="e#3860#3936#1" />
+                <element signature="e#4011#4630#1" />
+                <element signature="e#4049#4620#1" />
+                <element signature="e#4192#4606#1" />
+                <element signature="e#4265#4322#1" />
+                <element signature="e#4426#4558#1" />
+                <element signature="e#4636#5063#1" />
+                <element signature="e#4674#5053#1" />
+                <element signature="e#4817#5039#1" />
+                <element signature="e#4863#4991#1" />
+                <element signature="method#Print#0;class#CSRMatrix#0" />
+                <element signature="e#5194#6927#1" />
+                <element signature="e#5507#5562#0" />
+                <element signature="e#5802#6024#1" />
+                <element signature="e#5896#6010#1" />
+                <element signature="e#6030#6883#1" />
+                <element signature="e#6139#6869#1" />
+                <element signature="e#6218#6672#1" />
+                <element signature="e#6244#6328#0" />
+                <element signature="e#6584#6650#1" />
+                <element signature="e#6678#6851#1" />
+                <element signature="method#PrintData#0;class#CSRMatrix#0" />
+                <element signature="e#6985#7069#1" />
+                <element signature="e#7318#7699#1" />
+                <element signature="e#7443#7689#1" />
+                <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
+                <element signature="e#7899#8736#1" />
+                <element signature="e#8212#8267#0" />
+                <element signature="e#8508#8726#1" />
+                <element signature="e#8609#8712#1" />
+                <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
+                <element signature="e#9041#9198#1" />
+                <element signature="e#9453#11093#1" />
+                <element signature="e#10354#11057#1" />
+                <element signature="e#10483#11043#1" />
+                <element signature="e#10750#10896#1" />
+                <element signature="e#10902#11025#1" />
+                <element signature="method#TimeVector#0;class#CSRMatrix#0" />
+                <element signature="e#11283#11651#1" />
+                <element signature="e#11457#11598#1" />
+                <element signature="method#TimeMatrix#0;class#CSRMatrix#0" />
+                <element signature="e#11768#11855#1" />
+                <element signature="e#12098#12182#0" />
+                <element signature="e#12493#12704#1" />
+                <element signature="e#12916#12962#1" />
+                <element signature="e#13149#13211#1" />
+                <element signature="e#13220#13258#0" />
+                <element signature="e#13457#15804#1" />
+                <element signature="e#13521#15236#1" />
+                <element signature="e#13590#13673#0" />
+                <element signature="e#14282#14961#1" />
+                <element signature="e#14433#14943#1" />
+                <element signature="e#14459#14519#0" />
+                <element signature="e#15012#15222#1" />
+                <element signature="e#15334#15794#1" />
+                <element signature="e#15421#15780#1" />
+                <element signature="e#15621#15690#1" />
+                <element signature="e#15696#15762#1" />
+                <element signature="e#15814#15833#0" />
+                <element signature="e#16089#16150#0" />
+                <element signature="e#16529#16776#1" />
+                <element signature="e#16678#16766#1" />
+                <element signature="method#TimeMatrix#1;class#CSRMatrix#0" />
+                <element signature="e#16890#16926#1" />
+                <element signature="e#17056#17575#1" />
+                <element signature="e#17129#17565#1" />
+                <element signature="e#17311#17454#1" />
+                <element signature="e#17505#17551#1" />
+                <element signature="e#17745#18356#1" />
+                <element signature="e#17864#18346#1" />
+                <element signature="e#18046#18189#1" />
+                <element signature="e#18240#18332#1" />
+                <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
+                <element signature="e#19618#21975#1" />
+                <element signature="e#19632#19662#0" />
+                <element signature="e#19967#20079#1" />
+                <element signature="e#20594#20668#1" />
+                <element signature="e#20909#21633#1" />
+                <element signature="e#21141#21408#1" />
+                <element signature="e#21639#21965#1" />
+                <element signature="method#Equal#0;class#CSRMatrix#0" />
+                <element signature="e#22119#22156#1" />
+                <element signature="e#22270#22749#1" />
+                <element signature="e#22331#22739#1" />
+                <element signature="e#22381#22607#1" />
+                <element signature="e#22465#22526#1" />
+                <element signature="e#22531#22589#1" />
+                <element signature="e#22672#22725#1" />
+                <element signature="method#Equal#1;class#CSRMatrix#0" />
+                <element signature="e#22891#22928#1" />
+                <element signature="e#22984#23085#1" />
+                <element signature="e#23030#23075#1" />
+                <element signature="e#23136#23296#1" />
+                <element signature="e#23241#23286#1" />
+                <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
+                <element signature="e#23423#23495#1" />
+                <element signature="e#23636#24417#1" />
+                <element signature="e#23883#24407#1" />
+                <element signature="e#24142#24392#1" />
+                <element signature="e#24272#24374#1" />
               </folding>
             </state>
           </provider>
@@ -346,7 +412,6 @@
       <find>vector</find>
       <find>backward</find>
       <find>void</find>
-      <find>residual</find>
       <find>int</find>
       <find>curRow</find>
       <find>take</find>
@@ -358,12 +423,21 @@
       <find>sqrt</find>
       <find>divide</find>
       <find>BigDecimal</find>
-      <find>-1</find>
       <find>.multiply(Bigdecimal.valueOf(-1)</find>
+      <find>~~</find>
+      <find>residual</find>
+      <find>!</find>
+      <find>symmetric</find>
+      <find>curRow == row.length - 1</find>
+      <find>-1</find>
+      <find>rowCurCol[curRow] = -1;</find>
+      <find>residualList</find>
     </findStrings>
     <replaceStrings>
       <replace>CSRMatrix</replace>
       <replace>BigDecimal</replace>
+      <replace>%~~</replace>
+      <replace>\n%~</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -375,34 +449,30 @@
         <option value="$PROJECT_DIR$/src/com/company/InputMatrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/SparseMatrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/Tuple.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Matrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/CSRMatrix.java" />
         <option value="$PROJECT_DIR$/src/com/company/Vector.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="2579" />
-    <option name="height" value="1409" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="3515" />
+    <option name="y" value="-25" />
+    <option name="width" value="2408" />
+    <option name="height" value="1316" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/Hoc/PSU/MTH 343/src/com/company/Vector.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551762301734" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552449791385" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gson-2.8.5.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
@@ -446,6 +516,14 @@
       <option name="presentableId" value="Default" />
       <updated>1548615317042</updated>
     </task>
+    <task id="LOCAL-00001" summary="Revert &quot;3/5/2019 12:16AM&quot;&#10;&#10;This reverts commit 1523dc7f357f2b281d390110290989ec7f0403ac.">
+      <created>1551812002641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551812002641</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -458,10 +536,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2063" height="1127" extended-state="0" />
-    <editor active="true" />
+    <frame x="2553" y="-7" width="2208" height="1208" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26260608" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26523477" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -470,9 +547,9 @@
       <window_info id="Learn" order="6" weight="0.32967034" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32562813" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.38894472" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3277623" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41348088" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40204272" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32997987" />
@@ -491,85 +568,82 @@
       <window_info anchor="right" id="Maven" order="8" />
     </layout>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revert &quot;3/5/2019 12:16AM&quot;&#10;&#10;This reverts commit 1523dc7f357f2b281d390110290989ec7f0403ac." />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;3/5/2019 12:16AM&quot;&#10;&#10;This reverts commit 1523dc7f357f2b281d390110290989ec7f0403ac." />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>29</line>
+          <url>file://$PROJECT_DIR$/src/com/company/CSRMatrix.java</url>
+          <line>450</line>
           <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>74</line>
-          <properties />
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/CSRMatrix.java</url>
-          <line>462</line>
+          <line>493</line>
           <properties />
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="BigDecimal.ONE.divide(GetLength(), BigDecimal.ROUND_HALF_EVEN)" language="JAVA" />
-        <watch expression="GetLength()" language="JAVA" />
+        <watch expression="norm.compareTo(initialNorm.multiply(BigDecimal.valueOf(TOLERANCE), Main.mathContext))" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>BigDecimal.ONE.divide(GetLength(), BigDecimal.ROUND_HALF_EVEN)</expression-string>
+        <expression-string>norm.compareTo(initialNorm.multiply(BigDecimal.valueOf(TOLERANCE), Main.mathContext))</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>BigDecimal.ONE.divide(GetLength(), BigDecimal.ROUND_UNNECESSARY)</expression-string>
+        <expression-string>rowCurCol[curRow + 1] - 1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>BigDecimal.ONE.divide(GetLength())</expression-string>
+        <expression-string>rowCurCol[curRow]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>BigDecimal.ONE.divide(GetLength(), BigDecimal.ROUND_HALF_DOWN)</expression-string>
+        <expression-string>(curRow &lt; row.length - 1 &amp;&amp; rowCurCol[curRow] &gt;= rowCurCol[curRow + 1] - 1)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>GetLength()</expression-string>
+        <expression-string>(curRow == row.length - 1 &amp;&amp; rowCurCol[curRow] == row.length - 1)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>BigDecimal.ONE.divide(GetLength(), BigDecimal.ROUND_HALF_UP)</expression-string>
+        <expression-string>rowCurCol[curRow] == row.length - 1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>sqrt(result)</expression-string>
+        <expression-string>curRow == row.length - 1</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>GetColSize()</expression-string>
+        <expression-string>result.data</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data[indx]</expression-string>
+        <expression-string>data[rowCurCol[curRow]]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>parm.GetEntry(indx)</expression-string>
+        <expression-string>data[rowCurCol[curRow]++]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -614,88 +688,13 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/Tuple.java" />
     <entry file="file://$PROJECT_DIR$/../MTH343/src/Main.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Double.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/math/BigDecimal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="1624" selection-start-line="1624" selection-end-line="1624" />
-          <folding>
-            <element signature="e#68041#68042#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc;n#Main#0" />
-            <element signature="method#IsCSRSymmetric#0;class#Main#0" />
-            <element signature="method#Print#0;class#Main#0" />
-            <element signature="method#PrintData#0;class#Main#0" />
-            <element signature="method#Print#1;class#Main#0" />
-            <element signature="method#Print#2;class#Main#0" />
-            <element signature="method#Print#3;class#Main#0" />
-            <element signature="method#NumberOfPermutation#0;class#Main#0" />
-            <element signature="method#NextPermutation#0;class#Main#0" />
-            <element signature="method#Reverse#0;class#Main#0" />
-            <element signature="method#Print#4;class#Main#0" />
-            <element signature="method#ReadCSRFromFile#0;class#Main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
-          <folding>
-            <element signature="n#!!block;n#GetData#0;n#Vector#0" />
-            <element signature="n#!!block;n#GetEntry#0;n#Vector#0" />
-            <element signature="n#!!block;n#GetSize#0;n#Vector#0" />
-            <element signature="n#!!block;n#SetEntry#0;n#Vector#0" />
-            <element signature="method#GetLength#0;class#Vector#0" />
-            <element signature="e#523#590#1" />
-            <element signature="method#sqrt#0;class#Vector#0" />
-            <element signature="e#813#1015#1" />
-            <element signature="method#Vector#0;class#Vector#0" />
-            <element signature="method#Vector#1;class#Vector#0" />
-            <element signature="e#1387#1485#1" />
-            <element signature="method#Vector#3;class#Vector#0" />
-            <element signature="e#1799#1856#1" />
-            <element signature="method#Add#0;class#Vector#0" />
-            <element signature="e#2051#2130#1" />
-            <element signature="method#Add#1;class#Vector#0" />
-            <element signature="e#2260#2354#1" />
-            <element signature="e#2450#2544#1" />
-            <element signature="method#Scale#0;class#Vector#0" />
-            <element signature="e#2748#2833#1" />
-            <element signature="method#InnerProduct#0;class#Vector#0" />
-            <element signature="e#2947#3084#1" />
-            <element signature="e#3184#3270#1" />
-            <element signature="method#RightMultiplication#0;class#Vector#0" />
-            <element signature="e#3527#3599#1" />
-            <element signature="method#LeftMultiplication#0;class#Vector#0" />
-            <element signature="e#3856#3937#1" />
-            <element signature="method#Normalize#0;class#Vector#0" />
-            <element signature="method#Copy#0;class#Vector#0" />
-            <element signature="e#4140#4202#1" />
-            <element signature="e#4255#4312#1" />
-            <element signature="method#TakeInput#0;class#Vector#0" />
-            <element signature="e#4445#4505#1" />
-            <element signature="e#4549#4611#1" />
-            <element signature="e#4665#4756#1" />
-            <element signature="method#Print#0;class#Vector#0" />
-            <element signature="e#4857#4916#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/math/BigDecimal.java" />
     <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="462" column="102" selection-start-line="462" selection-start-column="102" selection-end-line="462" selection-end-column="102" />
+        <state relative-caret-position="685">
+          <caret line="283" column="5" selection-start-line="283" selection-start-column="5" selection-end-line="283" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="class#Data#0;class#CSRMatrix#0" />
             <element signature="n#!!block;n#Data#0;n#Data#0;n#CSRMatrix#0" />
             <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
@@ -703,222 +702,355 @@
             <element signature="n#!!block;n#GetRowSize#0;n#CSRMatrix#0" />
             <element signature="method#GetColSize#0;class#CSRMatrix#0" />
             <element signature="method#GetEntry#0;class#CSRMatrix#0" />
-            <element signature="e#974#1142#1" />
-            <element signature="e#1011#1063#1" />
-            <element signature="e#1091#1132#1" />
+            <element signature="e#1166#1348#1" />
+            <element signature="e#1203#1255#1" />
+            <element signature="e#1283#1338#1" />
             <element signature="method#GetRow#0;class#CSRMatrix#0" />
             <element signature="method#GetData#0;class#CSRMatrix#0" />
             <element signature="method#SetRow#0;class#CSRMatrix#0" />
             <element signature="method#SetEntry#0;class#CSRMatrix#0" />
-            <element signature="e#1403#1939#1" />
-            <element signature="e#1432#1813#1" />
-            <element signature="e#1636#1799#1" />
-            <element signature="e#1681#1781#1" />
-            <element signature="e#1836#1852#0" />
-            <element signature="e#1945#2102#1" />
-            <element signature="e#1992#2014#0" />
+            <element signature="e#1650#2207#1" />
+            <element signature="e#1699#2081#1" />
+            <element signature="e#1904#2067#1" />
+            <element signature="e#1949#2049#1" />
+            <element signature="e#2104#2120#0" />
+            <element signature="e#2213#2390#1" />
+            <element signature="e#2280#2302#0" />
             <element signature="method#SetData#0;class#CSRMatrix#0" />
-            <element signature="e#2203#2261#1" />
-            <element signature="e#2267#2321#1" />
+            <element signature="e#2491#2549#1" />
+            <element signature="e#2555#2609#1" />
             <element signature="n#!!block;n#CSRMatrix#0;n#CSRMatrix#0" />
             <element signature="method#CSRMatrix#1;class#CSRMatrix#0" />
             <element signature="method#TakeInput#0;class#CSRMatrix#0" />
-            <element signature="e#2841#2872#1" />
-            <element signature="e#2980#3081#1" />
-            <element signature="e#3134#3343#1" />
-            <element signature="e#3231#3333#1" />
-            <element signature="e#3273#3319#1" />
-            <element signature="e#3392#3468#1" />
-            <element signature="e#3543#4021#1" />
-            <element signature="e#3581#4011#1" />
-            <element signature="e#3724#3997#1" />
-            <element signature="e#3829#3949#1" />
-            <element signature="e#4027#4442#1" />
-            <element signature="e#4065#4432#1" />
-            <element signature="e#4208#4418#1" />
-            <element signature="e#4254#4370#1" />
+            <element signature="e#3137#3168#1" />
+            <element signature="e#3276#3377#1" />
+            <element signature="e#3430#3811#1" />
+            <element signature="e#3527#3801#1" />
+            <element signature="e#3596#3645#1" />
+            <element signature="e#3741#3787#1" />
+            <element signature="e#3860#3936#1" />
+            <element signature="e#4011#4630#1" />
+            <element signature="e#4049#4620#1" />
+            <element signature="e#4192#4606#1" />
+            <element signature="e#4265#4322#1" />
+            <element signature="e#4426#4558#1" />
+            <element signature="e#4636#5063#1" />
+            <element signature="e#4674#5053#1" />
+            <element signature="e#4817#5039#1" />
+            <element signature="e#4863#4991#1" />
             <element signature="method#Print#0;class#CSRMatrix#0" />
-            <element signature="e#4572#6182#1" />
-            <element signature="e#4885#4940#0" />
-            <element signature="e#5180#5361#1" />
-            <element signature="e#5274#5347#1" />
-            <element signature="e#5367#6138#1" />
-            <element signature="e#5476#6124#1" />
-            <element signature="e#5555#5968#1" />
-            <element signature="e#5581#5665#0" />
-            <element signature="e#5880#5946#1" />
-            <element signature="e#5974#6106#1" />
+            <element signature="e#5194#6927#1" />
+            <element signature="e#5507#5562#0" />
+            <element signature="e#5802#6024#1" />
+            <element signature="e#5896#6010#1" />
+            <element signature="e#6030#6883#1" />
+            <element signature="e#6139#6869#1" />
+            <element signature="e#6218#6672#1" />
+            <element signature="e#6244#6328#0" />
+            <element signature="e#6584#6650#1" />
+            <element signature="e#6678#6851#1" />
             <element signature="method#PrintData#0;class#CSRMatrix#0" />
-            <element signature="e#6240#6323#1" />
-            <element signature="e#6449#6694#1" />
-            <element signature="e#6574#6684#1" />
+            <element signature="e#6985#7069#1" />
+            <element signature="e#7318#7699#1" />
+            <element signature="e#7443#7689#1" />
             <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
-            <element signature="e#6894#7731#1" />
-            <element signature="e#7207#7262#0" />
-            <element signature="e#7503#7721#1" />
-            <element signature="e#7604#7707#1" />
+            <element signature="e#7899#8736#1" />
+            <element signature="e#8212#8267#0" />
+            <element signature="e#8508#8726#1" />
+            <element signature="e#8609#8712#1" />
             <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
-            <element signature="e#8057#8213#1" />
-            <element signature="e#8541#9632#1" />
-            <element signature="e#8679#9622#1" />
-            <element signature="e#8722#9608#1" />
-            <element signature="e#8850#9590#1" />
-            <element signature="e#8876#8920#0" />
+            <element signature="e#9041#9198#1" />
+            <element signature="e#9453#11093#1" />
+            <element signature="e#10354#11057#1" />
+            <element signature="e#10483#11043#1" />
+            <element signature="e#10750#10896#1" />
+            <element signature="e#10902#11025#1" />
             <element signature="method#TimeVector#0;class#CSRMatrix#0" />
-            <element signature="e#9809#10110#1" />
-            <element signature="e#9969#10057#1" />
+            <element signature="e#11283#11651#1" />
+            <element signature="e#11457#11598#1" />
             <element signature="method#TimeMatrix#0;class#CSRMatrix#0" />
-            <element signature="e#10227#10263#1" />
-            <element signature="e#10645#10856#1" />
-            <element signature="e#11068#11114#1" />
-            <element signature="e#11292#13521#1" />
-            <element signature="e#11356#12960#1" />
-            <element signature="e#11411#11494#0" />
-            <element signature="e#12035#12661#1" />
-            <element signature="e#12186#12643#1" />
-            <element signature="e#12212#12272#0" />
-            <element signature="e#12692#12946#1" />
-            <element signature="e#12862#12928#1" />
-            <element signature="e#13058#13511#1" />
-            <element signature="e#13145#13497#1" />
-            <element signature="e#13338#13407#1" />
-            <element signature="e#13413#13479#1" />
-            <element signature="e#13847#14058#1" />
-            <element signature="e#14366#16948#1" />
-            <element signature="e#14430#16380#1" />
-            <element signature="e#14485#14568#0" />
-            <element signature="e#15109#15735#1" />
-            <element signature="e#15260#15717#1" />
-            <element signature="e#15286#15346#0" />
-            <element signature="e#15767#16366#1" />
-            <element signature="e#15789#15851#0" />
-            <element signature="e#16141#16348#1" />
-            <element signature="e#16194#16326#1" />
-            <element signature="e#16478#16938#1" />
-            <element signature="e#16565#16924#1" />
-            <element signature="e#16765#16834#1" />
-            <element signature="e#16840#16906#1" />
+            <element signature="e#11768#11855#1" />
+            <element signature="e#12098#12182#0" />
+            <element signature="e#12493#12704#1" />
+            <element signature="e#12916#12962#1" />
+            <element signature="e#13149#13211#1" />
+            <element signature="e#13220#13258#0" />
+            <element signature="e#13457#15804#1" />
+            <element signature="e#13521#15236#1" />
+            <element signature="e#13590#13673#0" />
+            <element signature="e#14282#14961#1" />
+            <element signature="e#14433#14943#1" />
+            <element signature="e#14459#14519#0" />
+            <element signature="e#15012#15222#1" />
+            <element signature="e#15334#15794#1" />
+            <element signature="e#15421#15780#1" />
+            <element signature="e#15621#15690#1" />
+            <element signature="e#15696#15762#1" />
+            <element signature="e#15814#15833#0" />
+            <element signature="e#16089#16150#0" />
+            <element signature="e#16529#16776#1" />
+            <element signature="e#16678#16766#1" />
             <element signature="method#TimeMatrix#1;class#CSRMatrix#0" />
-            <element signature="e#17063#17099#1" />
-            <element signature="e#17229#17679#1" />
-            <element signature="e#17302#17669#1" />
-            <element signature="e#17470#17578#1" />
-            <element signature="e#17924#17970#1" />
-            <element signature="e#17849#18391#1" />
-            <element signature="e#17968#18381#1" />
-            <element signature="e#18136#18244#1" />
-            <element signature="e#18275#18367#1" />
-            <element signature="e#19478#21566#1" />
-            <element signature="e#19492#19522#0" />
-            <element signature="e#19827#19939#1" />
-            <element signature="e#20520#21224#1" />
-            <element signature="e#20752#20999#1" />
-            <element signature="e#21230#21556#1" />
+            <element signature="e#16890#16926#1" />
+            <element signature="e#17056#17575#1" />
+            <element signature="e#17129#17565#1" />
+            <element signature="e#17311#17454#1" />
+            <element signature="e#17505#17551#1" />
+            <element signature="e#17745#18356#1" />
+            <element signature="e#17864#18346#1" />
+            <element signature="e#18046#18189#1" />
+            <element signature="e#18240#18332#1" />
+            <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
+            <element signature="e#19618#21975#1" />
+            <element signature="e#19632#19662#0" />
+            <element signature="e#19967#20079#1" />
+            <element signature="e#20594#20668#1" />
+            <element signature="e#20909#21633#1" />
+            <element signature="e#21141#21408#1" />
+            <element signature="e#21639#21965#1" />
+            <element signature="method#Equal#0;class#CSRMatrix#0" />
+            <element signature="e#22119#22156#1" />
+            <element signature="e#22270#22749#1" />
+            <element signature="e#22331#22739#1" />
+            <element signature="e#22381#22607#1" />
+            <element signature="e#22465#22526#1" />
+            <element signature="e#22531#22589#1" />
+            <element signature="e#22672#22725#1" />
+            <element signature="method#Equal#1;class#CSRMatrix#0" />
+            <element signature="e#22891#22928#1" />
+            <element signature="e#22984#23085#1" />
+            <element signature="e#23030#23075#1" />
+            <element signature="e#23136#23296#1" />
+            <element signature="e#23241#23286#1" />
             <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
-            <element signature="e#21699#21771#1" />
-            <element signature="e#21912#22687#1" />
-            <element signature="e#22159#22677#1" />
-            <element signature="e#22418#22662#1" />
-            <element signature="e#22542#22644#1" />
+            <element signature="e#23423#23495#1" />
+            <element signature="e#23636#24417#1" />
+            <element signature="e#23883#24407#1" />
+            <element signature="e#24142#24392#1" />
+            <element signature="e#24272#24374#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#GetData#0;n#Vector#0" />
+            <element signature="n#!!block;n#GetEntry#0;n#Vector#0" />
+            <element signature="n#!!block;n#GetSize#0;n#Vector#0" />
+            <element signature="n#!!block;n#SetEntry#0;n#Vector#0" />
+            <element signature="method#GetLength#0;class#Vector#0" />
+            <element signature="e#554#657#1" />
+            <element signature="method#sqrt#0;class#Vector#0" />
+            <element signature="e#880#1140#1" />
+            <element signature="method#Vector#0;class#Vector#0" />
+            <element signature="method#Vector#1;class#Vector#0" />
+            <element signature="e#1482#1558#1" />
+            <element signature="e#1652#1750#1" />
+            <element signature="method#Vector#2;class#Vector#0" />
+            <element signature="e#1885#1986#1" />
+            <element signature="method#Vector#3;class#Vector#0" />
+            <element signature="e#2118#2175#1" />
+            <element signature="method#Add#0;class#Vector#0" />
+            <element signature="e#2370#2467#1" />
+            <element signature="method#Add#1;class#Vector#0" />
+            <element signature="e#2597#2691#1" />
+            <element signature="e#2787#2899#1" />
+            <element signature="method#Scale#0;class#Vector#0" />
+            <element signature="e#3103#3206#1" />
+            <element signature="method#InnerProduct#0;class#Vector#0" />
+            <element signature="e#3320#3457#1" />
+            <element signature="e#3557#3679#1" />
+            <element signature="method#RightMultiplication#0;class#Vector#0" />
+            <element signature="e#3936#4008#1" />
+            <element signature="method#Normalize#0;class#Vector#0" />
+            <element signature="method#Copy#0;class#Vector#0" />
+            <element signature="e#4599#4661#1" />
+            <element signature="e#4714#4771#1" />
+            <element signature="method#Equal#0;class#Vector#0" />
+            <element signature="e#4850#4887#1" />
+            <element signature="e#4942#5243#1" />
+            <element signature="e#5188#5233#1" />
+            <element signature="method#TakeInput#0;class#Vector#0" />
+            <element signature="e#5398#5458#1" />
+            <element signature="e#5502#5564#1" />
+            <element signature="e#5618#5709#1" />
+            <element signature="method#Print#0;class#Vector#0" />
+            <element signature="e#5811#5911#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
+          <folding>
+            <element signature="n#!!doc;n#Main#0" />
+            <element signature="e#2302#2734#0" />
+            <element signature="e#2464#2728#0" />
+            <element signature="e#2868#3344#0" />
+            <element signature="e#3350#3627#0" />
+            <element signature="e#3455#3533#1" />
+            <element signature="e#3539#3621#1" />
+            <element signature="e#3632#3759#0" />
+            <element signature="e#3764#3910#0" />
+            <element signature="e#3915#4039#0" />
+            <element signature="e#4044#4168#0" />
+            <element signature="e#4173#4467#0" />
+            <element signature="e#4275#4340#1" />
+            <element signature="e#4422#4461#1" />
+            <element signature="e#4473#5543#0" />
+            <element signature="e#5288#5350#1" />
+            <element signature="e#5356#5418#1" />
+            <element signature="e#5548#7138#0" />
+            <element signature="e#6257#6332#1" />
+            <element signature="e#6338#6413#1" />
+            <element signature="e#6842#6919#1" />
+            <element signature="e#6925#7002#1" />
+            <element signature="e#7143#8564#0" />
+            <element signature="e#7644#7738#1" />
+            <element signature="e#7744#7842#1" />
+            <element signature="e#8262#8360#1" />
+            <element signature="e#8366#8460#1" />
+            <element signature="e#8569#10767#0" />
+            <element signature="e#9000#9061#0" />
+            <element signature="e#9252#10372#1" />
+            <element signature="e#9487#9578#1" />
+            <element signature="e#10211#10328#1" />
+            <element signature="e#10629#10652#0" />
+            <element signature="e#10773#11053#0" />
+            <element signature="e#10869#10902#1" />
+            <element signature="e#10973#11024#1" />
+            <element signature="e#11058#12251#0" />
+            <element signature="e#11183#11222#1" />
+            <element signature="e#11525#11591#1" />
+            <element signature="e#11601#11689#0" />
+            <element signature="e#11748#11842#1" />
+            <element signature="e#11794#11832#1" />
+            <element signature="e#11880#11970#1" />
+            <element signature="e#12153#12222#1" />
+            <element signature="e#12256#12502#0" />
+            <element signature="e#12343#12496#1" />
+            <element signature="e#12507#12705#0" />
+            <element signature="e#12615#12669#1" />
+            <element signature="e#12711#14549#0" />
+            <element signature="e#12805#12826#0" />
+            <element signature="e#13529#13618#1" />
+            <element signature="e#13697#14166#1" />
+            <element signature="e#13876#14076#1" />
+            <element signature="e#13993#14062#1" />
+            <element signature="e#14241#14378#1" />
+            <element signature="e#14310#14368#1" />
+            <element signature="e#14425#14508#1" />
+            <element signature="e#14554#15425#0" />
+            <element signature="e#14651#14672#0" />
+            <element signature="e#15179#15384#1" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="259" column="102" lean-forward="true" selection-start-line="259" selection-start-column="102" selection-end-line="259" selection-end-column="102" />
+        <state relative-caret-position="360">
+          <caret line="164" column="5" lean-forward="true" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
           <folding>
             <element signature="n#!!block;n#GetEntry#0;n#Matrix#0" />
             <element signature="n#!!block;n#SetEntry#0;n#Matrix#0" />
             <element signature="n#!!block;n#GetRow#0;n#Matrix#0" />
             <element signature="method#SetRow#0;class#Matrix#0" />
-            <element signature="e#703#831#1" />
-            <element signature="e#837#1028#1" />
-            <element signature="e#885#924#1" />
+            <element signature="e#687#815#1" />
+            <element signature="e#821#1012#1" />
+            <element signature="e#869#908#1" />
             <element signature="method#GetTranspose#0;class#Matrix#0" />
-            <element signature="e#1186#1359#1" />
-            <element signature="e#1252#1349#1" />
+            <element signature="e#1170#1343#1" />
+            <element signature="e#1236#1333#1" />
             <element signature="n#!!block;n#GetColVector#0;n#Matrix#0" />
             <element signature="method#Matrix#0;class#Matrix#0" />
-            <element signature="e#1609#1685#1" />
+            <element signature="e#1593#1669#1" />
+            <element signature="method#Matrix#2;class#Matrix#0" />
+            <element signature="e#1892#1958#1" />
             <element signature="method#Matrix#3;class#Matrix#0" />
-            <element signature="e#2124#2196#1" />
+            <element signature="e#2108#2180#1" />
             <element signature="method#Matrix#4;class#Matrix#0" />
-            <element signature="e#2250#2280#0" />
-            <element signature="e#2347#2438#1" />
-            <element signature="e#2444#2650#1" />
-            <element signature="e#2556#2640#1" />
+            <element signature="e#2234#2264#0" />
+            <element signature="e#2331#2422#1" />
+            <element signature="e#2428#2634#1" />
+            <element signature="e#2540#2624#1" />
             <element signature="method#Matrix#5;class#Matrix#0" />
-            <element signature="e#2796#2861#1" />
-            <element signature="method#TimeRightMatrix#0;class#Matrix#0" />
-            <element signature="e#3003#3097#1" />
-            <element signature="e#3220#3589#1" />
-            <element signature="e#3282#3579#1" />
-            <element signature="e#3397#3516#1" />
-            <element signature="method#TimeLeftMatrix#0;class#Matrix#0" />
-            <element signature="e#3751#3845#1" />
-            <element signature="e#3973#4342#1" />
-            <element signature="e#4030#4332#1" />
-            <element signature="e#4150#4269#1" />
-            <element signature="method#TimeVector#0;class#Matrix#0" />
-            <element signature="e#4451#4538#1" />
-            <element signature="e#4701#4973#1" />
-            <element signature="e#4814#4920#1" />
+            <element signature="e#2780#2845#1" />
+            <element signature="method#Multiply#0;class#Matrix#0" />
+            <element signature="e#2987#3081#1" />
+            <element signature="e#3204#3609#1" />
+            <element signature="e#3266#3599#1" />
+            <element signature="e#3381#3536#1" />
+            <element signature="method#Multiply#0;class#Matrix#0" />
+            <element signature="e#4507#4594#1" />
+            <element signature="e#4757#5065#1" />
+            <element signature="e#4870#5012#1" />
             <element signature="method#Add#0;class#Matrix#0" />
-            <element signature="e#5116#5219#1" />
-            <element signature="e#5336#5510#1" />
-            <element signature="e#5393#5500#1" />
+            <element signature="e#5208#5311#1" />
+            <element signature="e#5428#5620#1" />
+            <element signature="e#5485#5610#1" />
             <element signature="method#AugmentVectorAtEnd#0;class#Matrix#0" />
-            <element signature="e#5627#5725#1" />
-            <element signature="e#5964#6298#1" />
-            <element signature="e#6112#6208#1" />
-            <element signature="e#6412#6507#1" />
-            <element signature="e#6842#7117#1" />
-            <element signature="e#7476#7611#1" />
-            <element signature="e#7697#7712#0" />
-            <element signature="e#7831#7924#1" />
-            <element signature="e#8043#8153#1" />
-            <element signature="e#8264#8432#1" />
-            <element signature="e#8567#8639#0" />
-            <element signature="e#8767#8850#0" />
-            <element signature="e#9380#9597#1" />
-            <element signature="e#9727#9831#1" />
-            <element signature="e#9924#10481#1" />
-            <element signature="e#10080#10257#1" />
-            <element signature="e#10554#10666#1" />
-            <element signature="e#10710#10841#1" />
-            <element signature="e#10879#10964#1" />
-            <element signature="e#11406#11479#1" />
+            <element signature="e#5737#5835#1" />
+            <element signature="e#6074#6408#1" />
+            <element signature="e#6222#6318#1" />
+            <element signature="method#LUFactorization#0;class#Matrix#0" />
+            <element signature="e#6522#6617#1" />
+            <element signature="e#6952#7227#1" />
+            <element signature="e#7422#11779#1" />
+            <element signature="e#7586#7721#1" />
+            <element signature="e#7807#7822#0" />
+            <element signature="e#7941#8034#1" />
+            <element signature="e#8153#8263#1" />
+            <element signature="e#8374#8597#1" />
+            <element signature="e#8714#11608#1" />
+            <element signature="e#8732#8804#0" />
+            <element signature="e#8910#10589#1" />
+            <element signature="e#8932#9015#0" />
+            <element signature="e#9559#9829#1" />
+            <element signature="e#10105#10242#1" />
+            <element signature="e#10248#10571#1" />
+            <element signature="e#10692#11398#1" />
+            <element signature="e#10862#11092#1" />
+            <element signature="e#11482#11594#1" />
+            <element signature="e#11638#11769#1" />
+            <element signature="e#11799#11884#1" />
+            <element signature="e#11890#11963#1" />
             <element signature="method#QRFactorization#0;class#Matrix#0" />
-            <element signature="e#11328#11676#1" />
-            <element signature="e#11439#11597#1" />
-            <element signature="e#11814#12008#1" />
-            <element signature="e#11885#11998#1" />
+            <element signature="e#12327#12725#1" />
+            <element signature="e#12438#12646#1" />
+            <element signature="e#12863#13057#1" />
+            <element signature="e#12934#13047#1" />
             <element signature="method#BackwardSubstitution#0;class#Matrix#0" />
-            <element signature="e#12200#12292#1" />
-            <element signature="e#12302#12348#0" />
-            <element signature="e#12470#12745#1" />
-            <element signature="e#12530#12735#1" />
-            <element signature="e#12582#12721#1" />
-            <element signature="e#12866#13191#1" />
-            <element signature="e#12991#13087#1" />
+            <element signature="e#13249#13341#1" />
+            <element signature="e#13351#13397#0" />
+            <element signature="e#13519#13821#1" />
+            <element signature="e#13579#13811#1" />
+            <element signature="e#13658#13797#1" />
+            <element signature="e#13956#14614#1" />
+            <element signature="e#14081#14449#1" />
+            <element signature="e#14083#14199#0" />
             <element signature="method#TakeInput#0;class#Matrix#0" />
-            <element signature="e#13333#13364#1" />
-            <element signature="e#13424#13487#1" />
-            <element signature="e#13574#13745#1" />
-            <element signature="e#13634#13735#1" />
-            <element signature="e#13808#14169#1" />
-            <element signature="e#13917#13985#1" />
-            <element signature="e#14050#14159#1" />
+            <element signature="e#14764#14795#1" />
+            <element signature="e#14855#14918#1" />
+            <element signature="e#15005#15190#1" />
+            <element signature="e#15065#15180#1" />
+            <element signature="e#15253#15626#1" />
+            <element signature="e#15362#15430#1" />
+            <element signature="e#15495#15616#1" />
             <element signature="method#Print#0;class#Matrix#0" />
-            <element signature="e#14288#14482#1" />
-            <element signature="e#14346#14438#1" />
+            <element signature="e#15746#15981#1" />
+            <element signature="e#15804#15937#1" />
             <element signature="method#IsSymmetric#0;class#Matrix#0" />
-            <element signature="e#14586#14623#1" />
-            <element signature="e#14727#14931#1" />
-            <element signature="e#14775#14921#1" />
-            <element signature="e#14854#14907#1" />
+            <element signature="e#16085#16122#1" />
+            <element signature="e#16226#16443#1" />
+            <element signature="e#16274#16433#1" />
+            <element signature="e#16366#16419#1" />
+            <marker date="1552448948556" expanded="false" signature="13280:13475" ph="..." />
           </folding>
         </state>
       </provider>
@@ -980,7 +1112,18 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
