@@ -125,7 +125,7 @@ public class Main {
         Print(matrix3, "Matrix 2");
 
         CSRMatrix result1 = csrMatrix2.TimeMatrix(csrMatrix3);
-        Matrix result2 = matrix2.TimeRightMatrix(matrix3);
+        Matrix result2 = matrix2.Multiply(matrix3);
         Print(result1, "CSR 1 x CSR 2");
         Print(result2, "Matrix 1 x Matrix 2");
 
@@ -150,7 +150,7 @@ public class Main {
         Print(vector, "Vector 1");
 
         Vector result1 = csrMatrix.TimeVector(vector);
-        Vector result2 = matrix.TimeVector(vector);
+        Vector result2 = matrix.Multiply(vector);
         Print(result1, "CSR 1 x Vector 1");
         Print(result2, "Matrix 1 x Vector 1");
         System.out.println();
@@ -165,7 +165,7 @@ public class Main {
         Print(matrix.GetTranspose(), "Matrix 1^T");
 
         Vector result3 = csrMatrix.GetTranspose().TimeVector(vector);
-        Vector result4 = matrix.GetTranspose().TimeVector(vector);
+        Vector result4 = matrix.GetTranspose().Multiply(vector);
         Print(result3, "CSR^T 1 x Vector 1");
         Print(result4, "Matrix^T 1 x Vector 1");
         System.out.println();

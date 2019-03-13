@@ -68,7 +68,7 @@ class Matrix {
         }
 
     }
-    private Matrix(Matrix newMatrix){
+    Matrix(Matrix newMatrix){
         matrix = new Vector[newMatrix.GetRowSize()];
         for(int row = 0; row < GetRowSize(); row++){
             matrix[row] = new Vector(newMatrix.GetRow(row));
@@ -87,14 +87,14 @@ class Matrix {
             }
         }
     }
-    private Matrix(Vector[] vectors){
+    Matrix(Vector[] vectors){
         matrix = new Vector[vectors.length];
         for(int indx = 0; indx < vectors.length; indx++){
             matrix[indx] = new Vector(vectors[indx]);
         }
     }
 
-    Matrix TimeRightMatrix(Matrix parm){
+    Matrix Multiply(Matrix parm){
         //Multiply with parm on the right side
         if (GetColSize() != parm.GetRowSize()){
             System.out.println("\tSizes are different!");
@@ -114,27 +114,7 @@ class Matrix {
         }
         return result;
     }
-    Matrix TimeLeftMatrix(Matrix parm){
-        //Multiply with parm on the left side
-        if (parm.GetColSize() != GetRowSize()){
-            System.out.println("\tSizes are different!");
-            return null;
-        }
-
-        Matrix result = new Matrix(parm.GetRowSize(), GetColSize());
-
-        for(int row = 0; row < parm.GetRowSize(); row++){
-            for(int col = 0; col < GetColSize(); col++){
-                BigDecimal temp = BigDecimal.ZERO;
-                for(int indx = 0; indx < parm.GetColSize(); indx++){
-                    temp = temp.add(parm.GetEntry(row, indx).multiply(matrix[indx].GetEntry(col), Main.mathContext), Main.mathContext);
-                }
-                result.SetEntry(row, col, temp);
-            }
-        }
-        return result;
-    }
-    Vector TimeVector(Vector parm){
+    Vector Multiply(Vector parm){
         if (parm.GetSize() != GetColSize()){
             System.out.println("Different size!");
             return null;
@@ -213,7 +193,7 @@ class Matrix {
                 //Set up the permutation matrix
                 permuMatrix.SetRow(indx, permuVectors[permuArr[indx]]);
             }
-            Matrix temp = new Matrix(this.TimeRightMatrix(permuMatrix));
+            Matrix temp = new Matrix(this.Multiply(permuMatrix));
             //temp.Print();
 
             //The diagonal of the L matrix is 0

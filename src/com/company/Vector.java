@@ -71,11 +71,11 @@ class Vector {
         }
     }
 
-    Vector Add(BigDecimal data){
+    Vector Add(BigDecimal parm){
         //Add all entries in the vector with a number
         Vector result = new Vector(this);
         for(int indx = 0; indx < this.data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).add(data, Main.mathContext));
+            result.SetEntry(indx, result.GetEntry(indx).add(parm, Main.mathContext));
         }
         return result;
     }
@@ -91,11 +91,11 @@ class Vector {
         }
         return result;
     }
-    Vector Scale(BigDecimal value){
+    Vector Scale(BigDecimal parm){
         //Scale vector with a given value
         Vector result = new Vector(this);
         for(int indx = 0 ; indx < data.length; indx++){
-            result.SetEntry(indx, result.GetEntry(indx).multiply(value, Main.mathContext));
+            result.SetEntry(indx, result.GetEntry(indx).multiply(parm, Main.mathContext));
         }
         return result;
     }
@@ -113,21 +113,12 @@ class Vector {
 
         return result;
     }
-    Matrix RightMultiplication(Vector parm){
+    Matrix Multiply(Vector parm){
         //Multiply 2 vector with parm on the right side
         Matrix result = new Matrix(data.length, parm.GetSize());
 
         for(int curRow = 0; curRow < data.length; curRow++){
             result.SetRow(curRow, parm.Scale(data[curRow]));
-        }
-        return result;
-    }
-    Matrix LeftMultiplication(Vector parm){
-        //Multiply 2 vector with parm on the left side
-        Matrix result = new Matrix(parm.GetSize(), data.length);
-
-        for(int curRow = 0; curRow < parm.GetSize(); curRow++){
-            result.SetRow(curRow, this.Scale(parm.GetEntry(curRow)));
         }
         return result;
     }

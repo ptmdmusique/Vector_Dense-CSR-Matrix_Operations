@@ -461,11 +461,11 @@ class CSRMatrix {
             }
 
             //Calculate alpha
-            Vector alpha = qrFactor.get(1).BackwardSubstitution(qrFactor.get(0).GetTranspose().TimeVector(residual));
+            Vector alpha = qrFactor.get(1).BackwardSubstitution(qrFactor.get(0).GetTranspose().Multiply(residual));
             //Calculate next iterate
-            solution = solution.Add(pMatrix.TimeVector(alpha));
+            solution = solution.Add(pMatrix.Multiply(alpha));
             //Calculate next residual
-            residual = residual.Add(bMatrix.TimeVector(alpha).Scale(BigDecimal.valueOf(-1)));
+            residual = residual.Add(bMatrix.Multiply(alpha).Scale(BigDecimal.valueOf(-1)));
             //Calculate residual norm
             BigDecimal tempNorm = residual.GetLength();
             if (tempNorm.equals(norm)){
