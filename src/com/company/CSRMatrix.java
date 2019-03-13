@@ -490,6 +490,7 @@ class CSRMatrix {
                 }
                 curSearchDir = curSearchDir.Normalize();
 
+                //Augment B and Q
                 pMatrix = pMatrix.AugmentVectorAtEnd(curSearchDir);
                 bMatrix = bMatrix.AugmentVectorAtEnd(this.TimeVector(curSearchDir));
             } else {
@@ -498,6 +499,7 @@ class CSRMatrix {
                 curSearchDir = searchDirList.get(searchDirIndx);
                 curSearchDir.Copy(residual.Normalize());
 
+                //Create new B and P vector from the first search dir again
                 pMatrix = new Matrix(curSearchDir, 2);
                 bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
             }
