@@ -131,7 +131,7 @@ class Matrix {
 
         return result;
     }
-    Matrix Add(Matrix parm){
+    Matrix Add(Matrix parm) {
         if (GetColSize() != parm.GetColSize() || GetRowSize() != parm.GetRowSize()){
             System.out.println("\tMatrices' size are different!");
             return null;
