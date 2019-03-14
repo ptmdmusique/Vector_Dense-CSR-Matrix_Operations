@@ -300,20 +300,20 @@ class CSRMatrix {
             System.out.println("Different size!");
             return null;
         }
-        int[] rowCurCol = new int[colSize];
+        int[] rowCurIndx = new int[colSize];
         int[] parmRow = matrix.GetRow();
         Data[] parmData = matrix.GetData();
         int[] resultRow = new int[row.length];  //This will be used as the row arr of the result matrix
 
-        //rowCurCol is used to keep track of the current col that we are reading on each row
+        //rowCurIndx is used to keep track of the current col that we are reading on each row
         //  so that we won't have to search for the correct element each time we move on to the next row every single time
         //Additional space complexity: O(rowSize) which is very insignificant comparing to the total number of elements.
         for(int curRow = 0; curRow < parmRow.length - 1; curRow++){
             //Either the row is empty (-1) or has something in it (which we will store the start index)
-            rowCurCol[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
+            rowCurIndx[curRow] = parmRow[curRow] == parmRow[curRow + 1] ?  -1 : parmRow[curRow];
         }
         //Is last row empty?
-        rowCurCol[parmRow.length - 1] = parmRow[parmRow.length - 1] == parmData.length ? -1 : parmRow[parmRow.length - 1];
+        rowCurIndx[parmRow.length - 1] = parmRow[parmRow.length - 1] == parmData.length ? -1 : parmRow[parmRow.length - 1];
 
         for(int curRow = 0; curRow < row.length; curRow++){
             resultRow[curRow] = 0;
@@ -333,20 +333,20 @@ class CSRMatrix {
                 BigDecimal temp = BigDecimal.ZERO;
                 //k will go from the index of the first element in the current row to the end index
                 //  then data[k].col will be used as the row of parmData and
-                // we will use rowCurCol[data[k].col] to look aside the current element in parm
+                // we will use rowCurIndx[data[k].col] to look aside the current element in parm
                 //Moreover, because we use the outer loop to iterate the parmCol,
-                // if parmCol != parmData[rowCurCol[data[k].col]].col
+                // if parmCol != parmData[rowCurIndx[data[k].col]].col
                 //  then it means parm[data[k].col][parmCol] == 0. Thus, we don't need to count it in the actual calculation
                 for(int k = row[curRow];
                     k <= (curRow == row.length - 1 ? data.length - 1 : row[curRow + 1] - 1);
                     k++){
                     //Only multiply non zero!
-                    if (rowCurCol[data[k].col] > -1 && parmData[rowCurCol[data[k].col]].col == parmCol){
+                    if (rowCurIndx[data[k].col] > -1 && parmData[rowCurIndx[data[k].col]].col == parmCol){
                         //Since we iterate the parmCol in the outer loop one by one,
-                        //  if the col of the rowCurCol doesn't match the outer loop,
-                        //  it means the parm[parmData[rowCurCol[data[k].col]].col][parmCol] == 0
+                        //  if the col of the rowCurIndx doesn't match the outer loop,
+                        //  it means the parm[parmData[rowCurIndx[data[k].col]].col][parmCol] == 0
                         //Thus, we don't need to include it in our calculation
-                        temp = temp.add(data[k].data.multiply(parmData[rowCurCol[data[k].col]].data, Main.mathContext), Main.mathContext);
+                        temp = temp.add(data[k].data.multiply(parmData[rowCurIndx[data[k].col]].data, Main.mathContext), Main.mathContext);
                     }
                 }
                 if (!temp.equals(BigDecimal.ZERO)){
@@ -357,13 +357,13 @@ class CSRMatrix {
             }
 
             //Increase the curCol
-            for(int indx = 0; indx < rowCurCol.length; indx++){
-                if (rowCurCol[indx] > -1 && parmCol == parmData[rowCurCol[indx]].col){
-                    if ((indx >= parmRow.length - 1 && rowCurCol[indx] + 1 == parmData.length)
-                            || (indx < parmRow.length - 1 && rowCurCol[indx] + 1 == parmRow[indx + 1])){
-                        rowCurCol[indx] = -1;
+            for(int indx = 0; indx < rowCurIndx.length; indx++){
+                if (rowCurIndx[indx] > -1 && parmCol == parmData[rowCurIndx[indx]].col){
+                    if ((indx >= parmRow.length - 1 && rowCurIndx[indx] + 1 == parmData.length)
+                            || (indx < parmRow.length - 1 && rowCurIndx[indx] + 1 == parmRow[indx + 1])){
+                        rowCurIndx[indx] = -1;
                     } else {
-                        rowCurCol[indx]++;
+                        rowCurIndx[indx]++;
                     }
                 }
             }
