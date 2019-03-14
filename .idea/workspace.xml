@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81f56a78-739d-46db-87a2-96d5feeaf736" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CSRMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~WRL0003.tmp" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,17 +18,18 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="9" />
+          <entry key="java" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9" />
+          <entry key="JAVA" value="11" />
         </counts>
       </usages-collector>
     </session>
@@ -52,18 +52,6 @@
                 <element signature="e#3915#4039#0" />
                 <element signature="e#4044#4168#0" />
                 <element signature="e#4173#4467#0" />
-                <element signature="e#4473#5536#0" />
-                <element signature="e#8558#10756#0" />
-                <element signature="e#10618#10641#0" />
-                <element signature="e#10762#11042#0" />
-                <element signature="e#11047#12240#0" />
-                <element signature="e#11590#11678#0" />
-                <element signature="e#12245#12491#0" />
-                <element signature="e#12496#12694#0" />
-                <element signature="e#12700#14538#0" />
-                <element signature="e#12794#12815#0" />
-                <element signature="e#14543#15414#0" />
-                <element signature="e#14640#14661#0" />
               </folding>
             </state>
           </provider>
@@ -128,8 +116,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="250" column="18" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="18" />
+            <state relative-caret-position="374">
+              <caret line="341" column="23" lean-forward="true" selection-start-line="341" selection-start-column="23" selection-end-line="341" selection-end-column="23" />
               <folding>
                 <element signature="class#Data#0;class#CSRMatrix#0" />
                 <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
@@ -150,17 +138,14 @@
                 <element signature="method#PrintData#0;class#CSRMatrix#0" />
                 <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
                 <element signature="e#8234#8289#0" />
+                <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
                 <element signature="method#Multiply#0;class#CSRMatrix#0" />
-                <element signature="method#Multiply#1;class#CSRMatrix#0" />
-                <element signature="e#12116#12200#0" />
-                <element signature="e#13238#13276#0" />
-                <element signature="e#13608#13691#0" />
-                <element signature="e#14477#14537#0" />
-                <element signature="e#15832#15851#0" />
-                <element signature="e#16107#16168#0" />
+                <element signature="e#12117#12202#0" />
+                <element signature="e#15850#15869#0" />
+                <element signature="e#16125#16186#0" />
                 <element signature="method#Multiply#2;class#CSRMatrix#0" />
                 <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
-                <element signature="e#19644#19674#0" />
+                <element signature="e#19662#19692#0" />
                 <element signature="method#Equal#0;class#CSRMatrix#0" />
                 <element signature="method#Equal#1;class#CSRMatrix#0" />
                 <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
@@ -237,8 +222,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-15" />
     <option name="y" value="-15" />
-    <option name="width" value="3873" />
-    <option name="height" value="2093" />
+    <option name="width" value="3875" />
+    <option name="height" value="2095" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -480,18 +465,6 @@
             <element signature="e#3915#4039#0" />
             <element signature="e#4044#4168#0" />
             <element signature="e#4173#4467#0" />
-            <element signature="e#4473#5536#0" />
-            <element signature="e#8558#10756#0" />
-            <element signature="e#10618#10641#0" />
-            <element signature="e#10762#11042#0" />
-            <element signature="e#11047#12240#0" />
-            <element signature="e#11590#11678#0" />
-            <element signature="e#12245#12491#0" />
-            <element signature="e#12496#12694#0" />
-            <element signature="e#12700#14538#0" />
-            <element signature="e#12794#12815#0" />
-            <element signature="e#14543#15414#0" />
-            <element signature="e#14640#14661#0" />
           </folding>
         </state>
       </provider>
@@ -550,8 +523,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/CSRMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="250" column="18" selection-start-line="250" selection-start-column="12" selection-end-line="250" selection-end-column="18" />
+        <state relative-caret-position="374">
+          <caret line="341" column="23" lean-forward="true" selection-start-line="341" selection-start-column="23" selection-end-line="341" selection-end-column="23" />
           <folding>
             <element signature="class#Data#0;class#CSRMatrix#0" />
             <element signature="method#Change#0;class#Data#0;class#CSRMatrix#0" />
@@ -572,17 +545,14 @@
             <element signature="method#PrintData#0;class#CSRMatrix#0" />
             <element signature="method#GetMatrixForm#0;class#CSRMatrix#0" />
             <element signature="e#8234#8289#0" />
+            <element signature="method#GetTranspose#0;class#CSRMatrix#0" />
             <element signature="method#Multiply#0;class#CSRMatrix#0" />
-            <element signature="method#Multiply#1;class#CSRMatrix#0" />
-            <element signature="e#12116#12200#0" />
-            <element signature="e#13238#13276#0" />
-            <element signature="e#13608#13691#0" />
-            <element signature="e#14477#14537#0" />
-            <element signature="e#15832#15851#0" />
-            <element signature="e#16107#16168#0" />
+            <element signature="e#12117#12202#0" />
+            <element signature="e#15850#15869#0" />
+            <element signature="e#16125#16186#0" />
             <element signature="method#Multiply#2;class#CSRMatrix#0" />
             <element signature="method#IterationMethod#0;class#CSRMatrix#0" />
-            <element signature="e#19644#19674#0" />
+            <element signature="e#19662#19692#0" />
             <element signature="method#Equal#0;class#CSRMatrix#0" />
             <element signature="method#Equal#1;class#CSRMatrix#0" />
             <element signature="method#IsSymmetric#0;class#CSRMatrix#0" />
