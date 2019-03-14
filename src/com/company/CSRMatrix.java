@@ -6,6 +6,7 @@ import java.util.LinkedList;
 class CSRMatrix {
     private static final String WHITESPACE = "\\s+";
 
+    //For stats only!
     static int STEP_LIMIT = 100;
     static double TOLERANCE = 10e-6;
     static int MAX_SEARCH_DIR = 150;
@@ -282,7 +283,7 @@ class CSRMatrix {
         }
         return result;
     }
-    Vector TimeVector(Vector parm){
+    Vector Multiply(Vector parm){
         Vector result = new Vector(row.length, BigDecimal.ZERO);
 
         for(int curRow = 0; curRow < row.length; curRow++){
@@ -294,7 +295,7 @@ class CSRMatrix {
         }
         return result;
     }
-    CSRMatrix TimeMatrix(CSRMatrix matrix){
+    CSRMatrix Multiply(CSRMatrix matrix){
         if (matrix.GetRowSize() != colSize){
             System.out.println("Different size!");
             return null;
@@ -390,7 +391,7 @@ class CSRMatrix {
         }
         return result;
     }
-    CSRMatrix TimeMatrix(Matrix matrix){
+    CSRMatrix Multiply(Matrix matrix){
         if (colSize != matrix.GetRowSize()){
             return null;
         }
@@ -434,7 +435,7 @@ class CSRMatrix {
         int searchDirIndx = 0;                                                      //Is it time to restart the search dir yet?
         //Vector solution = new Vector(rightSide);    //Create an initial vector
         Vector solution = new Vector(rightSide.GetSize(), BigDecimal.ZERO);
-        Vector residual = rightSide.Add(this.TimeVector(solution.Scale(BigDecimal.valueOf(-1))));       //Calculate the first residue
+        Vector residual = rightSide.Add(this.Multiply(solution.Scale(BigDecimal.valueOf(-1))));       //Calculate the first residue
 
         BigDecimal norm = residual.GetLength();                                         //Calculate the norm
 
@@ -446,7 +447,7 @@ class CSRMatrix {
         Vector curSearchDir;
         searchDirList.add(curSearchDir = new Vector(residual.Normalize()));                        //Calculate the initial search direction
         Matrix pMatrix = new Matrix(curSearchDir, 2);
-        Matrix bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
+        Matrix bMatrix = new Matrix(this.Multiply(curSearchDir), 2);
 
         for(int step = 1; step < STEP_LIMIT && norm.compareTo(initialNorm.multiply(BigDecimal.valueOf(TOLERANCE), Main.mathContext)) > 0; step++){
             //|r - bMatrix * alpha| -> min
@@ -492,7 +493,7 @@ class CSRMatrix {
 
                 //Augment B and Q
                 pMatrix = pMatrix.AugmentVectorAtEnd(curSearchDir);
-                bMatrix = bMatrix.AugmentVectorAtEnd(this.TimeVector(curSearchDir));
+                bMatrix = bMatrix.AugmentVectorAtEnd(this.Multiply(curSearchDir));
             } else {
                 //Restart
                 searchDirIndx = 0;
@@ -501,7 +502,7 @@ class CSRMatrix {
 
                 //Create new B and P vector from the first search dir again
                 pMatrix = new Matrix(curSearchDir, 2);
-                bMatrix = new Matrix(this.TimeVector(curSearchDir), 2);
+                bMatrix = new Matrix(this.Multiply(curSearchDir), 2);
             }
         }
 

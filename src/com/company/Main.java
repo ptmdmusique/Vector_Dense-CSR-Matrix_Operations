@@ -124,7 +124,7 @@ public class Main {
         Print(matrix2, "Matrix 1");
         Print(matrix3, "Matrix 2");
 
-        CSRMatrix result1 = csrMatrix2.TimeMatrix(csrMatrix3);
+        CSRMatrix result1 = csrMatrix2.Multiply(csrMatrix3);
         Matrix result2 = matrix2.Multiply(matrix3);
         Print(result1, "CSR 1 x CSR 2");
         Print(result2, "Matrix 1 x Matrix 2");
@@ -149,7 +149,7 @@ public class Main {
         Print(matrix, "Matrix 1");
         Print(vector, "Vector 1");
 
-        Vector result1 = csrMatrix.TimeVector(vector);
+        Vector result1 = csrMatrix.Multiply(vector);
         Vector result2 = matrix.Multiply(vector);
         Print(result1, "CSR 1 x Vector 1");
         Print(result2, "Matrix 1 x Vector 1");
@@ -164,7 +164,7 @@ public class Main {
         Print(csrMatrix.GetTranspose(), "CSR 1^T");
         Print(matrix.GetTranspose(), "Matrix 1^T");
 
-        Vector result3 = csrMatrix.GetTranspose().TimeVector(vector);
+        Vector result3 = csrMatrix.GetTranspose().Multiply(vector);
         Vector result4 = matrix.GetTranspose().Multiply(vector);
         Print(result3, "CSR^T 1 x Vector 1");
         Print(result4, "Matrix^T 1 x Vector 1");
@@ -189,7 +189,7 @@ public class Main {
         Print(transpose1, "CSR Transpose 1");
 
         System.out.println("%This matrix x matrix^T should be symmetric...");
-        if (CSRMatrix.IsSymmetric(matrix1.TimeMatrix(transpose1))){
+        if (CSRMatrix.IsSymmetric(matrix1.Multiply(transpose1))){
             System.out.println("%Matrix x Matrix^T is Symmetric! Test Passed!!!");
         } else {
             System.out.println("%Matrix x Matrix^T is not Symmetric! Test failed!!!");
@@ -203,7 +203,7 @@ public class Main {
 
 
         System.out.println("%This matrix x matrix^T should NOT be symmetric...");
-        if (!CSRMatrix.IsSymmetric(matrix2.TimeMatrix(transpose2))){
+        if (!CSRMatrix.IsSymmetric(matrix2.Multiply(transpose2))){
             System.out.println("%Matrix x Matrix^T is not Symmetric! Test Passed!!!");
         } else {
             System.out.println("%Matrix x Matrix^T is Symmetric! Test Failed!!!");
@@ -237,7 +237,7 @@ public class Main {
             }
             runTime += System.currentTimeMillis();          //End the time counter
             //Find out the error
-            BigDecimal error = fileVector1.Add(fileCSR1.TimeVector(solution).Scale(BigDecimal.valueOf(-1))).GetLength();
+            BigDecimal error = fileVector1.Add(fileCSR1.Multiply(solution).Scale(BigDecimal.valueOf(-1))).GetLength();
 
             //Temporarily store the solution in a list
             solutionList.add(new SolutionOutput(error, runTime, maxStep, CSRMatrix.residualLengthList));
