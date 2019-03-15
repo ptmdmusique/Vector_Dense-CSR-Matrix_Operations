@@ -9,8 +9,8 @@ var plotly = require('plotly')("ptmdmusique", "m5TxWYcJyVin3iDoA779") //Set up p
 var layout = { title: "Error Graph", xaxis: { title: "Max step", autorange: true}, yaxis: { title: "Error", autorange: true}};
 var layout2 = { title: "Running Time Graph", xaxis: { title: "Max step", autorange: true }, yaxis: { title: "Running Time (milliseconds)", autorange: true } };
 var layout3 = { title: "Residual Length Graph", xaxis: { title: "Steps", autorange: true }, yaxis: { title: "Residual Length", autorange: true } };
-var graphOptions = { layout: layout, filename: "Run Time Graph", fileopt: "overwrite" };
-var graphOptions2 = { layout: layout2, filename: "Error Graph", fileopt: "overwrite" };
+var graphOptions = { layout: layout, filename: "Error Graph", fileopt: "overwrite" };
+var graphOptions2 = { layout: layout2, filename: "Run Time Graph", fileopt: "overwrite" };
 var graphOptions3 = { layout: layout3, filename: "Residual Length Graph", fileopt: "overwrite" };
 
 //Read from json file
