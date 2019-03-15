@@ -1,0 +1,32 @@
+%``````````````Task 1``````````````%
+
+%~~CSR Matrix 1
+%Sparse matrix: 
+ 1.0000000  0.0000000  0.0000000 
+ 0.0000000  1.0000000  0.0000000 
+ 0.0000000  0.0000000  1.0000000 
+
+%~~CSR Transpose 1
+%Sparse matrix: 
+ 1.0000000  0.0000000  0.0000000 
+ 0.0000000  1.0000000  0.0000000 
+ 0.0000000  0.0000000  1.0000000 
+%This matrix x matrix^T should be symmetric...
+%Matrix x Matrix^T is not Symmetric! Test failed!!!
+
+%~~CSR Matrix 2
+%Sparse matrix: 
+55.0000000 16.0000000 97.0000000 
+16.0000000 5213.0000000 24.0000000 
+97.0000000 24.0000000 210.0000000 
+ 0.0000000 91.0000000  2.0000000 
+
+%~~CSR Transpose 2
+%Sparse matrix: 
+55.0000000 16.0000000 97.0000000  0.0000000 
+16.0000000 5213.0000000 24.0000000 91.0000000 
+97.0000000 24.0000000 210.0000000  2.0000000 
+%This matrix x matrix^T should NOT be symmetric...
+%Matrix x Matrix^T is Symmetric! Test Failed!!!
+%``````````````Task 1``````````````%
+

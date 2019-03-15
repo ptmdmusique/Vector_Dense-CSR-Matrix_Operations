@@ -559,22 +559,67 @@ class CSRMatrix {
         int[] row = parm.GetRow();
         Data[] data = parm.GetData();
 
+        int dataIndx = 0;
         for(int curRow = 0; curRow < parm.GetRowSize(); curRow++){
-            //We only need to check until the middle entries
-            for(int indx = row[curRow];
-                indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)) && data[indx].col < curRow;
-                indx++){
-                //Find the correct entry
-                for(int search = row[data[indx].col];
-                    search <= (data[indx].col == row.length - 1 ? data.length - 1 : (row[data[indx].col + 1] - 1));
-                    search++
-                ){
-                    if (data[search].col > curRow || (data[search].col == curRow && !data[indx].data.equals(data[search].data))){
-                        //Different data
-                        return false;
+//            //We only need to check until the middle entries
+//            for(int indx = row[curRow];
+//                indx <= (curRow == row.length - 1 ? data.length - 1 : (row[curRow + 1] - 1)) && data[indx].col < curRow;
+//                indx++){
+//                //Find the correct entry
+//                for(int search = row[data[indx].col];
+//                    search <= (data[indx].col == row.length - 1 ? data.length - 1 : (row[data[indx].col + 1] - 1));
+//                    search++
+//                ){
+//                    if (data[search].col > curRow || (data[search].col == curRow && !data[indx].data.equals(data[search].data))){
+//                        //Different data
+//                        return false;
+//                    }
+//                }
+//            }
+            for(int curCol = 0; curCol < parm.GetColSize(); curCol++){
+                if (curCol == curRow){
+                    //No need to check the diagonal
+                    if (data[dataIndx].col == curCol){
+                        dataIndx++;
                     }
+                    continue;
+                }
+                BigDecimal toCheck = BigDecimal.ZERO;
+                if (data[dataIndx].col == curCol){
+                    //Not a zero
+                    toCheck = data[dataIndx].data;
+                    dataIndx++;
                 }
 
+                if(toCheck.equals(BigDecimal.ZERO)){
+                    //If we can find the corresponding value then it means the other side is not 0
+                    // then just return false
+                    for(int search = row[curCol];
+                    search <= (curCol == row.length - 1 ? data.length - 1 : (row[curCol + 1] - 1));
+                    search++
+                    ){
+                        if (data[search].col == curRow){
+                            //Found a corresponding entry that is supposed to be 0
+                            return false;
+                        } else if (data[search].col > curRow){
+                            break;
+                        }
+                    }
+                } else {
+                //Find the correct entry
+                for(int search = row[data[dataIndx - 1].col];
+                    search <= (data[dataIndx - 1].col == row.length - 1 ? data.length - 1 : (row[data[dataIndx - 1].col + 1] - 1));
+                    search++
+                ){
+                    if (data[search].col > curRow || (data[search].col == curRow && !data[dataIndx - 1].data.equals(data[search].data))){
+                        //Different data
+                        return false;
+                    } else if (data[search].col == curRow && data[search].data.equals(toCheck)){
+                        //Found 1
+                        break;
+                    }
+                }
+                }
             }
         }
         return true;

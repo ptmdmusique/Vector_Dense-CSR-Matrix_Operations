@@ -18,7 +18,7 @@ public class Main {
     //NOTE: LOW BIGDECIMAL_SCALE CAN LEADS TO 0 AS ROUNDING RESULT!!!
     //NOTE: USE HIGHER BIGDECIMAL_SCALE IF RESIDUAL GET BIGGER INSTEAD OF GETTING MINIMIZED
     //NOTE: Data can be found here: https://math.nist.gov/MatrixMarket/
-    static int BIGDECIMAL_SCALE = 50;                                           //Max decimal used
+    static int BIGDECIMAL_SCALE = 100;                                           //Max decimal used
     static MathContext mathContext = new MathContext(BIGDECIMAL_SCALE);         //Max decimal used in BigDecimal
 
     static final String WHITESPACE = "\\s+";
@@ -71,11 +71,23 @@ public class Main {
         CheckCSRTimeVector(testInput, testInputVector1);
         CheckCSRMultiplication(testInput2, testInput3);
 
+        fileOut = new PrintStream("./task1" + textExtension);
+        System.setOut(fileOut);
         //Task 1
         Task1();
 
         //Task 2
         Task2();
+
+
+//        CSRMatrix test = new CSRMatrix("1 2 3\n0 1 2\n5 6 7");
+//        IsCSRSymmetric(test, "CSR Test");
+//        test = new CSRMatrix("1 2 3\n0 9 5\n3 5 7");
+//        IsCSRSymmetric(test, "CSR Test1");
+//        test = new CSRMatrix("1 0 3\n0 9 5\n3 5 7");
+//        IsCSRSymmetric(test, "CSR Test2");
+//        test = new CSRMatrix("1 2 3\n0 9 5\n3 5 7");
+//        IsCSRSymmetric(test, "CSR Test3");
     }
 
     private static void IsCSRSymmetric(CSRMatrix parm, String name){
@@ -216,50 +228,58 @@ public class Main {
         System.setOut(stdout);
         System.out.println("%``````````````Task 2``````````````%");
 
-        String csrFromFile1 = ReadCSRFromFile(inputPath + "e05r0000.mtx");
-        String rhsFromFile1 = ReadVectorFromFile(inputPath + "e05r0000_rhs1.mtx");
-        CSRMatrix fileCSR1 = new CSRMatrix(csrFromFile1);
-        Vector fileVector1 = new Vector(rhsFromFile1);
+        String matrixFileName = "matrix";       //matrix1.mtx
+        String rhsFileName = "matrix_rhs";      //matrix_rhs1.mtx
+
+        for(int fileIndx = 2; fileIndx < 4; fileIndx++){
+            System.setOut(stdout);
+            System.out.println("%~~Testing with " + inputPath + matrixFileName + fileIndx + ".mtx");
+            String csrFromFile1 = ReadCSRFromFile(inputPath + matrixFileName + fileIndx + ".mtx");
+            String rhsFromFile1 = ReadVectorFromFile(inputPath + rhsFileName + fileIndx + ".mtx");
+            CSRMatrix fileCSR1 = new CSRMatrix(csrFromFile1);
+            Vector fileVector1 = new Vector(rhsFromFile1);
 //        CSRMatrix fileCSR1 = new CSRMatrix(iterationInput);
 //        Vector fileVector1 = new Vector(bIterationInput);
 
-        LinkedList<SolutionOutput> solutionList = new LinkedList<>();
+            LinkedList<SolutionOutput> solutionList = new LinkedList<>();
 
-        for(int maxStep = 5; maxStep <= 150; maxStep += 5){
+            for(int maxStep = 5; maxStep <= 150; maxStep += 5){
 
-            CSRMatrix.STEP_LIMIT = maxStep;
+                CSRMatrix.STEP_LIMIT = maxStep;
 
-            long runTime = -System.currentTimeMillis();     //Start the time counter
-            Vector solution = fileCSR1.IterationMethod(fileVector1);
-            if (solution == null){
-                System.out.println("%No solution!");
-                break;
+                long runTime = -System.currentTimeMillis();     //Start the time counter
+                Vector solution = fileCSR1.IterationMethod(fileVector1);
+                if (solution == null){
+                    System.out.println("%No solution!");
+                    break;
+                }
+                runTime += System.currentTimeMillis();          //End the time counter
+                //Find out the error
+                BigDecimal error = fileVector1.Add(fileCSR1.Multiply(solution).Scale(BigDecimal.valueOf(-1))).GetLength();
+
+                //Temporarily store the solution in a list
+                solutionList.add(new SolutionOutput(error, runTime, maxStep, CSRMatrix.residualLengthList));
+                System.out.println("~!Maxstep=" + maxStep + " completed under " + runTime + " milliseconds with error=" + error + "!");
+//                System.out.print("\t");
+//                for (int indx = 0; indx < solution.GetSize(); indx++) {
+//                    //Print the residual
+//                    System.out.print(" " + solution.GetEntry(indx));
+//                }
+                //System.out.println();
             }
-            runTime += System.currentTimeMillis();          //End the time counter
-            //Find out the error
-            BigDecimal error = fileVector1.Add(fileCSR1.Multiply(solution).Scale(BigDecimal.valueOf(-1))).GetLength();
 
-            //Temporarily store the solution in a list
-            solutionList.add(new SolutionOutput(error, runTime, maxStep, CSRMatrix.residualLengthList));
-            System.out.println("~!Maxstep=" + maxStep + " completed under " + runTime + " milliseconds with error=" + error + "!");
-            System.out.print("\t");
-            for (int indx = 0; indx < solution.GetSize(); indx++) {
-                //Print the residual
-                System.out.print(" " + solution.GetEntry(indx));
-            }
-            System.out.println();
+            //Set up new output stream
+            fileOut = new PrintStream(outputPath + solutionOutName + fileIndx + jsonExtension);
+            System.setOut(fileOut);
+            //Report in a json file
+            //Convert to json
+            String json = gson.toJson(solutionList);
+            System.out.println(json);
         }
 
+        System.setOut(stdout);
         System.out.println("%``````````````Task 2``````````````%");
         System.out.println();
-
-        //Set up new output stream
-        fileOut = new PrintStream(outputPath + solutionOutName + jsonExtension);
-        System.setOut(fileOut);
-        //Report in a json file
-        //Convert to json
-        String json = gson.toJson(solutionList);
-        System.out.println(json);
     }
 
     static int NumberOfPermutation(int spot, int numberOfChoice){
