@@ -15,15 +15,15 @@ import java.util.Scanner;
 // ~! For debugging purpose
 //FOR JSON: use GSON: https://github.com/google/gson
 public class Main {
-    //NOTE: LOW BIGDECIMAL_SCALE CAN LEADS TO 0 AS ROUNDING RESULT!!!
+    //NOTE: LOW BIGDECIMAL_SCALE WITH HIGH STEP_LIMIT CAN LEADS TO 0 AS ROUNDING RESULT!!!
     //NOTE: USE HIGHER BIGDECIMAL_SCALE IF RESIDUAL GET BIGGER INSTEAD OF GETTING MINIMIZED
     //NOTE: Data can be found here: https://math.nist.gov/MatrixMarket/
-    static int BIGDECIMAL_SCALE = 100;                                           //Max decimal used
+    static int BIGDECIMAL_SCALE = 200;                                          //Max decimal used
     static MathContext mathContext = new MathContext(BIGDECIMAL_SCALE);         //Max decimal used in BigDecimal
 
     static final String WHITESPACE = "\\s+";
     static int PRECISION = 7;                                                   //Max decimal to be displayed
-    static int MAX_SLOT = Math.max(10, PRECISION);                               //Max slot to display: 5.5 counts as 3 slots
+    static int MAX_SLOT = Math.max(10, PRECISION);                              //Max slot to display: 5.5 counts as 3 slots
 
     static int ENTRY_MAX_SLOT = 5;                                              //Max slot of column and row value
     static int DATA_MAX_SLOT = 30;                                              //For CSRMatrix.PrintData() only
@@ -231,7 +231,7 @@ public class Main {
         String matrixFileName = "matrix";       //matrix1.mtx
         String rhsFileName = "matrix_rhs";      //matrix_rhs1.mtx
 
-        for(int fileIndx = 2; fileIndx < 4; fileIndx++){
+        for(int fileIndx = 1; fileIndx < 4; fileIndx++){
             System.setOut(stdout);
             System.out.println("%~~Testing with " + inputPath + matrixFileName + fileIndx + ".mtx");
             String csrFromFile1 = ReadCSRFromFile(inputPath + matrixFileName + fileIndx + ".mtx");

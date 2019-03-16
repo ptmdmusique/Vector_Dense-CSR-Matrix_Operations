@@ -1,7 +1,7 @@
 [
     {
         "maxStep": 5,
-        "runTime": 77,
+        "runTime": 161,
         "error": 1.7679027719343563,
         "residualLength": [
             2.9594836945487866,
@@ -13,7 +13,7 @@
     },
     {
         "maxStep": 10,
-        "runTime": 162,
+        "runTime": 370,
         "error": 1.7184821790011722,
         "residualLength": [
             2.9594836945487866,
@@ -30,7 +30,7 @@
     },
     {
         "maxStep": 15,
-        "runTime": 328,
+        "runTime": 1100,
         "error": 1.1595688329690188,
         "residualLength": [
             2.9594836945487866,
@@ -52,7 +52,7 @@
     },
     {
         "maxStep": 20,
-        "runTime": 716,
+        "runTime": 2412,
         "error": 1.0058934227523777,
         "residualLength": [
             2.9594836945487866,
@@ -79,7 +79,7 @@
     },
     {
         "maxStep": 25,
-        "runTime": 1279,
+        "runTime": 4616,
         "error": 0.9930615695978666,
         "residualLength": [
             2.9594836945487866,
@@ -111,7 +111,7 @@
     },
     {
         "maxStep": 30,
-        "runTime": 2156,
+        "runTime": 7792,
         "error": 0.8068587408099753,
         "residualLength": [
             2.9594836945487866,
@@ -148,7 +148,7 @@
     },
     {
         "maxStep": 35,
-        "runTime": 3366,
+        "runTime": 12246,
         "error": 0.457948366155896,
         "residualLength": [
             2.9594836945487866,
@@ -190,7 +190,7 @@
     },
     {
         "maxStep": 40,
-        "runTime": 4997,
+        "runTime": 18188,
         "error": 0.42085446438079077,
         "residualLength": [
             2.9594836945487866,
@@ -237,7 +237,7 @@
     },
     {
         "maxStep": 45,
-        "runTime": 7114,
+        "runTime": 25642,
         "error": 0.39445173418399476,
         "residualLength": [
             2.9594836945487866,
@@ -289,7 +289,7 @@
     },
     {
         "maxStep": 50,
-        "runTime": 9791,
+        "runTime": 34995,
         "error": 0.3112813518694025,
         "residualLength": [
             2.9594836945487866,
@@ -346,7 +346,7 @@
     },
     {
         "maxStep": 55,
-        "runTime": 12897,
+        "runTime": 46384,
         "error": 0.30875622420843846,
         "residualLength": [
             2.9594836945487866,
@@ -408,7 +408,7 @@
     },
     {
         "maxStep": 60,
-        "runTime": 16857,
+        "runTime": 60172,
         "error": 0.2747046065436339,
         "residualLength": [
             2.9594836945487866,
@@ -475,7 +475,7 @@
     },
     {
         "maxStep": 65,
-        "runTime": 21535,
+        "runTime": 76201,
         "error": 0.26306913732793047,
         "residualLength": [
             2.9594836945487866,
@@ -547,7 +547,7 @@
     },
     {
         "maxStep": 70,
-        "runTime": 26487,
+        "runTime": 95271,
         "error": 0.2622780891927877,
         "residualLength": [
             2.9594836945487866,
@@ -624,7 +624,7 @@
     },
     {
         "maxStep": 75,
-        "runTime": 32187,
+        "runTime": 117010,
         "error": 0.24033449550432937,
         "residualLength": [
             2.9594836945487866,
@@ -706,7 +706,7 @@
     },
     {
         "maxStep": 80,
-        "runTime": 39055,
+        "runTime": 141555,
         "error": 0.2395318860670507,
         "residualLength": [
             2.9594836945487866,
@@ -793,7 +793,7 @@
     },
     {
         "maxStep": 85,
-        "runTime": 47013,
+        "runTime": 169507,
         "error": 0.19353225159135085,
         "residualLength": [
             2.9594836945487866,
@@ -885,7 +885,7 @@
     },
     {
         "maxStep": 90,
-        "runTime": 55777,
+        "runTime": 201182,
         "error": 0.18863454222102852,
         "residualLength": [
             2.9594836945487866,
@@ -982,7 +982,7 @@
     },
     {
         "maxStep": 95,
-        "runTime": 65024,
+        "runTime": 236856,
         "error": 0.11033086150973809,
         "residualLength": [
             2.9594836945487866,
@@ -1084,7 +1084,7 @@
     },
     {
         "maxStep": 100,
-        "runTime": 76419,
+        "runTime": 275991,
         "error": 0.10211585775055133,
         "residualLength": [
             2.9594836945487866,
@@ -1191,7 +1191,7 @@
     },
     {
         "maxStep": 105,
-        "runTime": 88013,
+        "runTime": 318606,
         "error": 0.05881291302468063,
         "residualLength": [
             2.9594836945487866,
@@ -1303,7 +1303,7 @@
     },
     {
         "maxStep": 110,
-        "runTime": 101560,
+        "runTime": 365906,
         "error": 0.01970216948554566,
         "residualLength": [
             2.9594836945487866,
@@ -1420,7 +1420,7 @@
     },
     {
         "maxStep": 115,
-        "runTime": 116056,
+        "runTime": 417483,
         "error": 0.018224519106692472,
         "residualLength": [
             2.9594836945487866,
@@ -1542,7 +1542,7 @@
     },
     {
         "maxStep": 120,
-        "runTime": 132165,
+        "runTime": 473309,
         "error": 0.00463175685460883,
         "residualLength": [
             2.9594836945487866,
@@ -1669,7 +1669,7 @@
     },
     {
         "maxStep": 125,
-        "runTime": 148654,
+        "runTime": 533850,
         "error": 0.003474360786034825,
         "residualLength": [
             2.9594836945487866,
@@ -1801,7 +1801,7 @@
     },
     {
         "maxStep": 130,
-        "runTime": 169662,
+        "runTime": 599145,
         "error": 0.0016536843202282936,
         "residualLength": [
             2.9594836945487866,
@@ -1938,7 +1938,7 @@
     },
     {
         "maxStep": 135,
-        "runTime": 191241,
+        "runTime": 671426,
         "error": 0.00038141915305262144,
         "residualLength": [
             2.9594836945487866,
@@ -2080,7 +2080,7 @@
     },
     {
         "maxStep": 140,
-        "runTime": 209797,
+        "runTime": 748236,
         "error": 0.0001876662888966199,
         "residualLength": [
             2.9594836945487866,
@@ -2227,7 +2227,7 @@
     },
     {
         "maxStep": 145,
-        "runTime": 233884,
+        "runTime": 832515,
         "error": 0.00011640963841919438,
         "residualLength": [
             2.9594836945487866,
@@ -2379,7 +2379,7 @@
     },
     {
         "maxStep": 150,
-        "runTime": 258644,
+        "runTime": 920164,
         "error": 0.000045900518775623375,
         "residualLength": [
             2.9594836945487866,
